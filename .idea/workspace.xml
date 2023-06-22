@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/components/Footer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/components/Header.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/components/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/utils/Reader.java" afterDir="false" />
+    <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="Initial Setup">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/testdata/URL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/testdata/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/testdatafiles/validUser.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/components/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/components/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/Reader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +53,30 @@
       <recent name="utils" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="BaseTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TA_MadisonIsland" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.BaseTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.BaseTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,6 +86,18 @@
       <option name="presentableId" value="Default" />
       <updated>1687331470743</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial Setup">
+      <created>1687365043786</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687365043786</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Setup" />
   </component>
 </project>

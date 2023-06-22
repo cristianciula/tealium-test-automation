@@ -13,7 +13,7 @@ public class Reader {
     //Method to read data from a json file
     public static JSONObject json(String name) {
         //Find automatically the directory containing the testDataFiles package
-        String jsonPath = System.getProperty("user.dir")+"//src//testdatafiles//"+name+".json";
+        String jsonPath = System.getProperty("user.dir")+"//src//test//java//testdatafiles//"+name+".json";
 
         //Reads the json file at the indicated location
         FileReader reader = null;

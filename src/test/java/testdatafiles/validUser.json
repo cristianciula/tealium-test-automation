@@ -1,0 +1,24 @@
+[
+  {
+    "credentials" : {
+      "email" : "testuser@example.com",
+      "password" : "Parola12345!"
+    },
+    "contactInfo" : {
+      "firstName" : "Test",
+      "middleName" : "C",
+      "lastName" : "User",
+      "company" : "Testy SRL",
+      "telephone" : "0745777888",
+      "fax" : "123456"
+    },
+    "address" : {
+      "street1" : "Testing",
+      "street2" : "10",
+      "city" : "Cluj-Napoca",
+      "state" : "Cluj",
+      "zip" : "300500",
+      "country" : "Romania"
+    }
+  }
+]
