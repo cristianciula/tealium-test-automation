@@ -1,7 +1,5 @@
 package pages;
 
-import org.apache.commons.logging.Log;
-import org.checkerframework.checker.index.qual.PolyUpperBound;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

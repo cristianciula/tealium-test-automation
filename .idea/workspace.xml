@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="Create few more classes">
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/CreateAccountPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/RegisterTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/components/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/components/Header.java" afterDir="false" />
+    <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="Create Account progress">
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,13 +106,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687539834101</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Create Account progress">
+      <created>1687545293504</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687545293504</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Setup" />
     <MESSAGE value="Initial Setup_part 2&#10;&#10;- Create BaseTest&#10;- Create json file for User info and User class&#10;- Give the project desired structure (packages, classes)" />
     <MESSAGE value="Create few more classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create few more classes" />
+    <MESSAGE value="Create Account progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Account progress" />
   </component>
 </project>
