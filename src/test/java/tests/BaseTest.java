@@ -6,9 +6,7 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
-import pages.HomePage;
 import testdata.URL;
-import testdata.User;
 
 import java.time.Duration;
 
@@ -18,17 +16,17 @@ public class BaseTest {
 
 
     @BeforeClass
-    protected static void setUp() {
+    public static void setUp() {
 
     }
 
     @AfterClass
-    protected static void tearDown() {
+    public static void tearDown() {
 
     }
 
     @BeforeTest
-    protected void beforeEach() {
+    public void beforeEach() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -38,7 +36,7 @@ public class BaseTest {
     }
 
     @AfterTest
-    protected void afterEach() {
+    public void afterEach() {
         driver.quit();
     }
 }
