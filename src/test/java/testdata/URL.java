@@ -2,5 +2,5 @@ package testdata;
 
 public class URL {
 
-    public final static String HOME_PAGE = "http://demo-store.seleniumacademy.com/";
+    public final static String HOME_PAGE = "https://ecommerce.tealiumdemo.com/";
 }

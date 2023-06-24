@@ -13,7 +13,7 @@ public class Header {
 
     //LOCATORS
     public By accountButton = By.xpath("//span[@class=\"label\"][text()=\"Account\"]");
-    public By myAccountButton = By.xpath("//div[@id=\"header-account\"]/descendant::a[@href=\"http://demo-store.seleniumacademy.com/customer/account/\"]");
+    public By myAccountButton = By.xpath("//div[@id=\"header-account\"]/descendant::a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/\"]");
     public By cartButton = By.xpath("//span[@class=\"label\"][contains(.,\"Cart\")]");
 
     //METHODS

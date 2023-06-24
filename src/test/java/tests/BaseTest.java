@@ -1,12 +1,11 @@
 package tests;
 
+import components.Header;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
-import testdata.URL;
+import pages.*;
 
 import java.time.Duration;
 
@@ -14,10 +13,14 @@ public class BaseTest {
 
     WebDriver driver;
 
+    public static Header header;
+    public static HomePage homePage;
+    public static LoginPage loginPage;
+    public static CreateAccountPage createAccountPage;
 
     @BeforeClass
     public static void setUp() {
-
+        WebDriverManager.chromedriver().setup();
     }
 
     @AfterClass
@@ -26,17 +29,19 @@ public class BaseTest {
     }
 
     @BeforeTest
-    public void beforeEach() {
-        WebDriverManager.chromedriver().setup();
+    public void beforeTest() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        driver.get(URL.HOME_PAGE);
+        header = new Header(driver);
+        homePage = new HomePage(driver);
+        loginPage = new LoginPage(driver);
+        createAccountPage = new CreateAccountPage(driver);
     }
 
     @AfterTest
-    public void afterEach() {
+    public void afterTest() {
         driver.quit();
     }
 }
