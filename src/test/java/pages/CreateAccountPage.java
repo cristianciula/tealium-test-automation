@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import testdata.User;
 
 public class CreateAccountPage {
 
@@ -38,9 +39,19 @@ public class CreateAccountPage {
     public void enterConfirmPassword(String password) {
         driver.findElement(confirmPasswordInput).sendKeys(password);
     }
-    public void fillCreateAccountForm(String firstName, String middleName, String lastName) {
-        enterFirstName(firstName);
-        enterMiddleName(middleName);
-        enterLastName(lastName);
+    public void fillMandatoryCreateAccountForm(User user) {
+        enterFirstName(user.getFirstName());
+        enterLastName(user.getLastName());
+        enterEmail(user.getEmail());
+        enterPassword(user.getPassword());
+        enterConfirmPassword(user.getPassword());
+    }
+    public void fillEntireCreateAccountForm(User user) {
+        enterFirstName(user.getFirstName());
+        enterMiddleName(user.getMiddleName());
+        enterLastName(user.getLastName());
+        enterEmail(user.getEmail());
+        enterPassword(user.getPassword());
+        enterConfirmPassword(user.getPassword());
     }
 }
