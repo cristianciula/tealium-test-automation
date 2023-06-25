@@ -10,7 +10,7 @@ public class CreateAccountTests extends BaseTest {
 
     @Test (description = "Tests that user can create an account using valid data")
     public void createNewAccount() throws InterruptedException {
-        driver.get(URL.CREATE_ACCOUNT);
+        driver.get(URL.CREATE_ACCOUNT_PAGE);
         createAccountPage.fillMandatoryFields(validUser);
         createAccountPage.unselectRememberMeCheckbox();
         createAccountPage.clickRegisterButton();
