@@ -24,7 +24,12 @@ public class CreateAccountPage {
     private final By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
     private final By registerButton = By.xpath("//button[@title=\"Register\"]");
 
-    //METHODS
+    //PRIVATE METHODS
+    private void clickRememberMeCheckbox() {
+        driver.findElement(rememberMeCheckbox).click();
+    }
+
+    //PUBLIC METHODS
     public void enterFirstName(String firstName) {
         driver.findElement(firstNameInput).sendKeys(firstName);
     }
@@ -43,14 +48,14 @@ public class CreateAccountPage {
     public void enterConfirmPassword(String password) {
         driver.findElement(confirmPasswordInput).sendKeys(password);
     }
-    public void fillMandatoryCreateAccountForm(User user) {
+    public void fillMandatoryFields(User user) {
         enterFirstName(user.getFirstName());
         enterLastName(user.getLastName());
         enterEmail(user.getEmail());
         enterPassword(user.getPassword());
         enterConfirmPassword(user.getPassword());
     }
-    public void fillEntireCreateAccountForm(User user) {
+    public void fillAllFields(User user) {
         enterFirstName(user.getFirstName());
         enterMiddleName(user.getMiddleName());
         enterLastName(user.getLastName());
@@ -58,11 +63,20 @@ public class CreateAccountPage {
         enterPassword(user.getPassword());
         enterConfirmPassword(user.getPassword());
     }
-    public void clickRememberMeCheckbox() {
-        driver.findElement(rememberMeCheckbox).click();
-    }
     public boolean rememberMeCheckboxIsSelected() {
         return driver.findElement(rememberMeCheckbox).isSelected();
+    }
+    public void unselectRememberMeCheckbox() {
+        WebElement rememberMe = driver.findElement(rememberMeCheckbox);
+        if(rememberMe.isSelected()) {
+            clickRememberMeCheckbox();
+        }
+    }
+    public void selectRememberMeCheckbox() {
+        WebElement rememberMe = driver.findElement(rememberMeCheckbox);
+        if(!rememberMe.isSelected()) {
+            clickRegisterButton();
+        }
     }
     public void clickRegisterButton() {
         WebElement regButton = driver.findElement(registerButton);

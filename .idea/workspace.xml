@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="CreateAccountPage updates">
+    <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="Selenium Wrappers_JSExecutor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/CreateAccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CreateAccountPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/JSExecutorWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/SeleniumWrappers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateAccountTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateAccountTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687710694982</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Selenium Wrappers_JSExecutor">
+      <created>1687715335342</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1687715335342</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +203,7 @@
     <MESSAGE value="Initial Structure &amp; Create Account test" />
     <MESSAGE value="Name change" />
     <MESSAGE value="CreateAccountPage updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="CreateAccountPage updates" />
+    <MESSAGE value="Selenium Wrappers_JSExecutor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Selenium Wrappers_JSExecutor" />
   </component>
 </project>
