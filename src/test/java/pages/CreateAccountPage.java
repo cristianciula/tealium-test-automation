@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import testdata.User;
+import utils.JSExecutorWrapper;
 
 public class CreateAccountPage {
 
@@ -66,8 +67,12 @@ public class CreateAccountPage {
     }
     public void clickRegisterButton() {
         WebElement regButton = driver.findElement(registerButton);
+        /*
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", regButton);
+
+         */
+        JSExecutorWrapper.scrollToElement(driver, regButton);
         regButton.click();
     }
 }
