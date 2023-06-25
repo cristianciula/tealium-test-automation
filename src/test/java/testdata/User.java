@@ -2,7 +2,7 @@ package testdata;
 
 import utils.Reader;
 
-public class User {
+public final class User {
 
     private String email;
     private String password;
