@@ -7,7 +7,7 @@
     <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="CreateAccountPage updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/CreateAccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CreateAccountPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/JSExecutorWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/JSExecutorWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/JSExecutorWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/SeleniumWrappers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +160,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687710028203</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="CreateAccountPage updates">
+      <created>1687710679433</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687710679433</updated>
+    </task>
+    <task id="LOCAL-00010" summary="CreateAccountPage updates">
+      <created>1687710694982</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1687710694982</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
