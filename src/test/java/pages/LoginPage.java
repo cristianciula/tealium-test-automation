@@ -14,7 +14,10 @@ public class LoginPage {
     //LOCATORS
     public By createAccountButton = By.xpath("//a[@title=\"Create an Account\"]");
 
-    //METHODS
+    //PRIVATE METHODS
+
+
+    //PUBLIC METHODS
     public void clickCreateAccountButton() {
         driver.findElement(createAccountButton).click();
     }
