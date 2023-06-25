@@ -1,7 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import testdata.User;
 
 public class CreateAccountPage {
@@ -19,6 +21,8 @@ public class CreateAccountPage {
     private final By emailInput = By.id("email_address");
     private final By passwordInput = By.id("password");
     private final By confirmPasswordInput = By.id("confirmation");
+    private final By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
+    private final By registerButton = By.xpath("//button[@title=\"Register\"]");
 
     //METHODS
     public void enterFirstName(String firstName) {
@@ -53,5 +57,17 @@ public class CreateAccountPage {
         enterEmail(user.getEmail());
         enterPassword(user.getPassword());
         enterConfirmPassword(user.getPassword());
+    }
+    public void clickRememberMeCheckbox() {
+        driver.findElement(rememberMeCheckbox).click();
+    }
+    public boolean rememberMeCheckboxIsSelected() {
+        return driver.findElement(rememberMeCheckbox).isSelected();
+    }
+    public void clickRegisterButton() {
+        WebElement regButton = driver.findElement(registerButton);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();", regButton);
+        regButton.click();
     }
 }

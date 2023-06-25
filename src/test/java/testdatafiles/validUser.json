@@ -1,9 +1,9 @@
 {
-  "email": "testuser2@example.com",
+  "email": "testuser111@example.com",
   "password": "Parola12345!",
-  "firstName": "Test2",
-  "middleName": "C",
-  "lastName": "User2",
+  "firstName": "Test111",
+  "middleName": "C111",
+  "lastName": "User111",
   "company": "Testy SRL",
   "telephone": "0745777888",
   "fax": "123456",

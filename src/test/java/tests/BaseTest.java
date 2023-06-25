@@ -20,7 +20,6 @@ public class BaseTest {
 
     @BeforeClass
     public static void setUp() {
-        WebDriverManager.chromedriver().setup();
     }
 
     @AfterClass
@@ -30,6 +29,7 @@ public class BaseTest {
 
     @BeforeTest
     public void beforeTest() {
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
