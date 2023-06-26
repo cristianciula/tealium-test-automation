@@ -14,7 +14,7 @@ public class CreateAccountPage {
         this.driver = driver;
     }
 
-    //LOCATORS
+    //----------LOCATORS----------//
     private final By firstNameInput = By.id("firstname");
     private final By middleNameInput = By.id("middlename");
     private final By lastNameInput = By.id("lastname");
@@ -24,12 +24,12 @@ public class CreateAccountPage {
     private final By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
     private final By registerButton = By.xpath("//button[@title=\"Register\"]");
 
-    //PRIVATE METHODS
+    //----------PRIVATE METHODS----------//
     private void clickRememberMeCheckbox() {
         driver.findElement(rememberMeCheckbox).click();
     }
 
-    //PUBLIC METHODS
+    //----------PUBLIC METHODS----------//
     public void enterFirstName(String firstName) {
         driver.findElement(firstNameInput).sendKeys(firstName);
     }
