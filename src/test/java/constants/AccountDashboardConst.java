@@ -2,7 +2,7 @@ package constants;
 
 import testdata.User;
 
-public class AccountDashboardPageConst {
+public class AccountDashboardConst {
 
     private final static User validUser = new User("validUser");
 

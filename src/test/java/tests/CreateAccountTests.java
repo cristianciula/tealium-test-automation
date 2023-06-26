@@ -1,6 +1,7 @@
 package tests;
 
-import constants.AccountDashboardPageConst;
+import constants.AccountDashboardConst;
+import constants.CreateAccountConst;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testdata.URL;
@@ -18,8 +19,8 @@ public class CreateAccountTests extends BaseTest {
         createAccountPage.unselectRememberMeCheckbox();
         createAccountPage.clickRegisterButton();
 
-        Assert.assertEquals(AccountDashboardPageConst.SUCCESSFUL_REGISTRATION_MESSAGE, accountDashboardPage.getRegistrationSuccessfulMsg());
-        Assert.assertEquals(AccountDashboardPageConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getHelloUsernameMessage());
+        Assert.assertEquals(AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE, accountDashboardPage.getRegistrationSuccessfulMsg());
+        Assert.assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getHelloUsernameMessage());
 
         header.clickAccountButton();
         Assert.assertTrue(header.logOutButtonIsDisplayed());
@@ -28,10 +29,23 @@ public class CreateAccountTests extends BaseTest {
     @Test (description = "Tests that user cannot create an account by leaving mandatory fields empty")
     public void emptyMandatoryFields() {
 
+        driver.get(URL.CREATE_ACCOUNT_PAGE);
+        createAccountPage.clearMandatoryFields();
+        createAccountPage.clickRegisterButton();
+
+        Assert.assertTrue(createAccountPage.inputFieldErrorsAreDisplayed());
+        for (String inputError : createAccountPage.getInputFieldErrors()) {
+            Assert.assertEquals(inputError, CreateAccountConst.EMPTY_FIELD_ERROR);
+        }
     }
 
     @Test (description = "Tests that user cannot create an account using an existing account details")
     public void duplicateAccount() {
+
+    }
+
+    @Test (description = "Tests that user cannot create an account using a password that is less than 7 characters in length")
+    public void invalidPasswordLength() {
 
     }
 }
