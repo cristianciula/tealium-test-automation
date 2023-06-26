@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import testdata.User;
-import utils.SeleniumWrappers;
+import utils.SeleniumUtils;
 
 public class CreateAccountPage {
 
@@ -80,7 +80,7 @@ public class CreateAccountPage {
     }
     public void clickRegisterButton() {
         WebElement regButton = driver.findElement(registerButton);
-        SeleniumWrappers.scrollToElement(driver, regButton);
+        SeleniumUtils.scrollToElement(driver, regButton);
         regButton.click();
     }
 }

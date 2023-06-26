@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Reader {
+public class JSONReader {
 
     //Method to read data from a json file
     public static JSONObject json(String name) {

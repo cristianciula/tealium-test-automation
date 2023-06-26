@@ -1,6 +1,6 @@
 package testdata;
 
-import utils.Reader;
+import utils.JSONReader;
 
 public final class User {
 
@@ -20,20 +20,20 @@ public final class User {
     private String country;
 
     public User(String fileName) {
-        this.email = Reader.json(fileName).get("email").toString();
-        this.password = Reader.json(fileName).get("password").toString();
-        this.firstName = Reader.json(fileName).get("firstName").toString();
-        this.middleName = Reader.json(fileName).get("middleName").toString();
-        this.lastName = Reader.json(fileName).get("lastName").toString();
-        this.company = Reader.json(fileName).get("company").toString();
-        this.telephone = Reader.json(fileName).get("telephone").toString();
-        this.fax = Reader.json(fileName).get("fax").toString();
-        this.street1 = Reader.json(fileName).get("street1").toString();
-        this.street2 = Reader.json(fileName).get("street2").toString();
-        this.city = Reader.json(fileName).get("city").toString();
-        this.state = Reader.json(fileName).get("state").toString();
-        this.zip = Reader.json(fileName).get("zip").toString();
-        this.country = Reader.json(fileName).get("country").toString();
+        this.email = JSONReader.json(fileName).get("email").toString();
+        this.password = JSONReader.json(fileName).get("password").toString();
+        this.firstName = JSONReader.json(fileName).get("firstName").toString();
+        this.middleName = JSONReader.json(fileName).get("middleName").toString();
+        this.lastName = JSONReader.json(fileName).get("lastName").toString();
+        this.company = JSONReader.json(fileName).get("company").toString();
+        this.telephone = JSONReader.json(fileName).get("telephone").toString();
+        this.fax = JSONReader.json(fileName).get("fax").toString();
+        this.street1 = JSONReader.json(fileName).get("street1").toString();
+        this.street2 = JSONReader.json(fileName).get("street2").toString();
+        this.city = JSONReader.json(fileName).get("city").toString();
+        this.state = JSONReader.json(fileName).get("state").toString();
+        this.zip = JSONReader.json(fileName).get("zip").toString();
+        this.country = JSONReader.json(fileName).get("country").toString();
     }
 
     //GETTERS

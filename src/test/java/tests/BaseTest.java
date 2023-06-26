@@ -17,6 +17,7 @@ public class BaseTest {
     public static HomePage homePage;
     public static LoginPage loginPage;
     public static CreateAccountPage createAccountPage;
+    public static AccountDashboardPage accountDashboardPage;
 
     @BeforeClass
     public static void setUp() {
@@ -32,12 +33,13 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         header = new Header(driver);
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         createAccountPage = new CreateAccountPage(driver);
+        accountDashboardPage = new AccountDashboardPage(driver);
     }
 
     @AfterTest

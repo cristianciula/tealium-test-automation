@@ -13,6 +13,7 @@ public class AccountDashboardPage {
 
     //----------LOCATORS----------//
     private final By registrationSuccessfulMessage = By.xpath("//li[@class=\"success-msg\"]");
+    private final By helloUsernameMessage = By.xpath("//div[@class=\"welcome-msg\"]/p[@class=\"hello\"]");
 
     //----------PRIVATE METHODS----------//
 
@@ -20,4 +21,8 @@ public class AccountDashboardPage {
     public String getRegistrationSuccessfulMsg() {
         return driver.findElement(registrationSuccessfulMessage).getText();
     }
+    public String getHelloUsernameMessage() {
+        return driver.findElement(helloUsernameMessage).getText();
+    }
+
 }

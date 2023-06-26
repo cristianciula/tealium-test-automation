@@ -3,6 +3,8 @@ package components;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static utils.SeleniumUtils.waitForElementToBeVisible;
+
 public class Header {
 
     WebDriver driver;
@@ -15,6 +17,7 @@ public class Header {
     public By accountButton = By.xpath("//span[@class=\"label\"][text()=\"Account\"]");
     public By myAccountButton = By.xpath("//div[@id=\"header-account\"]/descendant::a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/\"]");
     public By cartButton = By.xpath("//span[@class=\"label\"][contains(.,\"Cart\")]");
+    public By logOutButton = By.xpath("//a[@title=\"Log Out\"]");
 
     //METHODS
     public void clickAccountButton() {
@@ -25,5 +28,9 @@ public class Header {
     }
     public void clickCartButton() {
         driver.findElement(cartButton).click();
+    }
+    public boolean logOutButtonIsDisplayed() {
+        waitForElementToBeVisible(driver, 10, logOutButton);
+        return driver.findElement(logOutButton).isDisplayed();
     }
 }
