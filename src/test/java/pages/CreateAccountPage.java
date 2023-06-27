@@ -77,8 +77,9 @@ public class CreateAccountPage {
         enterPassword(user.getPassword());
         enterConfirmPassword(user.getPassword());
     }
-    public void clearMandatoryFields() {
+    public void clearForm() {
         clear(firstNameInput);
+        clear(middleNameInput);
         clear(lastNameInput);
         clear(emailInput);
         clear(passwordInput);

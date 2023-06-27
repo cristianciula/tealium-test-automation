@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="Selenium Wrappers_JSExecutor">
+    <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="Added:&#10;&#10;- Improvements&#10;- AccountDashboardPage class&#10;- AccountDashboardPageConst class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/constants/CreateAccountConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/constants/CreateAccountConst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/CreateAccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CreateAccountPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateAccountTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateAccountTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/JSONReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/JSONReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/ListUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/ListUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/RandomUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/RandomUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/TextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/TextUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +186,49 @@
       <option name="project" value="LOCAL" />
       <updated>1687715335342</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Small improvements in tests and CreateAccountPage structure">
+      <created>1687716719404</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1687716719404</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added Login_Page url">
+      <created>1687716871359</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1687716871359</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Small updates">
+      <created>1687717302559</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1687717302559</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added invalidUser.json file">
+      <created>1687717417898</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1687717417898</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Small classes updates">
+      <created>1687717545876</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1687717545876</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added:&#10;&#10;- Improvements&#10;- AccountDashboardPage class&#10;- AccountDashboardPageConst class">
+      <created>1687763263464</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1687763263464</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,6 +251,12 @@
     <MESSAGE value="Name change" />
     <MESSAGE value="CreateAccountPage updates" />
     <MESSAGE value="Selenium Wrappers_JSExecutor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Selenium Wrappers_JSExecutor" />
+    <MESSAGE value="Small improvements in tests and CreateAccountPage structure" />
+    <MESSAGE value="added Login_Page url" />
+    <MESSAGE value="Small updates" />
+    <MESSAGE value="Added invalidUser.json file" />
+    <MESSAGE value="Small classes updates" />
+    <MESSAGE value="Added:&#10;&#10;- Improvements&#10;- AccountDashboardPage class&#10;- AccountDashboardPageConst class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added:&#10;&#10;- Improvements&#10;- AccountDashboardPage class&#10;- AccountDashboardPageConst class" />
   </component>
 </project>

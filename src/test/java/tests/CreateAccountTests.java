@@ -30,12 +30,12 @@ public class CreateAccountTests extends BaseTest {
     public void emptyMandatoryFields() {
 
         driver.get(URL.CREATE_ACCOUNT_PAGE);
-        createAccountPage.clearMandatoryFields();
+        createAccountPage.clearForm();
         createAccountPage.clickRegisterButton();
 
         Assert.assertTrue(createAccountPage.inputFieldErrorsAreDisplayed());
         for (String inputError : createAccountPage.getInputFieldErrors()) {
-            Assert.assertEquals(inputError, CreateAccountConst.EMPTY_FIELD_ERROR);
+            Assert.assertEquals(inputError, CreateAccountConst.MANDATORY_FIELD_ERROR);
         }
     }
 

@@ -1,5 +1,5 @@
 package utils;
 
-public class TextUtils {
+public final class TextUtils {
 
 }

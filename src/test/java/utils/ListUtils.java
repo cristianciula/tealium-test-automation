@@ -3,7 +3,7 @@ package utils;
 import java.util.Collections;
 import java.util.List;
 
-public class ListUtils {
+public final class ListUtils {
 
     public static List<String> sortAZ(List<String> list) {
         Collections.sort(list);
