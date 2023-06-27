@@ -16,7 +16,7 @@ public class LoginPage {
     private By emailInput = By.id("email");
     private By passwordInput = By.id("pass");
     private By loginButton = By.xpath("//button[@title=\"Login\"]");
-    private By forgotPassLink = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/forgotpassword/\"]");
+    private By forgotPasswordHyperlink = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/forgotpassword/\"]");
 
     //----------PRIVATE METHODS----------//
 
@@ -34,8 +34,8 @@ public class LoginPage {
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }
-    public void clickForgotPassLink() {
-        driver.findElement(forgotPassLink).click();
+    public void clickForgotPasswordHyperlink() {
+        driver.findElement(forgotPasswordHyperlink).click();
     }
 
 }
