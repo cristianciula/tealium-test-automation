@@ -12,8 +12,8 @@ public class AccountDashboardPage {
     }
 
     //----------LOCATORS----------//
-    private final By registrationSuccessfulMessage = By.xpath("//li[@class=\"success-msg\"]");
-    private final By helloUsernameMessage = By.xpath("//div[@class=\"welcome-msg\"]/p[@class=\"hello\"]");
+    private By registrationSuccessfulMessage = By.xpath("//li[@class=\"success-msg\"]");
+    private By helloUsernameMessage = By.xpath("//div[@class=\"welcome-msg\"]/p[@class=\"hello\"]");
 
     //----------PRIVATE METHODS----------//
 

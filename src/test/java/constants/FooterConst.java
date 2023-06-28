@@ -2,9 +2,11 @@ package constants;
 
 public class FooterConst {
 
+    //----------TITLES----------//
+
     //----------MESSAGES----------//
 
-    //----------COLOUR CODES----------//
+    //----------COLOURS----------//
 
     //----------LABELS----------//
 }

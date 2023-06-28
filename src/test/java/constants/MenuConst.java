@@ -2,9 +2,11 @@ package constants;
 
 public class MenuConst {
 
+    //----------TITLES----------//
+
     //----------MESSAGES----------//
 
-    //----------COLOUR CODES----------//
+    //----------COLOURS----------//
 
     //----------LABELS----------//
 }

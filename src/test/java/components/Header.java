@@ -14,10 +14,11 @@ public class Header {
     }
 
     //LOCATORS
-    public By accountButton = By.xpath("//span[@class=\"label\"][text()=\"Account\"]");
-    public By myAccountButton = By.xpath("//div[@id=\"header-account\"]/descendant::a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/\"]");
-    public By cartButton = By.xpath("//span[@class=\"label\"][contains(.,\"Cart\")]");
-    public By logOutButton = By.xpath("//a[@title=\"Log Out\"]");
+    private By accountButton = By.xpath("//span[@class=\"label\"][text()=\"Account\"]");
+    private By accountDropMenu = By.xpath("//div[@id=\"header-account\"]");
+    private By myAccountButton = By.xpath("//div[@id=\"header-account\"]/descendant::a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/\"]");
+    private By cartButton = By.xpath("//span[@class=\"label\"][contains(.,\"Cart\")]");
+    private By logOutButton = By.xpath("//a[@title=\"Log Out\"]");
 
     //METHODS
     public void clickAccountButton() {
@@ -33,4 +34,5 @@ public class Header {
         waitForElementToBeVisible(driver, 10, logOutButton);
         return driver.findElement(logOutButton).isDisplayed();
     }
+
 }

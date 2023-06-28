@@ -2,10 +2,13 @@ package constants;
 
 public class CreateAccountConst {
 
-    //----------MESSAGES----------//
-    public static String MANDATORY_FIELD_ERROR = "This is a required field.";
+    //----------TITLES----------//
+    public final static String CREATE_ACCOUNT_PAGE_TITLE = "Create an Account";
 
-    //----------COLOUR CODES----------//
+    //----------MESSAGES----------//
+    public final static String MANDATORY_FIELD_ERROR = "This is a required field.";
+
+    //----------COLOURS----------//
 
     //----------LABELS----------//
 }

@@ -2,9 +2,11 @@ package constants;
 
 public class HeaderConst {
 
+    //----------TITLES----------//
+
     //----------MESSAGES----------//
 
-    //----------COLOUR CODES----------//
+    //----------COLOURS----------//
 
     //----------LABELS----------//
 }

@@ -18,15 +18,15 @@ public class CreateAccountPage {
     }
 
     //----------LOCATORS----------//
-    private final By firstNameInput = By.id("firstname");
-    private final By middleNameInput = By.id("middlename");
-    private final By lastNameInput = By.id("lastname");
-    private final By emailInput = By.id("email_address");
-    private final By passwordInput = By.id("password");
-    private final By confirmPasswordInput = By.id("confirmation");
-    private final By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
-    private final By registerButton = By.xpath("//button[@title=\"Register\"]");
-    private final By inputErrorMessages = By.xpath("//div[@class=\"validation-advice\"]");
+    private By firstNameInput = By.id("firstname");
+    private By middleNameInput = By.id("middlename");
+    private By lastNameInput = By.id("lastname");
+    private By emailInput = By.id("email_address");
+    private By passwordInput = By.id("password");
+    private By confirmPasswordInput = By.id("confirmation");
+    private By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
+    private By registerButton = By.xpath("//button[@title=\"Register\"]");
+    private By inputErrorMessages = By.xpath("//div[@class=\"validation-advice\"]");
     //private final By firstNameInputError = By.id("advice-required-entry-firstname");
     //private final By lastNameInputError = By.id("advice-required-entry-lastname");
     //private final By emailInputError = By.id("advice-required-entry-email_address");
@@ -119,9 +119,8 @@ public class CreateAccountPage {
 
         for (WebElement inputErrorElement : inputErrorsElements) {
             if (inputErrorElement.isDisplayed()) {
-            }
-            return true;
-        }
-        return false;
+                return true;
+            } 
+        } return false;
     }
 }
