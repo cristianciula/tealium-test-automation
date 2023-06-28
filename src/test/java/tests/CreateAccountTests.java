@@ -2,10 +2,10 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.CreateAccountConst;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import testdata.URL;
 import testdata.User;
+import static org.testng.Assert.*;
 
 public class CreateAccountTests extends BaseTest {
 
@@ -19,11 +19,11 @@ public class CreateAccountTests extends BaseTest {
         createAccountPage.unselectRememberMeCheckbox();
         createAccountPage.clickRegisterButton();
 
-        Assert.assertEquals(AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE, accountDashboardPage.getRegistrationSuccessfulMsg());
-        Assert.assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getHelloUsernameMessage());
+        assertEquals(AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE, accountDashboardPage.getRegistrationSuccessfulMessage());
+        assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
 
         header.clickAccountButton();
-        Assert.assertTrue(header.logOutButtonIsDisplayed());
+        assertTrue(header.logOutButtonIsDisplayed());
     }
 
     @Test (description = "Tests that user cannot create an account by leaving mandatory fields empty")
@@ -33,9 +33,9 @@ public class CreateAccountTests extends BaseTest {
         createAccountPage.clearForm();
         createAccountPage.clickRegisterButton();
 
-        Assert.assertTrue(createAccountPage.inputFieldErrorsAreDisplayed());
-        for (String inputError : createAccountPage.getInputFieldErrors()) {
-            Assert.assertEquals(inputError, CreateAccountConst.MANDATORY_FIELD_ERROR);
+        assertTrue(createAccountPage.areFieldInputErrorsDisplayed());
+        for (String inputError : createAccountPage.getFieldInputErrors()) {
+            assertEquals(inputError, CreateAccountConst.MANDATORY_FIELD_ERROR);
         }
     }
 

@@ -13,16 +13,16 @@ public class AccountDashboardPage {
 
     //----------LOCATORS----------//
     private By registrationSuccessfulMessage = By.xpath("//li[@class=\"success-msg\"]");
-    private By helloUsernameMessage = By.xpath("//div[@class=\"welcome-msg\"]/p[@class=\"hello\"]");
+    private By userGreetingPlaceholder = By.xpath("//div[@class=\"welcome-msg\"]/p[@class=\"hello\"]");
 
     //----------PRIVATE METHODS----------//
 
     //----------PUBLIC METHODS----------//
-    public String getRegistrationSuccessfulMsg() {
+    public String getRegistrationSuccessfulMessage() {
         return driver.findElement(registrationSuccessfulMessage).getText();
     }
-    public String getHelloUsernameMessage() {
-        return driver.findElement(helloUsernameMessage).getText();
+    public String getUserGreetingPlaceholder() {
+        return driver.findElement(userGreetingPlaceholder).getText();
     }
 
 }
