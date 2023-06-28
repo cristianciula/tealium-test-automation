@@ -120,7 +120,7 @@ public class CreateAccountPage {
         for (WebElement inputErrorElement : inputErrorsElements) {
             if (inputErrorElement.isDisplayed()) {
                 return true;
-            } 
+            }
         } return false;
     }
 }
