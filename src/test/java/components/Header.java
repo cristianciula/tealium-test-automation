@@ -2,8 +2,7 @@ package components;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import static utils.SeleniumUtils.waitForElementToBeVisible;
+import utils.Waiter;
 
 public class Header {
 
@@ -33,7 +32,7 @@ public class Header {
         driver.findElement(cartButton).click();
     }
     public boolean logOutButtonIsDisplayed() {
-        waitForElementToBeVisible(driver, 10, logOutDropOption);
+        Waiter.waitForElementToBeVisible(driver, 10, logOutDropOption);
         return driver.findElement(logOutDropOption).isDisplayed();
     }
 

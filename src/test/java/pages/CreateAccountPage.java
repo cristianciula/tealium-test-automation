@@ -3,11 +3,13 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import testdata.URL;
 import testdata.User;
-import utils.SeleniumUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static utils.SeleniumUtils.*;
 
 public class CreateAccountPage {
 
@@ -53,40 +55,34 @@ public class CreateAccountPage {
     private void clickRememberMeCheckbox() {
         driver.findElement(rememberMeCheckbox).click();
     }
-
+    private boolean isRememberMeCheckboxSelected() {
+        return driver.findElement(rememberMeCheckbox).isSelected();
+    }
 
     //----------PUBLIC METHODS----------//
+    public void navigateToCreateAccountPage() {
+        driver.get(URL.CREATE_ACCOUNT_PAGE);
+    }
     public void enterEmail(String email) {
         driver.findElement(emailInput).sendKeys(email);
     }
     public void enterPassword(String password) {
         driver.findElement(passwordInput).sendKeys(password);
     }
-    public void fillMandatoryFields(User user) {
+    public void fillCreateAccountForm(User user) {
         enterFirstName(user.getFirstName());
         enterLastName(user.getLastName());
         enterEmail(user.getEmail());
         enterPassword(user.getPassword());
         enterConfirmPassword(user.getPassword());
     }
-    public void fillForm(User user) {
-        enterFirstName(user.getFirstName());
-        enterMiddleName(user.getMiddleName());
-        enterLastName(user.getLastName());
-        enterEmail(user.getEmail());
-        enterPassword(user.getPassword());
-        enterConfirmPassword(user.getPassword());
-    }
-    public void clearForm() {
+    public void clearCreateAccountForm() {
         clear(firstNameInput);
         clear(middleNameInput);
         clear(lastNameInput);
         clear(emailInput);
         clear(passwordInput);
         clear(confirmPasswordInput);
-    }
-    public boolean isRememberMeCheckboxSelected() {
-        return driver.findElement(rememberMeCheckbox).isSelected();
     }
     public void unselectRememberMeCheckbox() {
         WebElement rememberMe = driver.findElement(rememberMeCheckbox);
@@ -97,12 +93,12 @@ public class CreateAccountPage {
     public void selectRememberMeCheckbox() {
         WebElement rememberMe = driver.findElement(rememberMeCheckbox);
         if(!rememberMe.isSelected()) {
-            clickRegisterButton();
+            registerUser();
         }
     }
-    public void clickRegisterButton() {
+    public void registerUser() {
         WebElement regButton = driver.findElement(registerButton);
-        SeleniumUtils.scrollToElement(driver, regButton);
+        scrollToElement(driver, regButton);
         regButton.click();
     }
     public List<String> getFieldInputErrors() {

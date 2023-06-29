@@ -11,13 +11,12 @@ public class CreateAccountTests extends BaseTest {
 
     public static User validUser = new User("validUser");
 
-    @Test (description = "Tests that user can create an account using valid data and that is logged in upon doing so")
-    public void createNewAccount() {
+    @Test (description = "Tests that a user can create a new account")
+    public void createAccount() {
 
-        driver.get(URL.CREATE_ACCOUNT_PAGE);
-        createAccountPage.fillMandatoryFields(validUser);
-        createAccountPage.unselectRememberMeCheckbox();
-        createAccountPage.clickRegisterButton();
+        createAccountPage.navigateToCreateAccountPage();
+        createAccountPage.fillCreateAccountForm(validUser);
+        createAccountPage.registerUser();
 
         assertEquals(AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE, accountDashboardPage.getRegistrationSuccessfulMessage());
         assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
@@ -30,8 +29,8 @@ public class CreateAccountTests extends BaseTest {
     public void emptyMandatoryFields() {
 
         driver.get(URL.CREATE_ACCOUNT_PAGE);
-        createAccountPage.clearForm();
-        createAccountPage.clickRegisterButton();
+        createAccountPage.clearCreateAccountForm();
+        createAccountPage.registerUser();
 
         assertTrue(createAccountPage.areFieldInputErrorsDisplayed());
         for (String inputError : createAccountPage.getFieldInputErrors()) {
