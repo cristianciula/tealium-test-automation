@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import testdata.User;
+import utils.Waiter;
 
 import static utils.SeleniumWrapper.*;
 
@@ -22,9 +24,14 @@ public class LoginPage {
     private By loginButton = By.xpath("//button[@title=\"Login\"]");
     private By forgotPasswordHyperlink = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/forgotpassword/\"]");
     private By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
-
+    private By emailInputError = By.id("advice-required-entry-email");
+    private By passwordInputError = By.id("advice-required-entry-pass");
+    private By invalidCredentialsError = By.xpath("//li[@class=\"error-msg\"]");
 
     //----------PRIVATE METHODS----------//
+    private void clear(By by) {
+        driver.findElement(by).clear();
+    }
 
 
     //----------PUBLIC METHODS----------//
@@ -43,6 +50,38 @@ public class LoginPage {
     public void clickLoginButton() {
         scrollToElement(driver, loginButton);
         driver.findElement(loginButton).click();
+    }
+    public void clearPasswordField() {
+        clear(passwordInput);
+    }
+    public void clearEmailField() {
+        clear(emailInput);
+    }
+    public void loginUser(User user) {
+        enterEmail(user.getEmail());
+        enterPassword(user.getPassword());
+        clickLoginButton();
+    }
+    public boolean loginButtonIsDisplayed() {
+        scrollToElement(driver, loginButton);
+        return driver.findElement(loginButton).isDisplayed();
+    }
+    public String getEmailInputError() {
+        return driver.findElement(emailInputError).getText();
+    }
+    public boolean emailInputErrorIsDisplayed() {
+        Waiter.waitElementToBeVisible(driver, emailInputError);
+        return driver.findElement(emailInputError).isDisplayed();
+    }
+    public String getPasswordInputError() {
+        return driver.findElement(passwordInputError).getText();
+    }
+    public boolean passwordInputErrorIsDisplayed() {
+        Waiter.waitElementToBeVisible(driver, passwordInputError);
+        return driver.findElement(passwordInputError).isDisplayed();
+    }
+    public String getInvalidCredentialsError() {
+        return driver.findElement(invalidCredentialsError).getText();
     }
     public void clickForgotPasswordHyperlink() {
         driver.findElement(forgotPasswordHyperlink).click();

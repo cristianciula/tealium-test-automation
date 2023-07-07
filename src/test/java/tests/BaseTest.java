@@ -21,6 +21,7 @@ public class BaseTest {
     public static AccountDashboardPage accountDashboardPage;
 
     public static User validUser = new User("validUser");
+    public static User invalidUser = new User("invalidUser");
 
     @BeforeClass
     public static void setUp() {

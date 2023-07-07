@@ -32,4 +32,27 @@ public class LoginTests extends BaseTest {
 
         assertTrue(header.logOutButtonIsDisplayed());
     }
+
+    @Test (description = "Tests that a non registered user cannot successfully login")
+    public void invalidCredentialsLogin() {
+        driver.get(URL.LOGIN_PAGE);
+        loginPage.enterEmail(invalidUser.getEmail());
+        loginPage.enterPassword(invalidUser.getPassword());
+        loginPage.clickLoginButton();
+
+        assertEquals(loginPage.getInvalidCredentialsError(), LoginConst.INVALID_CREDENTIALS_ERROR);
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE);
+        assertTrue(loginPage.loginButtonIsDisplayed());
+    }
+
+    @Test (description = "Tests that a registered user cannot login without entering the password")
+    public void missingPasswordLogin() {
+        driver.get(URL.LOGIN_PAGE);
+        loginPage.enterEmail(validUser.getEmail());
+        loginPage.clearPasswordField();
+        loginPage.clickLoginButton();
+
+        assertTrue(loginPage.passwordInputErrorIsDisplayed());
+        assertEquals(loginPage.getPasswordInputError(), LoginConst.REQUIRED_FIELD_ERROR);
+    }
 }

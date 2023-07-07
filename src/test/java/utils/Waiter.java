@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class Waiter {
+public final class Waiter {
 
     private static int LONG_WAIT = 10;
     private static int MEDIUM_WAIT = 5;
