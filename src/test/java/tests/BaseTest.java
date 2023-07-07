@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import pages.*;
+import testdata.User;
 
 import java.time.Duration;
 
@@ -18,6 +19,8 @@ public class BaseTest {
     public static LoginPage loginPage;
     public static CreateAccountPage createAccountPage;
     public static AccountDashboardPage accountDashboardPage;
+
+    public static User validUser = new User("validUser");
 
     @BeforeClass
     public static void setUp() {

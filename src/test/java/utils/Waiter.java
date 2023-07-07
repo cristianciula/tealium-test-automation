@@ -9,8 +9,20 @@ import java.time.Duration;
 
 public class Waiter {
 
-    public static void waitForElementToBeVisible(WebDriver driver, int maxWaitInSeconds, By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(maxWaitInSeconds));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    private static int LONG_WAIT = 10;
+    private static int MEDIUM_WAIT = 5;
+    private static int SHORT_WAIT = 1;
+
+    public static void waitElementToBeVisible(WebDriver driver, By by) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(SHORT_WAIT));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+    public static void waitElementToBeClickable(WebDriver driver, By by) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(SHORT_WAIT));
+        wait.until(ExpectedConditions.elementToBeClickable(by));
+    }
+    public static void waitElementToBeSelected(WebDriver driver, By by) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(SHORT_WAIT));
+        wait.until(ExpectedConditions.elementToBeSelected(by));
     }
 }

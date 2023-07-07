@@ -5,11 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import testdata.URL;
 import testdata.User;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static utils.SeleniumUtils.*;
+import static utils.SeleniumWrapper.*;
 
 public class CreateAccountPage {
 
@@ -35,7 +34,6 @@ public class CreateAccountPage {
     private By passwordInputError = By.id("advice-required-entry-password");
     private By confirmPasswordInputError = By.id("advice-required-entry-confirmation");
 
-
     //----------PRIVATE METHODS----------//
     private void enterFirstName(String firstName) {
         driver.findElement(firstNameInput).sendKeys(firstName);
@@ -53,7 +51,8 @@ public class CreateAccountPage {
         driver.findElement(locator).clear();
     }
     private void clickRememberMeCheckbox() {
-        driver.findElement(rememberMeCheckbox).click();
+        clickElement(driver, rememberMeCheckbox);
+        //driver.findElement(rememberMeCheckbox).click();
     }
     private boolean isRememberMeCheckboxSelected() {
         return driver.findElement(rememberMeCheckbox).isSelected();
@@ -97,11 +96,10 @@ public class CreateAccountPage {
         }
     }
     public void registerUser() {
-        WebElement regButton = driver.findElement(registerButton);
-        scrollToElement(driver, regButton);
-        regButton.click();
+        scrollToElement(driver, registerButton);
+        clickElement(driver, registerButton);
     }
-    public List<String> getFieldInputErrors() {
+    public List<String> getEmptyFieldErrors() {
         List<WebElement> inputErrorsElements = driver.findElements(inputErrors);
         List<String> inputErrors = new ArrayList<>();
 
@@ -110,7 +108,7 @@ public class CreateAccountPage {
         }
         return inputErrors;
     }
-    public boolean areFieldInputErrorsDisplayed() {
+    public boolean emptyFieldErrorsAreDisplayed() {
         List<WebElement> inputErrorsElements = driver.findElements(inputErrors);
 
         for (WebElement inputErrorElement : inputErrorsElements) {

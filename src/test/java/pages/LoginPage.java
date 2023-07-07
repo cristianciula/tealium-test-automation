@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static utils.SeleniumWrapper.*;
+
 public class LoginPage {
 
     WebDriver driver;
@@ -26,6 +28,9 @@ public class LoginPage {
 
 
     //----------PUBLIC METHODS----------//
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
     public void clickCreateAccountButton() {
         driver.findElement(createAccountButton).click();
     }
@@ -33,9 +38,10 @@ public class LoginPage {
         driver.findElement(emailInput).sendKeys(email);
     }
     public void enterPassword(String password) {
-        driver.findElement(passwordInput).sendKeys();
+            driver.findElement(passwordInput).sendKeys(password);
     }
     public void clickLoginButton() {
+        scrollToElement(driver, loginButton);
         driver.findElement(loginButton).click();
     }
     public void clickForgotPasswordHyperlink() {
@@ -50,5 +56,4 @@ public class LoginPage {
     public String getLoginPageTitle() {
         return driver.findElement(loginPageTitle).getText();
     }
-
 }
