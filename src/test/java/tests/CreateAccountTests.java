@@ -32,6 +32,9 @@ public class CreateAccountTests extends BaseTest {
         for (String inputError : createAccountPage.getEmptyFieldErrors()) {
             assertEquals(inputError, CreateAccountConst.MANDATORY_FIELD_ERROR);
         }
+
+        header.clickAccountButton();
+
         assertTrue(header.loginButtonIsDisplayed());
     }
 
