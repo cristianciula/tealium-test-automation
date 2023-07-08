@@ -95,4 +95,7 @@ public class LoginPage {
     public String getLoginPageTitle() {
         return driver.findElement(loginPageTitle).getText();
     }
+    public boolean invalidCredentialsErrorIsDisplayed() {
+        return driver.findElement(invalidCredentialsError).isDisplayed();
+    }
 }

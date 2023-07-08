@@ -29,7 +29,6 @@ public class LoginTests extends BaseTest {
         assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
 
         header.clickAccountButton();
-
         assertTrue(header.logOutButtonIsDisplayed());
     }
 
@@ -37,7 +36,7 @@ public class LoginTests extends BaseTest {
     public void invalidCredentialsLogin() {
         driver.get(URL.LOGIN_PAGE);
         loginPage.enterEmail(invalidUser.getEmail());
-        loginPage.enterPassword(invalidUser.getPassword());
+        loginPage.enterPassword(validUser.getPassword());
         loginPage.clickLoginButton();
 
         assertEquals(loginPage.getInvalidCredentialsError(), LoginConst.INVALID_CREDENTIALS_ERROR);
@@ -54,5 +53,16 @@ public class LoginTests extends BaseTest {
 
         assertTrue(loginPage.passwordInputErrorIsDisplayed());
         assertEquals(loginPage.getPasswordInputError(), LoginConst.REQUIRED_FIELD_ERROR);
+    }
+
+    @Test (description = "Tests that a registered user cannot login using a wrong password")
+    public void wrongPasswordLogin() {
+        driver.get(URL.LOGIN_PAGE);
+        loginPage.enterEmail(validUser.getEmail());
+        loginPage.enterPassword(invalidUser.getPassword());
+        loginPage.clickLoginButton();
+
+        assertTrue(loginPage.invalidCredentialsErrorIsDisplayed());
+        assertEquals(loginPage.getInvalidCredentialsError(), LoginConst.INVALID_CREDENTIALS_ERROR);
     }
 }
