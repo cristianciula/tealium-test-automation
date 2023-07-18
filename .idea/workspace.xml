@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="Added:&#10;&#10;- Improvements&#10;- AccountDashboardPage class&#10;- AccountDashboardPageConst class">
+    <list default="true" id="2a74e9e8-f7f7-4269-a0eb-1619d603e324" name="Changes" comment="Added new test in LoginTests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/NavigationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/constants/CreateAccountConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/constants/CreateAccountConst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CreateAccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CreateAccountPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateAccountTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateAccountTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/JSONReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/JSONReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/ListUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/ListUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/RandomUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/RandomUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/TextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/TextUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +52,7 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.CreateAccountTests.createNewAccount">
+  <component name="RunManager" selected="TestNG.LoginTests.wrongPasswordLogin">
     <configuration name="BaseTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestAut_Tealium" />
       <extension name="coverage">
@@ -93,8 +88,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CreateAccountTests.emptyMandatoryFields" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestAut_Tealium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.CreateAccountTests" />
+      <option name="METHOD_NAME" value="emptyMandatoryFields" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTests.validLogin" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestAut_Tealium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
+      <option name="METHOD_NAME" value="validLogin" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTests.wrongPasswordLogin" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestAut_Tealium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
+      <option name="METHOD_NAME" value="wrongPasswordLogin" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.LoginTests.wrongPasswordLogin" />
+        <item itemvalue="TestNG.LoginTests.validLogin" />
+        <item itemvalue="TestNG.CreateAccountTests.emptyMandatoryFields" />
         <item itemvalue="TestNG.CreateAccountTests.createNewAccount" />
         <item itemvalue="TestNG.BaseTest" />
       </list>
@@ -228,7 +280,42 @@
       <option name="project" value="LOCAL" />
       <updated>1687763263464</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Small Improvements">
+      <created>1687886073931</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1687886073931</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added locators to LoginPage class">
+      <created>1687886757235</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1687886757235</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added locators to LoginPage class">
+      <created>1687887237420</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1687887237420</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Naming Improvements">
+      <created>1687953721568</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1687953721568</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added new test in LoginTests">
+      <created>1688831834344</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1688831834344</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,6 +344,10 @@
     <MESSAGE value="Added invalidUser.json file" />
     <MESSAGE value="Small classes updates" />
     <MESSAGE value="Added:&#10;&#10;- Improvements&#10;- AccountDashboardPage class&#10;- AccountDashboardPageConst class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added:&#10;&#10;- Improvements&#10;- AccountDashboardPage class&#10;- AccountDashboardPageConst class" />
+    <MESSAGE value="Small Improvements" />
+    <MESSAGE value="Added locators to LoginPage class" />
+    <MESSAGE value="Naming Improvements" />
+    <MESSAGE value="Added new test in LoginTests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new test in LoginTests" />
   </component>
 </project>
