@@ -20,6 +20,8 @@ public class LoginTests extends BaseTest {
 
         header.clickAccountButton();
         assertTrue(header.logOutButtonIsDisplayed());
+
+        header.logoutUser();
     }
     @Test (description = "Tests that a registered user cannot login using a wrong password")
     public void wrongPasswordLogin() {

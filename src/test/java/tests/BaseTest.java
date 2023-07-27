@@ -4,6 +4,9 @@ import components.Header;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.chromium.ChromiumDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import pages.*;
 import testdata.User;
@@ -34,9 +37,15 @@ public class BaseTest {
 
     @BeforeTest
     public void beforeTest() {
+        //WebDriverManager.firefoxdriver().setup();
+        //driver = new FirefoxDriver();
+
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
+        options.addArguments("--start-maximized");
+
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         header = new Header(driver);
