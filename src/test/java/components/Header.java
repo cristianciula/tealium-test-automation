@@ -2,8 +2,10 @@ package components;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import testdata.URL;
 
-import static utils.Waiter.*;
+import static utils.SeleniumUtils.*;
+import static utils.WaitUtils.*;
 
 public class Header {
 
@@ -13,7 +15,7 @@ public class Header {
         this.driver = driver;
     }
 
-    //--------------------LOCATORS--------------------//
+    //____________________LOCATORS____________________//
     private By accountButton = By.xpath("//span[@class=\"label\"][text()=\"Account\"]");
     private By cartButton = By.xpath("//span[@class=\"label\"][contains(.,\"Cart\")]");
     private By accountDropMenu = By.xpath("//div[@id=\"header-account\"]");
@@ -23,33 +25,36 @@ public class Header {
     private By logOutButton = By.xpath("//a[@title=\"Log Out\"]");
     private By loginButton = By.xpath("//a[@title=\"Log In\"]");
 
-    //--------------------PRIVATE METHODS--------------------//
+    //____________________PRIVATE METHODS____________________//
 
 
-    //--------------------PUBLIC METHODS--------------------//
+    //____________________PUBLIC METHODS____________________//
 
+    public void navigateToHomePage() {
+        navigateTo(URL.HOME_PAGE);
+    }
     public void clickMyAccountButton() {
-        driver.findElement(myAccountButton).click();
+        click(myAccountButton);
     }
     public void clickCartButton() {
-        driver.findElement(cartButton).click();
+        click(cartButton);
     }
     public void clickLoginButton() {
-        driver.findElement(loginButton).click();
+        click(loginButton);
     }
     public boolean logOutButtonIsDisplayed() {
-        waitElementToBeVisible(driver, logOutButton);
-        return driver.findElement(logOutButton).isDisplayed();
+        waitElementToBeVisible(logOutButton, 2);
+        return isElementDisplayed(logOutButton);
     }
     public boolean loginButtonIsDisplayed() {
-        waitElementToBeVisible(driver, loginButton);
-        return driver.findElement(loginButton).isDisplayed();
+        waitElementToBeVisible(loginButton, 2);
+        return isElementDisplayed(loginButton);
     }
     public void clickAccountButton() {
-        driver.findElement(accountButton).click();
+        click(accountButton);
     }
-    public void logoutUser() {
-        driver.findElement(logOutButton).click();
+    public void clickLogoutButton() {
+        click(logOutButton);
     }
 
 }

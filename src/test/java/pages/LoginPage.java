@@ -3,9 +3,9 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import testdata.User;
-import utils.Waiter;
 
-import static utils.SeleniumWrapper.*;
+import static utils.SeleniumUtils.*;
+import static utils.WaitUtils.*;
 
 public class LoginPage {
 
@@ -15,7 +15,7 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    //----------LOCATORS----------//
+    //____________________LOCATORS____________________//
     private By loginPageTitle = By.xpath("//div[@class=\"page-title\"]");
     private By alreadyRegisteredHeader = By.xpath("//h2[text()=\"Already registered?\"]");
     private By createAccountButton = By.xpath("//a[@title=\"Create an Account\"]");
@@ -28,33 +28,32 @@ public class LoginPage {
     private By passwordInputError = By.id("advice-required-entry-pass");
     private By invalidCredentialsError = By.xpath("//li[@class=\"error-msg\"]");
 
-    //----------PRIVATE METHODS----------//
-    private void clear(By by) {
-        driver.findElement(by).clear();
-    }
+    //____________________PRIVATE METHODS____________________//
 
+    //------------------------------------------------------------------------------------------------------------//
 
-    //----------PUBLIC METHODS----------//
+    //____________________PUBLIC METHODS____________________//
     public String getCurrentUrl() {
-        return driver.getCurrentUrl();
+        return getUrl();
     }
     public void clickCreateAccountButton() {
-        driver.findElement(createAccountButton).click();
+        click(createAccountButton);
     }
-    public void enterEmail(String email) {
-        driver.findElement(emailInput).sendKeys(email);
+    public void enterEmail(String string) {
+        sendKeys(emailInput, string);
     }
-    public void enterPassword(String password) {
-            driver.findElement(passwordInput).sendKeys(password);
+    public void enterPassword(String string) {
+        sendKeys(passwordInput, string);
     }
     public void clickLoginButton() {
-        scrollToElement(driver, loginButton);
-        driver.findElement(loginButton).click();
+        scrollToElement(loginButton);
+        waitElementToBeClickable(loginButton, 1);
+        click(loginButton);
     }
-    public void clearPasswordField() {
+    public void clearPasswordInput() {
         clear(passwordInput);
     }
-    public void clearEmailField() {
+    public void clearEmailInput() {
         clear(emailInput);
     }
     public void loginUser(User user) {
@@ -63,39 +62,39 @@ public class LoginPage {
         clickLoginButton();
     }
     public boolean loginButtonIsDisplayed() {
-        scrollToElement(driver, loginButton);
-        return driver.findElement(loginButton).isDisplayed();
+        scrollToElement(loginButton);
+        return isElementDisplayed(loginButton);
     }
     public String getEmailInputError() {
-        return driver.findElement(emailInputError).getText();
+        return getText(emailInputError);
     }
     public boolean emailInputErrorIsDisplayed() {
-        Waiter.waitElementToBeVisible(driver, emailInputError);
-        return driver.findElement(emailInputError).isDisplayed();
+        waitElementToBeVisible(emailInputError, 1);
+        return isElementDisplayed(emailInputError);
     }
     public String getPasswordInputError() {
-        return driver.findElement(passwordInputError).getText();
+        return getText(passwordInputError);
     }
     public boolean passwordInputErrorIsDisplayed() {
-        Waiter.waitElementToBeVisible(driver, passwordInputError);
-        return driver.findElement(passwordInputError).isDisplayed();
+        waitElementToBeVisible(passwordInputError, 1);
+        return isElementDisplayed(passwordInputError);
     }
     public String getInvalidCredentialsError() {
-        return driver.findElement(invalidCredentialsError).getText();
+        return getText(invalidCredentialsError);
     }
-    public void clickForgotPasswordHyperlink() {
-        driver.findElement(forgotPasswordHyperlink).click();
+    public void clickForgotPassword() {
+        click(forgotPasswordHyperlink);
     }
     public void clickRememberMeCheckbox() {
-        driver.findElement(rememberMeCheckbox).click();
+        click(rememberMeCheckbox);
     }
     public String getAlreadyRegisteredHeader() {
-        return driver.findElement(alreadyRegisteredHeader).getText();
+        return getText(alreadyRegisteredHeader);
     }
     public String getLoginPageTitle() {
-        return driver.findElement(loginPageTitle).getText();
+        return getText(loginPageTitle);
     }
     public boolean invalidCredentialsErrorIsDisplayed() {
-        return driver.findElement(invalidCredentialsError).isDisplayed();
+        return isElementDisplayed(invalidCredentialsError);
     }
 }

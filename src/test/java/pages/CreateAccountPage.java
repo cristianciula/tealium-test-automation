@@ -8,7 +8,8 @@ import testdata.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import static utils.SeleniumWrapper.*;
+import static utils.SeleniumUtils.*;
+import static utils.WaitUtils.*;
 
 public class CreateAccountPage {
 
@@ -18,7 +19,7 @@ public class CreateAccountPage {
         this.driver = driver;
     }
 
-    //----------LOCATORS----------//
+    //____________________LOCATORS____________________//
     private By firstNameInput = By.id("firstname");
     private By middleNameInput = By.id("middlename");
     private By lastNameInput = By.id("lastname");
@@ -34,39 +35,37 @@ public class CreateAccountPage {
     private By passwordInputError = By.id("advice-required-entry-password");
     private By confirmPasswordInputError = By.id("advice-required-entry-confirmation");
 
-    //----------PRIVATE METHODS----------//
-    private void enterFirstName(String firstName) {
-        driver.findElement(firstNameInput).sendKeys(firstName);
+    //____________________PRIVATE METHODS____________________//
+    private void enterFirstName(String string) {
+        sendKeys(firstNameInput, string);
     }
-    private void enterMiddleName(String middleName) {
-        driver.findElement(middleNameInput).sendKeys(middleName);
+    private void enterMiddleName(String string) {
+        sendKeys(middleNameInput, string);
     }
-    private void enterLastName(String lastName) {
-        driver.findElement(lastNameInput).sendKeys(lastName);
+    private void enterLastName(String string) {
+        sendKeys(lastNameInput, string);
     }
-    private void enterConfirmPassword(String password) {
-        driver.findElement(confirmPasswordInput).sendKeys(password);
-    }
-    private void clear(By locator) {
-        driver.findElement(locator).clear();
+    private void enterConfirmPassword(String string) {
+        sendKeys(confirmPasswordInput, string);
     }
     private void clickRememberMeCheckbox() {
-        clickElement(driver, rememberMeCheckbox);
-        //driver.findElement(rememberMeCheckbox).click();
+        click(rememberMeCheckbox);
     }
-    private boolean isRememberMeCheckboxSelected() {
-        return driver.findElement(rememberMeCheckbox).isSelected();
+    private boolean rememberMeCheckboxIsSelected() {
+        return isElementSelected(rememberMeCheckbox);
     }
 
-    //----------PUBLIC METHODS----------//
+    //-------------------------------------------------------------------------------------------------------------//
+
+    //____________________PUBLIC METHODS____________________//
     public void navigateToCreateAccountPage() {
-        driver.get(URL.CREATE_ACCOUNT_PAGE);
+        navigateTo(URL.CREATE_ACCOUNT_PAGE);
     }
-    public void enterEmail(String email) {
-        driver.findElement(emailInput).sendKeys(email);
+    public void enterEmail(String string) {
+        sendKeys(emailInput, string);
     }
-    public void enterPassword(String password) {
-        driver.findElement(passwordInput).sendKeys(password);
+    public void enterPassword(String string) {
+        sendKeys(passwordInput, string);
     }
     public void fillCreateAccountForm(User user) {
         enterFirstName(user.getFirstName());
@@ -84,22 +83,20 @@ public class CreateAccountPage {
         clear(confirmPasswordInput);
     }
     public void unselectRememberMeCheckbox() {
-        WebElement rememberMe = driver.findElement(rememberMeCheckbox);
-        if(rememberMe.isSelected()) {
+        if(isElementSelected(rememberMeCheckbox)) {
             clickRememberMeCheckbox();
         }
     }
     public void selectRememberMeCheckbox() {
-        WebElement rememberMe = driver.findElement(rememberMeCheckbox);
-        if(!rememberMe.isSelected()) {
-            registerUser();
+        if(!isElementSelected(rememberMeCheckbox)) {
+            clickRememberMeCheckbox();
         }
     }
-    public void registerUser() {
-        scrollToElement(driver, registerButton);
-        clickElement(driver, registerButton);
+    public void clickRegister() {
+        scrollToElement(registerButton);
+        click(registerButton);
     }
-    public List<String> getEmptyFieldErrors() {
+    public List<String> getEmptyInputErrors() {
         List<WebElement> inputErrorsElements = driver.findElements(inputErrors);
         List<String> inputErrors = new ArrayList<>();
 

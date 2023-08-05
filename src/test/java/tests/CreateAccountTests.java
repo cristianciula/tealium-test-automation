@@ -12,7 +12,7 @@ public class CreateAccountTests extends BaseTest {
 
         createAccountPage.navigateToCreateAccountPage();
         createAccountPage.fillCreateAccountForm(validUser);
-        createAccountPage.registerUser();
+        createAccountPage.clickRegister();
 
         assertEquals(AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE, accountDashboardPage.getRegistrationSuccessfulMessage());
         assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
@@ -26,10 +26,10 @@ public class CreateAccountTests extends BaseTest {
 
         createAccountPage.navigateToCreateAccountPage();
         createAccountPage.clearCreateAccountForm();
-        createAccountPage.registerUser();
+        createAccountPage.clickRegister();
 
         assertTrue(createAccountPage.emptyFieldErrorsAreDisplayed());
-        for (String inputError : createAccountPage.getEmptyFieldErrors()) {
+        for (String inputError : createAccountPage.getEmptyInputErrors()) {
             assertEquals(inputError, CreateAccountConst.MANDATORY_FIELD_ERROR);
         }
 
@@ -41,11 +41,11 @@ public class CreateAccountTests extends BaseTest {
     @Test (description = "Tests that user cannot create an account using an existing account details")
     public void duplicateAccount() {
         createAccount();
-        header.logoutUser();
+        header.clickLogoutButton();
         createAccount();
         createAccountPage.navigateToCreateAccountPage();
         createAccountPage.fillCreateAccountForm(validUser);
-        createAccountPage.registerUser();
+        createAccountPage.clickRegister();
 
         //Assert that validation error for user already exists is displayed
         //Assert that a new account has not been created and that user has not been logged in

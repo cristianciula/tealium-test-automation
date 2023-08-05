@@ -10,10 +10,10 @@ public class HomePage {
         this.driver = driver;
     }
 
-    //----------LOCATORS----------//
+    //____________________LOCATORS____________________//
 
-    //----------PRIVATE METHODS----------//
+    //____________________PRIVATE METHODS____________________//
 
-    //----------PUBLIC METHODS----------//
+    //____________________PUBLIC METHODS____________________//
 
 }

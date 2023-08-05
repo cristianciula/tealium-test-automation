@@ -21,7 +21,7 @@ public class LoginTests extends BaseTest {
         header.clickAccountButton();
         assertTrue(header.logOutButtonIsDisplayed());
 
-        header.logoutUser();
+        header.clickLogoutButton();
     }
     @Test (description = "Tests that a registered user cannot login using a wrong password")
     public void wrongPasswordLogin() {
@@ -37,7 +37,7 @@ public class LoginTests extends BaseTest {
     public void emptyPasswordLogin() {
         driver.get(URL.LOGIN_PAGE);
         loginPage.enterEmail(validUser.getEmail());
-        loginPage.clearPasswordField();
+        loginPage.clearPasswordInput();
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.passwordInputErrorIsDisplayed());

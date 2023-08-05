@@ -11,13 +11,13 @@ public class AccountDashboardPage {
         this.driver = driver;
     }
 
-    //----------LOCATORS----------//
+    //____________________LOCATORS____________________//
     private By registrationSuccessfulMessage = By.xpath("//li[@class=\"success-msg\"]");
     private By userGreetingPlaceholder = By.xpath("//div[@class=\"welcome-msg\"]/p[@class=\"hello\"]");
 
-    //----------PRIVATE METHODS----------//
+    //____________________PRIVATE METHODS____________________//
 
-    //----------PUBLIC METHODS----------//
+    //____________________PUBLIC METHODS____________________//
     public String getRegistrationSuccessfulMessage() {
         return driver.findElement(registrationSuccessfulMessage).getText();
     }
