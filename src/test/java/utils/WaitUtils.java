@@ -26,4 +26,8 @@ public final class WaitUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.elementToBeSelected(by));
     }
+    public static void waitUrlToBe(String string, int seconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+        wait.until(ExpectedConditions.urlToBe(string));
+    }
 }

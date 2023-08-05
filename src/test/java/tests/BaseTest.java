@@ -11,6 +11,7 @@ import testdata.User;
 import utils.SeleniumUtils;
 import utils.WaitUtils;
 
+
 import java.time.Duration;
 
 public class BaseTest {
@@ -32,13 +33,13 @@ public class BaseTest {
 
     @AfterClass
     public static void tearDown() {
-
     }
 
     @BeforeTest
     public void beforeTest() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("no-sandbox");
         options.addArguments("--start-maximized");
 
         driver = new ChromeDriver(options);
@@ -56,6 +57,8 @@ public class BaseTest {
 
     @AfterTest
     public void afterTest() {
+        driver.manage().deleteAllCookies();
+        driver.close();
         driver.quit();
     }
 }

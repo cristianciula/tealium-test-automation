@@ -1,6 +1,10 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import static utils.SeleniumUtils.*;
+import static utils.WaitUtils.*;
 
 public class HomePage {
 
@@ -11,9 +15,13 @@ public class HomePage {
     }
 
     //____________________LOCATORS____________________//
+    private By tealium = By.xpath("//img[@src=\"https://ecommerce.tealiumdemo.com/skin/frontend/base/default/images/media/logo.png\"]");
 
     //____________________PRIVATE METHODS____________________//
 
     //____________________PUBLIC METHODS____________________//
+    public void clickTealium() {
+        click(tealium);
+    }
 
 }
