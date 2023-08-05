@@ -21,9 +21,8 @@ public final class SeleniumUtils{
         driver.get(string);
     }
     public static void scrollToElement(By by) {
-        WebElement element = driver.findElement(by);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView();", element);
+        js.executeScript("arguments[0].scrollIntoView();", findElement(by));
     }
     public static void click(By by) {
         driver.findElement(by).click();
