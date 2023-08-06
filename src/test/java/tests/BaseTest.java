@@ -10,8 +10,6 @@ import pages.*;
 import testdata.User;
 import utils.SeleniumUtils;
 import utils.WaitUtils;
-
-
 import java.time.Duration;
 
 public class BaseTest {
@@ -58,7 +56,6 @@ public class BaseTest {
     @AfterTest
     public void afterTest() {
         driver.manage().deleteAllCookies();
-        driver.close();
         driver.quit();
     }
 }

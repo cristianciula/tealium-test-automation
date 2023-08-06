@@ -8,9 +8,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <seleniumVersion>4.10.0</seleniumVersion>
+        <seleniumVersion>4.11.0</seleniumVersion>
         <testNgVersion>7.8.0</testNgVersion>
-        <webDriverManagerVersion>5.4.0</webDriverManagerVersion>
+        <webDriverManagerVersion>5.4.1</webDriverManagerVersion>
         <jsonSimpleVersion>1.1.1</jsonSimpleVersion>
         <maven.compiler.source>17.0.6</maven.compiler.source>
         <maven.compiler.target>17.0.6</maven.compiler.target>
