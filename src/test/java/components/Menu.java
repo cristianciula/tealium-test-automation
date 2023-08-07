@@ -16,12 +16,16 @@ public class Menu {
 
     //____________________LOCATORS____________________//
     private By menDropDownMenu = By.xpath("//li[@class=\"level0 nav-2 parent\"]");
+    private By breadcrumbs = By.xpath("//div[@class=\"breadcrumbs\"]");
 
     //____________________PRIVATE METHODS____________________//
 
     //____________________PUBLIC METHODS____________________//
     public void expandMenuDropDown() {
         hoverOverElement(menDropDownMenu);
+    }
+    public String getBreadcrumbsPath() {
+        return getText(breadcrumbs);
     }
 
 }

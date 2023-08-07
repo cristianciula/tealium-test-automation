@@ -23,6 +23,7 @@ public class BaseTest {
     public static LoginPage loginPage;
     public static CreateAccountPage createAccountPage;
     public static AccountDashboardPage accountDashboardPage;
+    public static MenProductsPage menProductsPage;
 
     public static User validUser = new User("validUser");
     public static User invalidUser = new User("invalidUser");
@@ -51,6 +52,7 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         createAccountPage = new CreateAccountPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
+        menProductsPage = new MenProductsPage(driver);
 
         SeleniumUtils.setDriver(driver);
         WaitUtils.setDriver(driver);
