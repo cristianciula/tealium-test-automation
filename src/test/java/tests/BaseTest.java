@@ -1,6 +1,7 @@
 package tests;
 
 import components.Header;
+import components.Menu;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,6 +18,7 @@ public class BaseTest {
     WebDriver driver;
 
     public static Header header;
+    public static Menu menu;
     public static HomePage homePage;
     public static LoginPage loginPage;
     public static CreateAccountPage createAccountPage;
@@ -44,6 +46,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         header = new Header(driver);
+        menu = new Menu(driver);
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         createAccountPage = new CreateAccountPage(driver);
