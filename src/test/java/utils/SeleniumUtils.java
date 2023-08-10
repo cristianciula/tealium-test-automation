@@ -51,6 +51,7 @@ public final class SeleniumUtils{
     }
     public static void hoverOverElement(By by) {
         Actions actions = new Actions(driver);
+        scrollToElement(by);
         actions.moveToElement(driver.findElement(by));
         actions.build().perform();
     }
