@@ -1,6 +1,6 @@
 package constants;
 
-public class FooterConst {
+public final class FooterConst {
 
     //----------TITLES----------//
 

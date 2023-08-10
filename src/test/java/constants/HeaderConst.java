@@ -1,6 +1,6 @@
 package constants;
 
-public class HeaderConst {
+public final class HeaderConst {
 
     //----------TITLES----------//
 

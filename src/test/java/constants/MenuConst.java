@@ -1,6 +1,6 @@
 package constants;
 
-public class MenuConst {
+public final class MenuConst {
 
     //----------TITLES----------//
 

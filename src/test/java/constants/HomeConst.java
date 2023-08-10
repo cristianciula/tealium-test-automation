@@ -1,6 +1,6 @@
 package constants;
 
-public class HomeConst {
+public final class HomeConst {
 
     //----------TITLES----------//
 

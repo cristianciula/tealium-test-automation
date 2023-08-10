@@ -1,6 +1,6 @@
 package constants;
 
-public class CreateAccountConst {
+public final class CreateAccountConst {
 
     //----------TITLES----------//
     public final static String CREATE_ACCOUNT_PAGE_TITLE = "Create an Account";
