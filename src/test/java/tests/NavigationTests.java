@@ -1,6 +1,8 @@
 package tests;
 
 import constants.LoginConst;
+import constants.MenShirtsConst;
+import constants.MenuConst;
 import org.testng.annotations.Test;
 import testdata.URL;
 import static org.testng.Assert.*;
@@ -19,9 +21,12 @@ public class NavigationTests extends BaseTest{
     }
 
     @Test(description = "Hover over Men drop down menu")
-    public void hoverOverMen() throws InterruptedException {
+    public void navigateToMenShirts() {
         navigateTo(URL.HOME_PAGE);
-        //navigateTo(URL.HOME_PAGE);
-        menu.expandMenuDropDown();
+
+        menu.expandMenDropMenu();
+        menu.clickMenShirtsDropOption();
+
+        assertEquals(MenShirtsConst.SHIRTS_PAGE_TITLE, menShirtsPage.getShirtsPageTitle());
     }
 }

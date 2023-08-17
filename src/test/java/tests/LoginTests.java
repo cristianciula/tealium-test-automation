@@ -2,6 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import testdata.URL;
 

@@ -3,6 +3,7 @@ package tests;
 import components.Header;
 import components.Menu;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,6 +18,8 @@ public class BaseTest {
 
     WebDriver driver;
 
+    JavascriptExecutor js;
+
     public static Header header;
     public static Menu menu;
     public static HomePage homePage;
@@ -24,6 +27,7 @@ public class BaseTest {
     public static CreateAccountPage createAccountPage;
     public static AccountDashboardPage accountDashboardPage;
     public static MenProductsPage menProductsPage;
+    public static MenShirtsPage menShirtsPage;
 
     public static User validUser = new User("validUser");
     public static User invalidUser = new User("invalidUser");
@@ -53,6 +57,7 @@ public class BaseTest {
         createAccountPage = new CreateAccountPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
         menProductsPage = new MenProductsPage(driver);
+        menShirtsPage = new MenShirtsPage(driver);
 
         SeleniumUtils.setDriver(driver);
         WaitUtils.setDriver(driver);
