@@ -58,32 +58,4 @@ public class JSONParserUtil {
 
         return currentObject.get(keys[keys.length - 1]);
     }
-
-    public static void main(String[] args) {
-        String jsonFileName = "your-json-file"; // Specify the JSON file name (without the ".json" extension)
-
-        // Example of extracting a nested object value
-        String nestedValue = extractValue(jsonFileName, "topLevel.secondLevel.nestedValue");
-        if (nestedValue != null) {
-            System.out.println("Extracted Nested Object Value: " + nestedValue);
-        } else {
-            System.out.println("Nested Key not found in JSON.");
-        }
-
-        // Example of extracting a non-nested object value
-        String nonNestedValue = extractValue(jsonFileName, null);
-        if (nonNestedValue != null) {
-            System.out.println("Extracted Non-Nested Object Value: " + nonNestedValue);
-        } else {
-            System.out.println("JSON Object not found.");
-        }
-
-        // Example of extracting an entire array
-        String jsonArrayValue = extractValue(jsonFileName, null);
-        if (jsonArrayValue != null) {
-            System.out.println("Extracted JSON Array: " + jsonArrayValue);
-        } else {
-            System.out.println("JSON Array not found.");
-        }
-    }
 }
