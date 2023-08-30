@@ -3,7 +3,10 @@ package tests;
 import constants.AccountDashboardConst;
 import constants.CreateAccountConst;
 import org.testng.annotations.Test;
+import testdata.URL;
+
 import static org.testng.Assert.*;
+import static utils.TextUtils.*;
 
 public class CreateAccountTests extends BaseTest {
 
@@ -40,6 +43,7 @@ public class CreateAccountTests extends BaseTest {
 
     @Test (description = "Tests that user cannot create an account using an existing account details")
     public void duplicateAccount() {
+
         createAccount();
         header.clickLogoutButton();
         createAccount();
@@ -55,5 +59,21 @@ public class CreateAccountTests extends BaseTest {
     @Test (description = "Tests that user cannot create an account using a password that is less than 7 characters in length")
     public void invalidPasswordLength() {
 
+    }
+
+    @Test (description = "Tests that invalid email syntaxes are not accepted")
+    public void invalidEmailSyntax() {
+        driver.get(URL.CREATE_ACCOUNT_PAGE);
+        createAccountPage.fillCreateAccountForm(validUser);
+        createAccountPage.clearEmailField();
+
+        String[] invalidEmails = stringToArray(jsonParseTest.getEmail());
+
+        for (String invalidEmail : invalidEmails) {
+            createAccountPage.enterEmail(invalidEmail);
+            createAccountPage.clickRegister();
+            assertEquals(driver.getCurrentUrl(), URL.CREATE_ACCOUNT_PAGE);
+            createAccountPage.clearEmailField();
+        }
     }
 }

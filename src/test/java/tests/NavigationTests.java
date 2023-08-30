@@ -2,9 +2,9 @@ package tests;
 
 import constants.LoginConst;
 import constants.MenShirtsConst;
-import constants.MenuConst;
 import org.testng.annotations.Test;
 import testdata.URL;
+
 import static org.testng.Assert.*;
 import static utils.SeleniumUtils.*;
 
@@ -23,7 +23,6 @@ public class NavigationTests extends BaseTest{
     @Test(description = "Hover over Men drop down menu")
     public void navigateToMenShirts() {
         navigateTo(URL.HOME_PAGE);
-
         menu.expandMenDropMenu();
         menu.clickMenShirtsDropOption();
 

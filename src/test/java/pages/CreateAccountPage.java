@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static utils.SeleniumUtils.*;
-import static utils.WaitUtils.*;
 
 public class CreateAccountPage {
 
@@ -81,6 +80,9 @@ public class CreateAccountPage {
         clear(emailInput);
         clear(passwordInput);
         clear(confirmPasswordInput);
+    }
+    public void clearEmailField() {
+        clear(emailInput);
     }
     public void unselectRememberMeCheckbox() {
         if(isElementSelected(rememberMeCheckbox)) {
