@@ -1,39 +1,61 @@
 package utils;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
 import java.io.IOException;
 
-public final class JSONReader {
+public class JSONReader {
 
-    //Method to read data from a json file
-    public static JSONObject json(String name) {
-        //Find automatically the directory containing the testDataFiles package
-        String jsonPath = System.getProperty("user.dir")+"//src//test//java//testdatafiles//"+name+".json";
+    public static String extractValue(String name, String key) {
+        JSONParser parser = new JSONParser();
+        String jsonFilePath = System.getProperty("user.dir")+"//src//test//java//testdatafiles//"+name+".json";
 
-        //Reads the json file at the indicated location
-        FileReader reader = null;
-        try {
-            reader = new FileReader(jsonPath);
-        } catch (FileNotFoundException e) {
+        try (FileReader reader = new FileReader(jsonFilePath)) {
+            // Parse the JSON file into a JSONObject
+            Object obj = parser.parse(reader);
+
+            if (obj instanceof JSONObject) {
+                JSONObject jsonObject = (JSONObject) obj;
+
+                // Check if nestedKey is empty or null
+                if (key == null || key.isEmpty()) {
+                    // Extract a non-nested object value directly
+                    return jsonObject.toString();
+                }
+
+                // Extract the nested object value or array
+                Object nestedObject = getNestedValue(jsonObject, key);
+                return nestedObject != null ? nestedObject.toString() : null;
+            } else if (obj instanceof JSONArray) {
+                JSONArray jsonArray = (JSONArray) obj;
+
+                // Extract the entire array
+                return jsonArray.toString();
+            }
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
+        return null;
+    }
 
-        //Define the parser to parse the content of the json file
-        JSONParser jsonParser = new JSONParser();
+    private static Object getNestedValue(JSONObject jsonObject, String nestedKey) {
+        String[] keys = nestedKey.split("\\.");
 
-        //Define the returned Object
-        JSONObject obj = null;
-        try {
-            obj = (JSONObject) jsonParser.parse(reader);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        JSONObject currentObject = jsonObject;
+        for (int i = 0; i < keys.length - 1; i++) {
+            Object nestedObject = currentObject.get(keys[i]);
+
+            if (nestedObject instanceof JSONObject) {
+                currentObject = (JSONObject) nestedObject;
+            } else {
+                return null;
+            }
         }
-        return obj;
+
+        return currentObject.get(keys[keys.length - 1]);
     }
 }

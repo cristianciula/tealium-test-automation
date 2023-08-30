@@ -1,5 +1,5 @@
 {
-  "email": "userNA00@example.com",
+  "email": ["", " ", "userexample.com", "user.example.com", "user@examplecom", "user@example."],
   "password": "wrongpass",
   "firstName": "",
   "middleName": "",

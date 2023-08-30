@@ -7,6 +7,7 @@ import testdata.URL;
 
 import static org.testng.Assert.*;
 import static utils.TextUtils.*;
+import static utils.SeleniumUtils.*;
 
 public class CreateAccountTests extends BaseTest {
 
@@ -67,7 +68,7 @@ public class CreateAccountTests extends BaseTest {
         createAccountPage.fillCreateAccountForm(validUser);
         createAccountPage.clearEmailField();
 
-        String[] invalidEmails = stringToArray(jsonParseTest.getEmail());
+        String[] invalidEmails = stringToArray(invalidUser.getEmail());
 
         for (String invalidEmail : invalidEmails) {
             createAccountPage.enterEmail(invalidEmail);

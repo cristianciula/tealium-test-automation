@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import pages.*;
 import testdata.User;
-import testdata.UserTest;
 import utils.SeleniumUtils;
 import utils.WaitUtils;
 import java.time.Duration;
@@ -32,7 +31,6 @@ public class BaseTest {
 
     public static User validUser = new User("validUser");
     public static User invalidUser = new User("invalidUser");
-    public static UserTest jsonParseTest = new UserTest("jsonParseTest.json");
 
     @BeforeClass
     public static void setUp() {

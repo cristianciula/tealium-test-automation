@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import testdata.URL;
 import testdata.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,6 +115,7 @@ public class CreateAccountPage {
             if (inputErrorElement.isDisplayed()) {
                 return true;
             }
-        } return false;
+        }
+        return false;
     }
 }

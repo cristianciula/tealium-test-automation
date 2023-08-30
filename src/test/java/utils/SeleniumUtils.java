@@ -1,9 +1,6 @@
 package utils;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
 public final class SeleniumUtils{
@@ -30,6 +27,7 @@ public final class SeleniumUtils{
     }
     public static void clear(By by) {
         driver.findElement(by).clear();
+        driver.findElement(by).sendKeys(Keys.BACK_SPACE);
     }
     public static String getUrl() {
         return driver.getCurrentUrl();
