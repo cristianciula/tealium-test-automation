@@ -1,5 +1,5 @@
 {
-  "email": ["", " ", "userexample.com", "user.example.com", "user@examplecom", "user@example."],
+  "email": ["", " ", "userexample.com", "user.example.com", "user@examplecom", "user@example.", "@example.com", "user@.com", "u@e.c", "u@_.com", "_@_._"],
   "password": "wrongpass",
   "firstName": "",
   "middleName": "",
