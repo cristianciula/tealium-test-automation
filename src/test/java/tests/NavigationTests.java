@@ -12,7 +12,9 @@ public class NavigationTests extends BaseTest{
 
     @Test (description = "Tests that a user can navigate from the Home page to the Registration page")
     public void navigateToRegistrationPage() {
-
+        navigateTo(URL.HOME_PAGE);
+        header.clickAccountButton();
+        header.click
     }
 
     @Test (description = "Tests that a user can navigate from the Home page to the Login page")
