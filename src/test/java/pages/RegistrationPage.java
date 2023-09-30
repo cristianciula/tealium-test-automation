@@ -11,15 +11,16 @@ import java.util.List;
 
 import static utils.SeleniumUtils.*;
 
-public class CreateAccountPage {
+public class RegistrationPage {
 
     WebDriver driver;
 
-    public CreateAccountPage(WebDriver driver) {
+    public RegistrationPage(WebDriver driver) {
         this.driver = driver;
     }
 
     //____________________LOCATORS____________________//
+    private By pageTitle = By.xpath("//div[@class=\"page-title\"]");
     private By firstNameInput = By.id("firstname");
     private By middleNameInput = By.id("middlename");
     private By lastNameInput = By.id("lastname");
@@ -61,6 +62,9 @@ public class CreateAccountPage {
     public void navigateToCreateAccountPage() {
         navigateTo(URL.CREATE_ACCOUNT_PAGE);
     }
+    public String getPageTitle() {
+        return getText(pageTitle);
+    }
     public void enterEmail(String string) {
         sendKeys(emailInput, string);
     }
@@ -96,8 +100,10 @@ public class CreateAccountPage {
         }
     }
     public void clickRegister() {
-        scrollToElement(registerButton);
         click(registerButton);
+    }
+    public boolean registerButtonIsDisplayed() {
+        return isElementDisplayed(registerButton);
     }
     public List<String> getEmptyInputErrors() {
         List<WebElement> inputErrorsElements = driver.findElements(inputErrors);

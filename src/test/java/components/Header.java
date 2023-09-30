@@ -24,6 +24,7 @@ public class Header {
     private By registerButton= By.xpath("//div[@id=\"header-account\"]/descendant::a[@title=\"Register\"]");
     private By logOutButton = By.xpath("//a[@title=\"Log Out\"]");
     private By loginButton = By.xpath("//a[@title=\"Log In\"]");
+    private By welcomeMessage = By.xpath("//p[@class=\"welcome-msg\"]");
 
     //____________________PRIVATE METHODS____________________//
 

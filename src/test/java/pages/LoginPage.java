@@ -62,7 +62,6 @@ public class LoginPage {
         clickLoginButton();
     }
     public boolean loginButtonIsDisplayed() {
-        scrollToElement(loginButton);
         return isElementDisplayed(loginButton);
     }
     public String getEmailInputError() {

@@ -24,7 +24,7 @@ public class BaseTest {
     public static Menu menu;
     public static HomePage homePage;
     public static LoginPage loginPage;
-    public static CreateAccountPage createAccountPage;
+    public static RegistrationPage registrationPage;
     public static AccountDashboardPage accountDashboardPage;
     public static MenProductsPage menProductsPage;
     public static MenShirtsPage menShirtsPage;
@@ -54,7 +54,7 @@ public class BaseTest {
         menu = new Menu(driver);
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
-        createAccountPage = new CreateAccountPage(driver);
+        registrationPage = new RegistrationPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
         menProductsPage = new MenProductsPage(driver);
         menShirtsPage = new MenShirtsPage(driver);

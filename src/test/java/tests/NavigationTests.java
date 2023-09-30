@@ -2,6 +2,7 @@ package tests;
 
 import constants.LoginConst;
 import constants.MenShirtsConst;
+import constants.RegistrationConst;
 import org.testng.annotations.Test;
 import testdata.URL;
 
@@ -11,10 +12,13 @@ import static utils.SeleniumUtils.*;
 public class NavigationTests extends BaseTest{
 
     @Test (description = "Tests that a user can navigate from the Home page to the Registration page")
-    public void navigateToRegistrationPage() {
+    public void navigateToRegistrationPage() throws InterruptedException {
         navigateTo(URL.HOME_PAGE);
         header.clickAccountButton();
-        header.click
+        header.clickRegisterButton();
+
+        assertEquals(registrationPage.getPageTitle(), RegistrationConst.CREATE_ACCOUNT_PAGE_TITLE);
+        assertTrue(registrationPage.registerButtonIsDisplayed());
     }
 
     @Test (description = "Tests that a user can navigate from the Home page to the Login page")

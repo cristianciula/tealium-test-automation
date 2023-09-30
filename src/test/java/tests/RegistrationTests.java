@@ -1,7 +1,7 @@
 package tests;
 
 import constants.AccountDashboardConst;
-import constants.CreateAccountConst;
+import constants.RegistrationConst;
 import org.testng.annotations.Test;
 import testdata.URL;
 
@@ -13,9 +13,9 @@ public class RegistrationTests extends BaseTest {
     @Test (description = "Tests that a user can create a new account")
     public void createAccount() {
 
-        createAccountPage.navigateToCreateAccountPage();
-        createAccountPage.fillCreateAccountForm(validUser);
-        createAccountPage.clickRegister();
+        registrationPage.navigateToCreateAccountPage();
+        registrationPage.fillCreateAccountForm(validUser);
+        registrationPage.clickRegister();
 
         assertEquals(AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE, accountDashboardPage.getRegistrationSuccessfulMessage());
         assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
@@ -27,13 +27,13 @@ public class RegistrationTests extends BaseTest {
     @Test (description = "Tests that user cannot create an account by leaving mandatory fields empty")
     public void emptyMandatoryFields() {
 
-        createAccountPage.navigateToCreateAccountPage();
-        createAccountPage.clearCreateAccountForm();
-        createAccountPage.clickRegister();
+        registrationPage.navigateToCreateAccountPage();
+        registrationPage.clearCreateAccountForm();
+        registrationPage.clickRegister();
 
-        assertTrue(createAccountPage.emptyFieldErrorsAreDisplayed());
-        for (String inputError : createAccountPage.getEmptyInputErrors()) {
-            assertEquals(inputError, CreateAccountConst.MANDATORY_FIELD_ERROR);
+        assertTrue(registrationPage.emptyFieldErrorsAreDisplayed());
+        for (String inputError : registrationPage.getEmptyInputErrors()) {
+            assertEquals(inputError, RegistrationConst.MANDATORY_FIELD_ERROR);
         }
 
         header.clickAccountButton();
@@ -47,9 +47,9 @@ public class RegistrationTests extends BaseTest {
         createAccount();
         header.clickLogoutButton();
         createAccount();
-        createAccountPage.navigateToCreateAccountPage();
-        createAccountPage.fillCreateAccountForm(validUser);
-        createAccountPage.clickRegister();
+        registrationPage.navigateToCreateAccountPage();
+        registrationPage.fillCreateAccountForm(validUser);
+        registrationPage.clickRegister();
 
         //Assert that validation error for user already exists is displayed
         //Assert that a new account has not been created and that user has not been logged in
@@ -64,16 +64,16 @@ public class RegistrationTests extends BaseTest {
     @Test (description = "Tests that invalid email syntaxes are not accepted")
     public void invalidEmailSyntax() {
         driver.get(URL.CREATE_ACCOUNT_PAGE);
-        createAccountPage.fillCreateAccountForm(validUser);
-        createAccountPage.clearEmailField();
+        registrationPage.fillCreateAccountForm(validUser);
+        registrationPage.clearEmailField();
 
         String[] invalidEmails = stringToArray(invalidUser.getEmail());
 
         for (String invalidEmail : invalidEmails) {
-            createAccountPage.enterEmail(invalidEmail);
-            createAccountPage.clickRegister();
+            registrationPage.enterEmail(invalidEmail);
+            registrationPage.clickRegister();
             assertEquals(driver.getCurrentUrl(), URL.CREATE_ACCOUNT_PAGE);
-            createAccountPage.clearEmailField();
+            registrationPage.clearEmailField();
         }
     }
 }
