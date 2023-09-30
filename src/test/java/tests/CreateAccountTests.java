@@ -7,7 +7,6 @@ import testdata.URL;
 
 import static org.testng.Assert.*;
 import static utils.TextUtils.*;
-import static utils.SeleniumUtils.*;
 
 public class CreateAccountTests extends BaseTest {
 
