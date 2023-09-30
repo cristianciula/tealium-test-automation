@@ -3,17 +3,23 @@ package tests;
 import constants.LoginConst;
 import constants.MenShirtsConst;
 import constants.RegistrationConst;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import testdata.URL;
 
 import static org.testng.Assert.*;
-import static utils.SeleniumUtils.*;
 
 public class NavigationTests extends BaseTest{
 
+    @BeforeTest
+    public void beforeTest() {
+        super.beforeTest();
+
+        driver.get(URL.HOME_PAGE);
+    }
+
     @Test (description = "Tests that a user can navigate from the Home page to the Registration page")
-    public void navigateToRegistrationPage() throws InterruptedException {
-        navigateTo(URL.HOME_PAGE);
+    public void navigateToRegistrationPage() {
         header.clickAccountButton();
         header.clickRegisterButton();
 
@@ -23,7 +29,6 @@ public class NavigationTests extends BaseTest{
 
     @Test (description = "Tests that a user can navigate from the Home page to the Login page")
     public void navigateToLoginPage() {
-        navigateTo(URL.HOME_PAGE);
         header.clickAccountButton();
         header.clickLoginButton();
 
@@ -33,7 +38,6 @@ public class NavigationTests extends BaseTest{
 
     @Test (description = "Tests that a user can navigate from the Home page to the Men Shirts page")
     public void navigateToMenShirts() {
-        navigateTo(URL.HOME_PAGE);
         menu.expandMenDropMenu();
         menu.clickMenShirtsDropOption();
 
