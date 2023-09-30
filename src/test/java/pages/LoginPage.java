@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import testdata.User;
+import utils.SeleniumUtils;
 
 import static utils.SeleniumUtils.*;
 import static utils.WaitUtils.*;
@@ -35,7 +36,7 @@ public class LoginPage {
 
     //____________________PUBLIC METHODS____________________//
     public String getCurrentUrl() {
-        return getCurrentUrl();
+        return SeleniumUtils.getCurrentUrl();
     }
     public void clickCreateAccountButton() {
         click(createAccountButton);

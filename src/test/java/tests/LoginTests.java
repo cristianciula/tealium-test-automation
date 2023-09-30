@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import testdata.URL;
 
 import static org.testng.Assert.*;
-import static utils.SeleniumUtils.*;
 
 public class LoginTests extends BaseTest {
 
@@ -20,7 +19,7 @@ public class LoginTests extends BaseTest {
 
     @Test (description = "Tests that a user leaving the credential fields empty cannot login", priority = 1)
     public void emptyCredentialsLogin() {
-        loginPage.cl
+        loginPage.clearCredentialsInputFields();
         loginPage.clickLoginButton();
     }
     @Test (description = "Tests that a registered used can successfully login")
@@ -44,8 +43,8 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(invalidUser.getPassword());
         loginPage.clickLoginButton();
 
-        assertTrue(loginPage.invalidCredentialsErrorIsDisplayed());
-        assertEquals(loginPage.getInvalidCredentialsError(), LoginConst.INVALID_CREDENTIALS_ERROR);
+        assertTrue(loginPage.credentialsInvalidErrorMessageIsDisplayed());
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR);
     }
     @Test (description = "Tests that a registered user cannot login without entering the password", priority = 3)
     public void emptyPasswordLogin() {
@@ -54,7 +53,7 @@ public class LoginTests extends BaseTest {
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.passwordInputErrorIsDisplayed());
-        assertEquals(loginPage.getPasswordInputError(), LoginConst.REQUIRED_FIELD_ERROR);
+        assertEquals(loginPage.getPasswordRequiredErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR);
     }
     @Test (description = "Tests that a non registered user cannot successfully login", priority = 4)
     public void nonRegisteredEmailLogin() {
@@ -62,7 +61,7 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(validUser.getPassword());
         loginPage.clickLoginButton();
         
-        assertEquals(loginPage.getInvalidCredentialsError(), LoginConst.INVALID_CREDENTIALS_ERROR);
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR);
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE);
         assertTrue(loginPage.loginButtonIsDisplayed());
     }
