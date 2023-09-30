@@ -10,7 +10,12 @@ import static utils.SeleniumUtils.*;
 
 public class NavigationTests extends BaseTest{
 
-    @Test(description = "Tests that a user can navigate to Login page")
+    @Test (description = "Tests that a user can navigate from the Home page to the Registration page")
+    public void navigateToRegistrationPage() {
+
+    }
+
+    @Test (description = "Tests that a user can navigate from the Home page to the Login page")
     public void navigateToLoginPage() {
         navigateTo(URL.HOME_PAGE);
         header.clickAccountButton();
@@ -20,7 +25,7 @@ public class NavigationTests extends BaseTest{
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE);
     }
 
-    @Test(description = "Hover over Men drop down menu")
+    @Test (description = "Tests that a user can navigate from the Home page to the Men Shirts page")
     public void navigateToMenShirts() {
         navigateTo(URL.HOME_PAGE);
         menu.expandMenDropMenu();
