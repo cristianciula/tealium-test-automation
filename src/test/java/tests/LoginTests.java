@@ -2,6 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import testdata.URL;
 
@@ -10,9 +11,15 @@ import static utils.SeleniumUtils.*;
 
 public class LoginTests extends BaseTest {
 
+    @BeforeTest
+    public void beforeTest() {
+        super.beforeTest();
+
+        driver.get(URL.LOGIN_PAGE);
+    }
+
     @Test (description = "Tests that a registered used can successfully login", priority = 1)
     public void validCredentialsLogin() {
-        navigateTo(URL.LOGIN_PAGE);
         loginPage.enterEmail(validUser.getEmail());
         loginPage.enterPassword(validUser.getPassword());
         loginPage.clickLoginButton();
@@ -28,7 +35,6 @@ public class LoginTests extends BaseTest {
     }
     @Test (description = "Tests that a registered user cannot login using a wrong password", priority = 2)
     public void wrongPasswordLogin() {
-        navigateTo(URL.LOGIN_PAGE);
         loginPage.enterEmail(validUser.getEmail());
         loginPage.enterPassword(invalidUser.getPassword());
         loginPage.clickLoginButton();
@@ -38,7 +44,6 @@ public class LoginTests extends BaseTest {
     }
     @Test (description = "Tests that a registered user cannot login without entering the password", priority = 3)
     public void emptyPasswordLogin() {
-        navigateTo(URL.LOGIN_PAGE);
         loginPage.enterEmail(validUser.getEmail());
         loginPage.clearPasswordInput();
         loginPage.clickLoginButton();
@@ -48,7 +53,6 @@ public class LoginTests extends BaseTest {
     }
     @Test (description = "Tests that a non registered user cannot successfully login", priority = 4)
     public void nonRegisteredEmailLogin() {
-        navigateTo(URL.LOGIN_PAGE);
         loginPage.enterEmail(invalidUser.getEmail());
         loginPage.enterPassword(validUser.getPassword());
         loginPage.clickLoginButton();
