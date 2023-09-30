@@ -33,7 +33,7 @@ public final class SeleniumUtils{
         driver.findElement(by).clear();
         driver.findElement(by).sendKeys(Keys.BACK_SPACE);
     }
-    public static String getUrl() {
+    public static String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
     public static String getText(By by) {

@@ -18,7 +18,12 @@ public class LoginTests extends BaseTest {
         driver.get(URL.LOGIN_PAGE);
     }
 
-    @Test (description = "Tests that a registered used can successfully login", priority = 1)
+    @Test (description = "Tests that a user leaving the credential fields empty cannot login", priority = 1)
+    public void emptyCredentialsLogin() {
+        loginPage.cl
+        loginPage.clickLoginButton();
+    }
+    @Test (description = "Tests that a registered used can successfully login")
     public void validCredentialsLogin() {
         loginPage.enterEmail(validUser.getEmail());
         loginPage.enterPassword(validUser.getPassword());
@@ -34,7 +39,7 @@ public class LoginTests extends BaseTest {
         header.clickLogoutButton();
     }
     @Test (description = "Tests that a registered user cannot login using a wrong password", priority = 2)
-    public void wrongPasswordLogin() {
+    public void invalidPasswordLogin() {
         loginPage.enterEmail(validUser.getEmail());
         loginPage.enterPassword(invalidUser.getPassword());
         loginPage.clickLoginButton();
@@ -45,7 +50,7 @@ public class LoginTests extends BaseTest {
     @Test (description = "Tests that a registered user cannot login without entering the password", priority = 3)
     public void emptyPasswordLogin() {
         loginPage.enterEmail(validUser.getEmail());
-        loginPage.clearPasswordInput();
+        loginPage.clearPasswordInputField();
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.passwordInputErrorIsDisplayed());
