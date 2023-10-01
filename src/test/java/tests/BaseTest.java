@@ -3,7 +3,6 @@ package tests;
 import components.Header;
 import components.Menu;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -63,15 +62,10 @@ public class BaseTest {
 
     @AfterTest
     public void afterTest() {
-        header.clickAccountButton();
 
-        try {
-            header.clickLogoutButton();
-        } catch (NoSuchElementException ignored) {
+        header.logoutUser();
 
-        } finally {
-            driver.manage().deleteAllCookies();
-            driver.quit();
-        }
+        driver.manage().deleteAllCookies();
+        driver.quit();
     }
 }

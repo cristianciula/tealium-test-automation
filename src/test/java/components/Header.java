@@ -1,6 +1,7 @@
 package components;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import testdata.URL;
 
@@ -62,5 +63,12 @@ public class Header {
         click(registerButton);
         waitUrlToBe("https://ecommerce.tealiumdemo.com/customer/account/create/", 2);
     }
-
+    public void logoutUser() {
+        try {
+            clickAccountButton();
+            clickLogoutButton();
+        }
+        catch (NoSuchElementException ignored) {
+        }
+    }
 }
