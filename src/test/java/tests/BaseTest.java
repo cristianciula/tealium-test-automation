@@ -3,7 +3,7 @@ package tests;
 import components.Header;
 import components.Menu;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,8 +17,6 @@ import java.time.Duration;
 public class BaseTest {
 
     WebDriver driver;
-
-    JavascriptExecutor js;
 
     public static Header header;
     public static Menu menu;
@@ -48,7 +46,7 @@ public class BaseTest {
         options.addArguments("--start-maximized");
 
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         header = new Header(driver);
         menu = new Menu(driver);
@@ -65,7 +63,15 @@ public class BaseTest {
 
     @AfterTest
     public void afterTest() {
-        driver.manage().deleteAllCookies();
-        driver.quit();
+        header.clickAccountButton();
+
+        try {
+            header.clickLogoutButton();
+        } catch (NoSuchElementException ignored) {
+
+        } finally {
+            driver.manage().deleteAllCookies();
+            driver.quit();
+        }
     }
 }

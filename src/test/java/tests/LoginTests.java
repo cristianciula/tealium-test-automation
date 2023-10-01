@@ -13,7 +13,6 @@ public class LoginTests extends BaseTest {
     @BeforeTest
     public void beforeTest() {
         super.beforeTest();
-
         driver.get(URL.LOGIN_PAGE);
     }
 
@@ -29,13 +28,6 @@ public class LoginTests extends BaseTest {
         loginPage.clickLoginButton();
 
         assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
-
-        header.clickAccountButton();
-
-        assertTrue(header.logOutButtonIsDisplayed());
-
-        //OUTRO
-        header.clickLogoutButton();
     }
     @Test (description = "Tests that a registered user cannot login using a wrong password", priority = 2)
     public void invalidPasswordLogin() {

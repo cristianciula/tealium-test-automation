@@ -56,7 +56,7 @@ public class Header {
     }
     public void clickLogoutButton() {
         click(logOutButton);
-        waitUrlToBe("https://ecommerce.tealiumdemo.com/", 10);
+        waitUrlToBe("https://ecommerce.tealiumdemo.com/", 7);
     }
     public void clickRegisterButton() {
         click(registerButton);
