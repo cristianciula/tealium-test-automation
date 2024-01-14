@@ -1,12 +1,12 @@
 package tests;
 
 import constants.AccountDashboardConst;
-import constants.RegistrationConst;
+import constants.SignUpConst;
 import org.testng.annotations.Test;
 import testdata.URL;
 
 import static org.testng.Assert.*;
-import static utils.TextUtils.*;
+import static utils.StringsUtils.*;
 
 public class SignUpTests extends BaseTest {
 
@@ -33,7 +33,7 @@ public class SignUpTests extends BaseTest {
 
         assertTrue(signUpPage.emptyFieldErrorsAreDisplayed());
         for (String inputError : signUpPage.getEmptyInputErrors()) {
-            assertEquals(inputError, RegistrationConst.MANDATORY_FIELD_ERROR);
+            assertEquals(inputError, SignUpConst.MANDATORY_FIELD_ERROR);
         }
 
         header.clickAccountButton();

@@ -9,8 +9,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import pages.*;
 import testdata.User;
-import utils.SeleniumUtils;
-import utils.WaitUtils;
+import wrapers.SeleniumUtils;
+import utils.WaitsUtils;
 import java.time.Duration;
 
 public class BaseTest {
@@ -56,7 +56,7 @@ public class BaseTest {
         menShirtsPage = new MenShirtsPage(driver);
 
         SeleniumUtils.setDriver(driver);
-        WaitUtils.setDriver(driver);
+        WaitsUtils.setDriver(driver);
     }
 
     @AfterTest

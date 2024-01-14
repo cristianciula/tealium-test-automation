@@ -2,7 +2,7 @@ package tests;
 
 import constants.LoginConst;
 import constants.MenShirtsConst;
-import constants.RegistrationConst;
+import constants.SignUpConst;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import testdata.URL;
@@ -23,7 +23,7 @@ public class NavigationTests extends BaseTest{
         header.clickAccountButton();
         header.clickRegisterButton();
 
-        assertEquals(signUpPage.getPageTitle(), RegistrationConst.CREATE_ACCOUNT_PAGE_TITLE);
+        assertEquals(signUpPage.getPageTitle(), SignUpConst.CREATE_ACCOUNT_PAGE_TITLE);
         assertTrue(signUpPage.registerButtonIsDisplayed());
     }
 

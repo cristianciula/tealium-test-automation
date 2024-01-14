@@ -7,11 +7,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public final class WaitUtils {
+public final class WaitsUtils {
 
     private static WebDriver driver;
     public static void setDriver(WebDriver driver) {
-        WaitUtils.driver = driver;
+        WaitsUtils.driver = driver;
     }
 
     public static void waitElementToBeVisible(By by, int seconds) {

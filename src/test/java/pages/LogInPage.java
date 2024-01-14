@@ -3,10 +3,10 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import testdata.User;
-import utils.SeleniumUtils;
+import wrapers.SeleniumUtils;
 
-import static utils.SeleniumUtils.*;
-import static utils.WaitUtils.*;
+import static wrapers.SeleniumUtils.*;
+import static utils.WaitsUtils.*;
 
 public class LogInPage {
 

@@ -9,7 +9,7 @@ import testdata.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import static utils.SeleniumUtils.*;
+import static wrapers.SeleniumUtils.*;
 
 public class SignUpPage {
 

@@ -5,8 +5,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import testdata.URL;
 
-import static utils.SeleniumUtils.*;
-import static utils.WaitUtils.*;
+import static wrapers.SeleniumUtils.*;
+import static utils.WaitsUtils.*;
 
 public class Header {
 
