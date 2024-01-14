@@ -8,7 +8,7 @@ import testdata.URL;
 import static org.testng.Assert.*;
 import static utils.TextUtils.*;
 
-public class RegistrationTests extends BaseTest {
+public class SignUpTests extends BaseTest {
 
     @Test (description = "Tests that a user can create a new account")
     public void createAccount() {

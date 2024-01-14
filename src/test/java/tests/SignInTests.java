@@ -8,7 +8,7 @@ import testdata.URL;
 
 import static org.testng.Assert.*;
 
-public class LoginTests extends BaseTest {
+public class SignInTests extends BaseTest {
 
     @BeforeTest
     public void beforeTest() {
@@ -16,12 +16,12 @@ public class LoginTests extends BaseTest {
         driver.get(URL.LOGIN_PAGE);
     }
 
-    @Test (description = "Tests that a user leaving the credential fields empty cannot login", priority = 1)
+    @Test (description = "Tests that a user leaving the credential fields empty cannot login")
     public void emptyCredentialsLogin() {
         loginPage.clearCredentialsInputFields();
         loginPage.clickLoginButton();
     }
-    @Test (description = "Tests that a registered used can successfully login")
+    @Test (description = "Tests that a registered used can successfully login", priority = 1)
     public void validCredentialsLogin() {
         loginPage.enterEmail(validUser.getEmail());
         loginPage.enterPassword(validUser.getPassword());
@@ -29,7 +29,7 @@ public class LoginTests extends BaseTest {
 
         assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
     }
-    @Test (description = "Tests that a registered user cannot login using a wrong password", priority = 2)
+    @Test (description = "Tests that a registered user cannot login using a wrong password", priority = 3)
     public void invalidPasswordLogin() {
         loginPage.enterEmail(validUser.getEmail());
         loginPage.enterPassword(invalidUser.getPassword());
@@ -38,7 +38,7 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.credentialsInvalidErrorMessageIsDisplayed());
         assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR);
     }
-    @Test (description = "Tests that a registered user cannot login without entering the password", priority = 3)
+    @Test (description = "Tests that a registered user cannot login without entering the password", priority = 4)
     public void emptyPasswordLogin() {
         loginPage.enterEmail(validUser.getEmail());
         loginPage.clearPasswordInputField();
@@ -47,7 +47,7 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.passwordInputErrorIsDisplayed());
         assertEquals(loginPage.getPasswordRequiredErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR);
     }
-    @Test (description = "Tests that a non registered user cannot successfully login", priority = 4)
+    @Test (description = "Tests that a non registered user cannot successfully login", priority = 5)
     public void nonRegisteredEmailLogin() {
         loginPage.enterEmail(invalidUser.getEmail());
         loginPage.enterPassword(validUser.getPassword());
