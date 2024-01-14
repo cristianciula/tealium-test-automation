@@ -8,11 +8,11 @@ import utils.SeleniumUtils;
 import static utils.SeleniumUtils.*;
 import static utils.WaitUtils.*;
 
-public class LoginPage {
+public class LogInPage {
 
     WebDriver driver;
 
-    public LoginPage(WebDriver driver) {
+    public LogInPage(WebDriver driver) {
         this.driver = driver;
     }
 

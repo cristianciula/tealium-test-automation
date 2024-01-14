@@ -11,11 +11,11 @@ import java.util.List;
 
 import static utils.SeleniumUtils.*;
 
-public class RegistrationPage {
+public class SignUpPage {
 
     WebDriver driver;
 
-    public RegistrationPage(WebDriver driver) {
+    public SignUpPage(WebDriver driver) {
         this.driver = driver;
     }
 

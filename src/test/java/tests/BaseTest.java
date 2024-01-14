@@ -20,8 +20,8 @@ public class BaseTest {
     public static Header header;
     public static Menu menu;
     public static HomePage homePage;
-    public static LoginPage loginPage;
-    public static RegistrationPage registrationPage;
+    public static LogInPage logInPage;
+    public static SignUpPage signUpPage;
     public static AccountDashboardPage accountDashboardPage;
     public static MenProductsPage menProductsPage;
     public static MenShirtsPage menShirtsPage;
@@ -49,8 +49,8 @@ public class BaseTest {
         header = new Header(driver);
         menu = new Menu(driver);
         homePage = new HomePage(driver);
-        loginPage = new LoginPage(driver);
-        registrationPage = new RegistrationPage(driver);
+        logInPage = new LogInPage(driver);
+        signUpPage = new SignUpPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
         menProductsPage = new MenProductsPage(driver);
         menShirtsPage = new MenShirtsPage(driver);
