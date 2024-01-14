@@ -38,8 +38,8 @@ public class NavigationTests extends BaseTest{
 
     @Test (description = "Tests that a user can navigate from the Home page to the Men Shirts page")
     public void navigateToMenShirts() {
-        menu.expandMenDropMenu();
-        menu.clickMenShirtsDropOption();
+        menuBar.expandMenDropMenu();
+        menuBar.clickMenShirtsDropOption();
 
         assertEquals(MenShirtsConst.SHIRTS_PAGE_TITLE, menShirtsPage.getShirtsPageTitle());
     }

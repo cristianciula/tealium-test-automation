@@ -4,13 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static utils.SeleniumUtils.*;
-import static utils.WaitUtils.*;
 
-public class Menu {
+public class MenuBar {
 
     WebDriver driver;
 
-    public Menu(WebDriver driver) {
+    public MenuBar(WebDriver driver) {
         this.driver = driver;
     }
 

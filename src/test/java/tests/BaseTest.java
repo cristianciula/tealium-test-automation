@@ -1,7 +1,7 @@
 package tests;
 
 import components.Header;
-import components.Menu;
+import components.MenuBar;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,7 +18,7 @@ public class BaseTest {
     WebDriver driver;
 
     public static Header header;
-    public static Menu menu;
+    public static MenuBar menuBar;
     public static HomePage homePage;
     public static LogInPage logInPage;
     public static SignUpPage signUpPage;
@@ -47,7 +47,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         header = new Header(driver);
-        menu = new Menu(driver);
+        menuBar = new MenuBar(driver);
         homePage = new HomePage(driver);
         logInPage = new LogInPage(driver);
         signUpPage = new SignUpPage(driver);
