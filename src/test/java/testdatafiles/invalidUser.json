@@ -1,4 +1,5 @@
 {
+  //TODO - Find a solution for organising and differentiating between invalid email syntaxes and emails not associated to an account
   "email": ["", " ", "userexample.com", "user.example.com", "user@examplecom", "user@example.", "@example.com", "user@.com", "u@e.c", "u@_.com", "_@_._"],
   "password": "wrongpass",
   "firstName": "",
