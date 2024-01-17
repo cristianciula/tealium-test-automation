@@ -23,8 +23,6 @@ public class BaseTest {
     public static LogInPage logInPage;
     public static SignUpPage signUpPage;
     public static AccountDashboardPage accountDashboardPage;
-    public static MenProductsPage menProductsPage;
-    public static MenShirtsPage menShirtsPage;
     public static User validUser = new User("validUser");
     public static User invalidUser = new User("invalidUser");
 
@@ -52,8 +50,6 @@ public class BaseTest {
         logInPage = new LogInPage(driver);
         signUpPage = new SignUpPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
-        menProductsPage = new MenProductsPage(driver);
-        menShirtsPage = new MenShirtsPage(driver);
 
         SeleniumWrapper.setDriver(driver);
         WaitsWrapper.setDriver(driver);

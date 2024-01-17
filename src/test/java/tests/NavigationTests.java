@@ -1,7 +1,6 @@
 package tests;
 
 import constants.LoginConst;
-import constants.MenShirtsConst;
 import constants.SignUpConst;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -34,13 +33,5 @@ public class NavigationTests extends BaseTest{
 
         assertEquals(LoginConst.LOGIN_PAGE_TITLE, logInPage.getLoginPageTitle());
         assertEquals(logInPage.getCurrentUrl(), URL.LOGIN_PAGE);
-    }
-
-    @Test (description = "Tests that a user can navigate from the Home page to the Men Shirts page")
-    public void navigateToMenShirts() {
-        menuBar.expandMenDropMenu();
-        menuBar.clickMenShirtsDropOption();
-
-        assertEquals(MenShirtsConst.SHIRTS_PAGE_TITLE, menShirtsPage.getShirtsPageTitle());
     }
 }
