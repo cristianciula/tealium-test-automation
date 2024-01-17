@@ -1,6 +1,6 @@
 package testdata;
 
-import utils.JSONReader;
+import helpers.JSONReaderHelper;
 
 public final class User {
 
@@ -20,20 +20,20 @@ public final class User {
     private String country;
 
     public User(String fileName) {
-        this.email = JSONReader.extractValue(fileName, "email");
-        this.password = JSONReader.extractValue(fileName, "password");
-        this.firstName = JSONReader.extractValue(fileName, "firstName");
-        this.middleName = JSONReader.extractValue(fileName, "middleName");
-        this.lastName = JSONReader.extractValue(fileName, "lastName");
-        this.company = JSONReader.extractValue(fileName, "company");
-        this.telephone = JSONReader.extractValue(fileName, "telephone");
-        this.fax = JSONReader.extractValue(fileName, "fax");
-        this.street1 = JSONReader.extractValue(fileName, "street1");
-        this.street2 = JSONReader.extractValue(fileName, "street2");
-        this.city = JSONReader.extractValue(fileName, "city");
-        this.state = JSONReader.extractValue(fileName, "state");
-        this.zip = JSONReader.extractValue(fileName, "zip");
-        this.country = JSONReader.extractValue(fileName, "country");
+        this.email = JSONReaderHelper.extractValue(fileName, "email");
+        this.password = JSONReaderHelper.extractValue(fileName, "password");
+        this.firstName = JSONReaderHelper.extractValue(fileName, "firstName");
+        this.middleName = JSONReaderHelper.extractValue(fileName, "middleName");
+        this.lastName = JSONReaderHelper.extractValue(fileName, "lastName");
+        this.company = JSONReaderHelper.extractValue(fileName, "company");
+        this.telephone = JSONReaderHelper.extractValue(fileName, "telephone");
+        this.fax = JSONReaderHelper.extractValue(fileName, "fax");
+        this.street1 = JSONReaderHelper.extractValue(fileName, "street1");
+        this.street2 = JSONReaderHelper.extractValue(fileName, "street2");
+        this.city = JSONReaderHelper.extractValue(fileName, "city");
+        this.state = JSONReaderHelper.extractValue(fileName, "state");
+        this.zip = JSONReaderHelper.extractValue(fileName, "zip");
+        this.country = JSONReaderHelper.extractValue(fileName, "country");
     }
 
     //GETTERS

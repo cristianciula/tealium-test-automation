@@ -1,4 +1,4 @@
-package utils;
+package wrappers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,11 +7,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public final class WaitsUtils {
+public final class WaitsWrapper {
 
     private static WebDriver driver;
     public static void setDriver(WebDriver driver) {
-        WaitsUtils.driver = driver;
+        WaitsWrapper.driver = driver;
     }
 
     public static void waitElementToBeVisible(By by, int seconds) {

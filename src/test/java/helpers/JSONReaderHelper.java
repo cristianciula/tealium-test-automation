@@ -1,4 +1,4 @@
-package utils;
+package helpers;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -8,7 +8,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class JSONReader {
+public class JSONReaderHelper {
 
     public static String extractValue(String name, String key) {
         JSONParser parser = new JSONParser();

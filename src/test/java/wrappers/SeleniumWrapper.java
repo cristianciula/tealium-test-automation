@@ -1,13 +1,13 @@
-package wrapers;
+package wrappers;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
-public final class SeleniumUtils{
+public final class SeleniumWrapper {
 
     private static WebDriver driver;
     public static void setDriver(WebDriver driver) {
-        SeleniumUtils.driver = driver;
+        SeleniumWrapper.driver = driver;
     }
 
     //____________________PRIVATE METHODS____________________//

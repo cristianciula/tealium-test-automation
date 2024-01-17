@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static wrapers.SeleniumUtils.*;
+import static wrappers.SeleniumWrapper.*;
 
 public class MenShirtsPage {
 
