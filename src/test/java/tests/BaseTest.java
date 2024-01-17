@@ -40,7 +40,7 @@ public class BaseTest {
     public void beforeTest() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("no-sandbox");
+        //options.addArguments("no-sandbox");
         options.addArguments("--start-maximized");
 
         driver = new ChromeDriver(options);
@@ -61,10 +61,8 @@ public class BaseTest {
 
     @AfterTest
     public void afterTest() {
-
-        header.logoutUser();
-
         driver.manage().deleteAllCookies();
+        driver.close();
         driver.quit();
     }
 }
