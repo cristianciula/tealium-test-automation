@@ -51,14 +51,16 @@ public class SignUpTests extends BaseTest {
         signUpPage.fillCreateAccountForm(validUser);
         signUpPage.clickRegister();
 
-        //Assert that validation error for user already exists is displayed
-        //Assert that a new account has not been created and that user has not been logged in
+        //TODO - Add Assertions
+        // Assert that validation error for user already exists is displayed
+        // Assert that a new account has not been created and that user has not been logged in
 
     }
 
+
     @Test (description = "Tests that user cannot create an account using a password that is less than 7 characters in length")
     public void invalidPasswordLength() {
-
+        //TODO - Add steps and assertions
     }
 
     @Test (description = "Tests that invalid email syntaxes are not accepted")
