@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import testdata.URL;
+import wrappers.WaitsWrapper;
 
 import static wrappers.SeleniumWrapper.*;
 import static wrappers.WaitsWrapper.*;
@@ -11,9 +12,11 @@ import static wrappers.WaitsWrapper.*;
 public class Header {
 
     WebDriver driver;
+    WaitsWrapper waitsWrapper;
 
     public Header(WebDriver driver) {
         this.driver = driver;
+        this.waitsWrapper = new WaitsWrapper(driver);
     }
 
     //____________________LOCATORS____________________//
@@ -45,11 +48,11 @@ public class Header {
         click(loginButton);
     }
     public boolean logOutButtonIsDisplayed() {
-        waitElementToBeVisible(logOutButton, 2);
+        waitsWrapper.waitElementToBeVisible(logOutButton, 2);
         return isElementDisplayed(logOutButton);
     }
     public boolean loginButtonIsDisplayed() {
-        waitElementToBeVisible(loginButton, 2);
+        waitsWrapper.waitElementToBeVisible(loginButton, 2);
         return isElementDisplayed(loginButton);
     }
     public void clickAccountButton() {
@@ -57,11 +60,11 @@ public class Header {
     }
     public void clickLogoutButton() {
         click(logOutButton);
-        waitUrlToBe("https://ecommerce.tealiumdemo.com/", 8);
+        waitsWrapper.waitUrlToBe("https://ecommerce.tealiumdemo.com/", 7);
     }
     public void clickRegisterButton() {
         click(registerButton);
-        waitUrlToBe("https://ecommerce.tealiumdemo.com/customer/account/create/", 2);
+        waitsWrapper.waitUrlToBe("https://ecommerce.tealiumdemo.com/customer/account/create/", 2);
     }
     public void logoutUser() {
         try {

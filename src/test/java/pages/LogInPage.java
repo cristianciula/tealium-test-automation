@@ -4,16 +4,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import testdata.User;
 import wrappers.SeleniumWrapper;
+import wrappers.WaitsWrapper;
 
 import static wrappers.SeleniumWrapper.*;
-import static wrappers.WaitsWrapper.*;
 
 public class LogInPage {
 
     WebDriver driver;
+    WaitsWrapper waitsWrapper;
 
     public LogInPage(WebDriver driver) {
         this.driver = driver;
+        this.waitsWrapper = new WaitsWrapper(driver);
     }
 
     //____________________LOCATORS____________________//
@@ -49,7 +51,7 @@ public class LogInPage {
     }
     public void clickLoginButton() {
         scrollToElement(loginButton);
-        waitElementToBeClickable(loginButton, 1);
+        waitsWrapper.waitElementToBeClickable(loginButton, 1);
         click(loginButton);
     }
     public void clearPasswordInputField() {
@@ -74,14 +76,14 @@ public class LogInPage {
         return getText(emailRequiredErrorMessage);
     }
     public boolean emailRequiredErrorMessageIsDisplayed() {
-        waitElementToBeVisible(emailRequiredErrorMessage, 1);
+        waitsWrapper.waitElementToBeVisible(emailRequiredErrorMessage, 1);
         return isElementDisplayed(emailRequiredErrorMessage);
     }
     public String getPasswordRequiredErrorMessage() {
         return getText(passwordRequiredErrorMessage);
     }
     public boolean passwordInputErrorIsDisplayed() {
-        waitElementToBeVisible(passwordRequiredErrorMessage, 1);
+        waitsWrapper.waitElementToBeVisible(passwordRequiredErrorMessage, 1);
         return isElementDisplayed(passwordRequiredErrorMessage);
     }
     public String getCredentialsInvalidErrorMessage() {

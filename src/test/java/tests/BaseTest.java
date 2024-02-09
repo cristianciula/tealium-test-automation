@@ -52,7 +52,6 @@ public class BaseTest {
         accountDashboardPage = new AccountDashboardPage(driver);
 
         SeleniumWrapper.setDriver(driver);
-        WaitsWrapper.setDriver(driver);
     }
 
     @AfterTest
