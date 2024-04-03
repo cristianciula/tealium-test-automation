@@ -1,7 +1,5 @@
 {
   "email": [
-    "",
-    " ",
     "userexample.com",
     "user.example.com",
     "user@examplecom",
@@ -10,7 +8,8 @@
     "user@.com",
     "u@e.c",
     "u@_.com",
-    "_@_._"
+    "_@_._",
+    "unregisteredEmail@example.com"
   ],
   "password": "wrongpass",
   "firstName": "",

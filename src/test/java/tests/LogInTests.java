@@ -70,7 +70,7 @@ public class LogInTests extends BaseTest {
     @Test (description = "Tests that a user entering an invalid Email and a valid Password cannot login.", priority = 5)
     public void invalidEmailLogin() {
         logInPage.clearCredentialsInputFields();
-        logInPage.enterEmail("unregisteredEmail@test.com");
+        logInPage.enterEmail("invalidEmail@test.com");
         logInPage.enterPassword(validUser.getPassword());
         logInPage.clickLoginButton();
 

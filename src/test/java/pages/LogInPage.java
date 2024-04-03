@@ -57,7 +57,7 @@ public class LogInPage {
     public void clearPasswordInputField() {
         clear(passwordInputField);
     }
-    public void clearEmailInputField() {
+    public void clearEmailField() {
         clear(emailInputField);
     }
     public void loginUser(User user) {
@@ -66,7 +66,7 @@ public class LogInPage {
         clickLoginButton();
     }
     public void clearCredentialsInputFields() {
-        clearEmailInputField();
+        clearEmailField();
         clearPasswordInputField();
     }
     public boolean loginButtonIsDisplayed() {
