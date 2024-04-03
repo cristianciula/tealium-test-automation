@@ -66,6 +66,7 @@ public class SignUpTests extends BaseTest {
     @Test (description = "Tests that invalid email syntaxes are not accepted")
     public void invalidEmailSyntax() {
         driver.get(URL.CREATE_ACCOUNT_PAGE);
+
         signUpPage.fillCreateAccountForm(validUser);
         signUpPage.clearEmailField();
 
@@ -77,5 +78,7 @@ public class SignUpTests extends BaseTest {
             assertEquals(driver.getCurrentUrl(), URL.CREATE_ACCOUNT_PAGE);
             signUpPage.clearEmailField();
         }
+
+        ass
     }
 }
