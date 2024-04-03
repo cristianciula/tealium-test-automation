@@ -35,6 +35,7 @@ public class LogInTests extends BaseTest {
     @Test (description = "Tests that a registered user cannot login without entering the password", priority = 2)
     public void emptyPasswordLogin() {
         driver.get(URL.LOGIN_PAGE);
+
         logInPage.clearCredentialsInputFields();
         logInPage.enterEmail(validUser.getEmail());
         logInPage.clearPasswordInputField();
