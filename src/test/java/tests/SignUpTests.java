@@ -78,7 +78,5 @@ public class SignUpTests extends BaseTest {
             assertEquals(driver.getCurrentUrl(), URL.CREATE_ACCOUNT_PAGE);
             signUpPage.clearEmailField();
         }
-
-        ass
     }
 }
