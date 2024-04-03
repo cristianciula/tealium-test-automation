@@ -71,7 +71,8 @@ public class Header {
             clickAccountButton();
             clickLogoutButton();
         }
-        catch (NoSuchElementException ignored) {
+        catch (NoSuchElementException e) {
+            System.out.println("User is not logged in.");
         }
     }
 }

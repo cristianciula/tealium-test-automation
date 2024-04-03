@@ -10,7 +10,6 @@ import org.testng.annotations.*;
 import pages.*;
 import testdata.User;
 import wrappers.SeleniumWrapper;
-import wrappers.WaitsWrapper;
 import java.time.Duration;
 
 public class BaseTest {

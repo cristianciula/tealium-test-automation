@@ -16,18 +16,25 @@ public class LogInTests extends BaseTest {
         driver.get(URL.LOGIN_PAGE);
     }
 
-    @Test (description = "Tests that a user leaving the credential fields empty cannot login", priority = 1)
-    public void emptyCredentialsLogin() {
+    //____________________POSITIVE TESTS____________________//
+
+    @Test (description = "Tests that a registered user can successfully login", priority = 1)
+    public void validCredentialsLogin() {
         logInPage.clearCredentialsInputFields();
+        logInPage.enterEmail(validUser.getEmail());
+        logInPage.enterPassword(validUser.getPassword());
         logInPage.clickLoginButton();
 
-        assertTrue(logInPage.emailRequiredErrorMessageIsDisplayed(), "Email required error message is not displayed.");
-        assertTrue(logInPage.passwordRequiredErrorIsDisplayed(), "Password required error message is not displayed.");
-        assertTrue(logInPage.loginButtonIsDisplayed(), "Login button is not displayed.");
+        assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
+
+        header.logoutUser();
     }
+
+    //____________________NEGATIVE TESTS____________________//
 
     @Test (description = "Tests that a registered user cannot login without entering the password", priority = 2)
     public void emptyPasswordLogin() {
+        driver.get(URL.LOGIN_PAGE);
         logInPage.clearCredentialsInputFields();
         logInPage.enterEmail(validUser.getEmail());
         logInPage.clearPasswordInputField();
@@ -59,15 +66,13 @@ public class LogInTests extends BaseTest {
         assertEquals(logInPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR);
     }
 
-    @Test (description = "Tests that a registered user can successfully login", priority = 5)
-    public void validCredentialsLogin() {
+    @Test (description = "Tests that a user leaving the credential fields empty cannot login", priority = 5)
+    public void emptyCredentialsLogin() {
         logInPage.clearCredentialsInputFields();
-        logInPage.enterEmail(validUser.getEmail());
-        logInPage.enterPassword(validUser.getPassword());
         logInPage.clickLoginButton();
 
-        assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
-
-        header.logoutUser();
+        assertTrue(logInPage.emailRequiredErrorMessageIsDisplayed(), "Email required error message is not displayed.");
+        assertTrue(logInPage.passwordRequiredErrorIsDisplayed(), "Password required error message is not displayed.");
+        assertTrue(logInPage.loginButtonIsDisplayed(), "Login button is not displayed.");
     }
 }
