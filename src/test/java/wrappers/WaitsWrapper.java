@@ -10,6 +10,7 @@ import java.time.Duration;
 public class WaitsWrapper {
 
     private final WebDriver driver;
+    
     public WaitsWrapper(WebDriver driver) {
         this.driver = driver;
     }

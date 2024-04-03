@@ -27,9 +27,9 @@ public class LogInPage {
     private By loginButton = By.xpath("//button[@title=\"Login\"]");
     private By forgotPasswordHyperlink = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/forgotpassword/\"]");
     private By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
-    private By emailRequiredErrorMessage = By.id("advice-required-entry-email");
-    private By emailInvalidErrorMessage = By.id("advice-validate-email-email");
-    private By passwordRequiredErrorMessage = By.id("advice-required-entry-pass");
+    private By emailEmptyErrorMessage = By.id("advice-required-entry-email");
+    private By emailSyntaxErrorMessage = By.id("advice-validate-email-email");
+    private By passwordEmptyErrorMessage = By.id("advice-required-entry-pass");
     private By credentialsInvalidErrorMessage = By.xpath("//li[@class=\"error-msg\"]");
 
     //____________________PRIVATE METHODS____________________//
@@ -72,19 +72,19 @@ public class LogInPage {
     public boolean loginButtonIsDisplayed() {
         return isElementDisplayed(loginButton);
     }
-    public String getEmailRequiredErrorMessage() {
-        return getText(emailRequiredErrorMessage);
+    public String getEmailEmptyErrorMessage() {
+        return getText(emailEmptyErrorMessage);
     }
-    public boolean emailRequiredErrorMessageIsDisplayed() {
-        waitsWrapper.waitElementToBeVisible(emailRequiredErrorMessage, 1);
-        return isElementDisplayed(emailRequiredErrorMessage);
+    public boolean emailEmptyErrorMessageIsDisplayed() {
+        waitsWrapper.waitElementToBeVisible(emailEmptyErrorMessage, 1);
+        return isElementDisplayed(emailEmptyErrorMessage);
     }
-    public String getPasswordRequiredErrorMessage() {
-        return getText(passwordRequiredErrorMessage);
+    public String getPasswordEmptyErrorMessage() {
+        return getText(passwordEmptyErrorMessage);
     }
-    public boolean passwordRequiredErrorIsDisplayed() {
-        waitsWrapper.waitElementToBeVisible(passwordRequiredErrorMessage, 1);
-        return isElementDisplayed(passwordRequiredErrorMessage);
+    public boolean passwordEmptyErrorIsDisplayed() {
+        waitsWrapper.waitElementToBeVisible(passwordEmptyErrorMessage, 1);
+        return isElementDisplayed(passwordEmptyErrorMessage);
     }
     public String getCredentialsInvalidErrorMessage() {
         return getText(credentialsInvalidErrorMessage);

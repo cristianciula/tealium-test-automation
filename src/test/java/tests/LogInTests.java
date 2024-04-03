@@ -41,8 +41,8 @@ public class LogInTests extends BaseTest {
         logInPage.clearPasswordInputField();
         logInPage.clickLoginButton();
 
-        assertTrue(logInPage.passwordRequiredErrorIsDisplayed(), "Password input error message is not displayed.");
-        assertEquals(logInPage.getPasswordRequiredErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR);
+        assertTrue(logInPage.passwordEmptyErrorIsDisplayed(), "Password input error message is not displayed.");
+        assertEquals(logInPage.getPasswordEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR);
     }
 
     @Test (description = "Tests that a non registered user cannot successfully login", priority = 3)
@@ -51,7 +51,7 @@ public class LogInTests extends BaseTest {
         logInPage.enterPassword(validUser.getPassword());
         logInPage.clickLoginButton();
 
-        assertEquals(logInPage.getEmailRequiredErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR);
+        assertEquals(logInPage.getEmailEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR);
         assertEquals(logInPage.getCurrentUrl(), URL.LOGIN_PAGE);
         assertTrue(logInPage.loginButtonIsDisplayed());
     }
@@ -72,8 +72,8 @@ public class LogInTests extends BaseTest {
         logInPage.clearCredentialsInputFields();
         logInPage.clickLoginButton();
 
-        assertTrue(logInPage.emailRequiredErrorMessageIsDisplayed(), "Email required error message is not displayed.");
-        assertTrue(logInPage.passwordRequiredErrorIsDisplayed(), "Password required error message is not displayed.");
+        assertTrue(logInPage.emailEmptyErrorMessageIsDisplayed(), "Email required error message is not displayed.");
+        assertTrue(logInPage.passwordEmptyErrorIsDisplayed(), "Password required error message is not displayed.");
         assertTrue(logInPage.loginButtonIsDisplayed(), "Login button is not displayed.");
     }
 }

@@ -10,7 +10,8 @@
     "user@.com",
     "u@e.c",
     "u@_.com",
-    "_@_._"
+    "_@_._",
+    "nonexistinguser@example.com"
   ],
   "password": "wrongpass",
   "firstName": "",
