@@ -5,6 +5,7 @@ import constants.LoginConst;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import testdata.URL;
+import utils.RandomizeUtils;
 
 import static org.testng.Assert.*;
 
@@ -69,7 +70,7 @@ public class LogInTests extends BaseTest {
     @Test (description = "Tests that a user entering an invalid Email and a valid Password cannot login.", priority = 5)
     public void invalidEmailLogin() {
         logInPage.clearCredentialsInputFields();
-        logInPage.enterEmail("nonRegisteredEmail@example.com");
+        logInPage.enterEmail("unregisteredEmail@test.com");
         logInPage.enterPassword(validUser.getPassword());
         logInPage.clickLoginButton();
 
