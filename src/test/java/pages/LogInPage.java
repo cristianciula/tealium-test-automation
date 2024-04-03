@@ -82,7 +82,7 @@ public class LogInPage {
     public String getPasswordRequiredErrorMessage() {
         return getText(passwordRequiredErrorMessage);
     }
-    public boolean passwordInputErrorIsDisplayed() {
+    public boolean passwordRequiredErrorIsDisplayed() {
         waitsWrapper.waitElementToBeVisible(passwordRequiredErrorMessage, 1);
         return isElementDisplayed(passwordRequiredErrorMessage);
     }

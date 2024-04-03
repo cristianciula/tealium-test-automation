@@ -20,6 +20,10 @@ public class LogInTests extends BaseTest {
     public void emptyCredentialsLogin() {
         logInPage.clearCredentialsInputFields();
         logInPage.clickLoginButton();
+
+        assertTrue(logInPage.emailRequiredErrorMessageIsDisplayed(), "Email required error message is not displayed.");
+        assertTrue(logInPage.passwordRequiredErrorIsDisplayed(), "Password required error message is not displayed.");
+        assertTrue(logInPage.loginButtonIsDisplayed(), "Login button is not displayed.");
     }
 
     @Test (description = "Tests that a registered user cannot login without entering the password", priority = 2)
@@ -29,7 +33,7 @@ public class LogInTests extends BaseTest {
         logInPage.clearPasswordInputField();
         logInPage.clickLoginButton();
 
-        assertTrue(logInPage.passwordInputErrorIsDisplayed());
+        assertTrue(logInPage.passwordRequiredErrorIsDisplayed(), "Password input error message is not displayed.");
         assertEquals(logInPage.getPasswordRequiredErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR);
     }
 
