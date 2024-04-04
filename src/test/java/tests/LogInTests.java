@@ -2,6 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import testdata.URL;
@@ -11,9 +12,8 @@ import static org.testng.Assert.*;
 
 public class LogInTests extends BaseTest {
 
-    @BeforeTest
-    public void beforeTest() {
-        super.beforeTest();
+    @BeforeMethod
+    public void beforeMethod() {
         driver.get(URL.LOGIN_PAGE);
     }
 
@@ -46,8 +46,6 @@ public class LogInTests extends BaseTest {
 
     @Test (description = "Tests that a user leaving the Password field empty cannot login.", priority = 3)
     public void emptyPasswordLogin() {
-        driver.get(URL.LOGIN_PAGE);
-
         logInPage.clearCredentialsInputFields();
         logInPage.enterEmail(validUser.getEmail());
         logInPage.clearPasswordInputField();
