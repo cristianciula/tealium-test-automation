@@ -38,7 +38,6 @@ public class NavigationTests extends BaseTest {
         homePage.clickWomenNavBarButton();
 
         assertTrue(womenPage.womenPageBreadcrumbIsDisplayed(), "Women page breadcrumbs is not displayed.");
-        ass
     }
 
 }
