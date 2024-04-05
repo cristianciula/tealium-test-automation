@@ -3,10 +3,8 @@ package tests;
 import constants.AccountDashboardConst;
 import constants.LoginConst;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import testdata.URL;
-import utils.RandomizeUtils;
 
 import static org.testng.Assert.*;
 

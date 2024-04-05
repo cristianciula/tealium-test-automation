@@ -14,11 +14,12 @@ import java.time.Duration;
 
 public class BaseTest {
 
-    WebDriver driver;
+    public WebDriver driver;
 
     public static Header header;
     public static MenuBar menuBar;
     public static HomePage homePage;
+    public static WomenPage womenPage;
     public static LogInPage logInPage;
     public static SignUpPage signUpPage;
     public static AccountDashboardPage accountDashboardPage;
@@ -48,6 +49,7 @@ public class BaseTest {
         homePage = new HomePage(driver);
         logInPage = new LogInPage(driver);
         signUpPage = new SignUpPage(driver);
+        womenPage = new WomenPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
 
         SeleniumWrapper.setDriver(driver);

@@ -2,18 +2,16 @@ package tests;
 
 import constants.LoginConst;
 import constants.SignUpConst;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
 
 import static org.testng.Assert.*;
 
-public class NavigationTests extends BaseTest{
+public class NavigationTests extends BaseTest {
 
-    @BeforeTest
-    public void beforeTest() {
-        super.beforeTest();
-
+    @BeforeMethod
+    public void beforeMethod() {
         driver.get(URL.HOME_PAGE);
     }
 
@@ -34,4 +32,13 @@ public class NavigationTests extends BaseTest{
         assertEquals(LoginConst.LOGIN_PAGE_TITLE, logInPage.getLoginPageTitle());
         assertEquals(logInPage.getCurrentUrl(), URL.LOGIN_PAGE);
     }
+
+    @Test (description = "Tests that a user can navigate from the Home page to the Women page via the Navigation Bar")
+    public void navigateFromHomePageToWomenPage() {
+        homePage.clickWomenNavBarButton();
+
+        assertTrue(womenPage.womenPageBreadcrumbIsDisplayed(), "Women page breadcrumbs is not displayed.");
+        ass
+    }
+
 }
