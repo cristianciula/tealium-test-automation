@@ -2,18 +2,23 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.SignUpConst;
+import dataprovider.dataProviders;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
 
 import static org.testng.Assert.*;
-import static utils.StringsUtils.*;
 
 public class SignUpTests extends BaseTest {
+
+    @BeforeMethod
+    public void beforeMethod() {
+        driver.get(URL.CREATE_ACCOUNT_PAGE);
+    }
 
     @Test (description = "Tests that a user can create a new account")
     public void createAccount() {
 
-        signUpPage.navigateToCreateAccountPage();
         signUpPage.fillCreateAccountForm(validUser);
         signUpPage.clickRegister();
 
@@ -27,7 +32,6 @@ public class SignUpTests extends BaseTest {
     @Test (description = "Tests that user cannot create an account by leaving mandatory fields empty")
     public void emptyMandatoryFields() {
 
-        signUpPage.navigateToCreateAccountPage();
         signUpPage.clearCreateAccountForm();
         signUpPage.clickRegister();
 
@@ -63,20 +67,25 @@ public class SignUpTests extends BaseTest {
         //TODO - Add steps and assertions
     }
 
-    @Test (description = "Tests that invalid email syntaxes are not accepted")
-    public void invalidEmailSyntax() {
-        driver.get(URL.CREATE_ACCOUNT_PAGE);
+    @Test (description = "Tests that invalid email syntaxes are not accepted", dataProvider = "invalidCredentials",
+            dataProviderClass = dataProviders.class)
+    public void invalidEmailSyntax(String email) {
 
         signUpPage.fillCreateAccountForm(validUser);
         signUpPage.clearEmailField();
+        signUpPage.enterEmail(email);
+        signUpPage.clickRegister();
 
-        String[] invalidEmails = stringToArray(invalidUser.getEmail());
+        assertEquals(driver.getCurrentUrl(), URL.CREATE_ACCOUNT_PAGE);
 
-        for (String invalidEmail : invalidEmails) {
-            signUpPage.enterEmail(invalidEmail);
-            signUpPage.clickRegister();
-            assertEquals(driver.getCurrentUrl(), URL.CREATE_ACCOUNT_PAGE);
-            signUpPage.clearEmailField();
-        }
+
+//        String[] invalidEmails = stringToArray(invalidUser.getEmail());
+
+//        for (String invalidEmail : invalidEmails) {
+//            signUpPage.enterEmail(invalidEmail);
+//            signUpPage.clickRegister();
+//            assertEquals(driver.getCurrentUrl(), URL.CREATE_ACCOUNT_PAGE);
+//            signUpPage.clearEmailField();
+//        }
     }
 }

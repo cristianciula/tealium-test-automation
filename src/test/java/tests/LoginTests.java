@@ -2,6 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
+import dataprovider.dataProviders;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
@@ -84,9 +85,13 @@ public class LoginTests extends BaseTest {
         assertEquals(loginPage.getPasswordEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR, "Password required error message is not displayed.");
     }
 
-    @Test (description = "Validation error message is displayed for invalid Email syntax.")
-    public void invalidEmailSyntaxValidationErrorMessage() {
-
+    @Test (description = "Validation error message is displayed for invalid Email syntax.",
+            dataProvider = "invalidEmailSyntaxData", dataProviderClass = dataProviders.class)
+    public void invalidEmailSyntaxValidationErrorMessage(String invalidEmailSyntax) {
+        //loginPage.clearCredentialsInputFields();
+        loginPage.enterEmail(invalidEmailSyntax);
+        //loginPage.enterPassword(validUser.getPassword());
+        loginPage.clickLoginButton();
     }
 
     @Test (description = "Empty Email field validation message is displayed.")
@@ -115,7 +120,4 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.credentialsInvalidErrorMessageIsDisplayed(), "Invalid credentials error message is not displayed");
         assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR, "Invalid credentials error message is wrong.");
     }
-
-
-
 }
