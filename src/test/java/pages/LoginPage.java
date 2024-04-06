@@ -104,4 +104,10 @@ public class LoginPage {
     public boolean credentialsInvalidErrorMessageIsDisplayed() {
         return isElementDisplayed(credentialsInvalidErrorMessage);
     }
+    public boolean emailFieldIsDisplayed() {
+        return isElementDisplayed(emailInputField);
+    }
+    public boolean passwordFieldIsDisplayed() {
+        return isElementDisplayed(passwordInputField);
+    }
 }
