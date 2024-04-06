@@ -7,7 +7,6 @@ import testdata.URL;
 import wrappers.WaitsWrapper;
 
 import static wrappers.SeleniumWrapper.*;
-import static wrappers.WaitsWrapper.*;
 
 public class Header {
 
