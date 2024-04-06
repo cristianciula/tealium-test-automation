@@ -29,8 +29,8 @@ public class NavigationTests extends BaseTest {
         header.clickAccountButton();
         header.clickLoginButton();
 
-        assertEquals(LoginConst.LOGIN_PAGE_TITLE, logInPage.getPageTitle());
-        assertEquals(logInPage.getCurrentUrl(), URL.LOGIN_PAGE);
+        assertEquals(LoginConst.LOGIN_PAGE_TITLE, loginPage.getPageTitle());
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE);
     }
 
     @Test (description = "Tests that a user can navigate from the Home page to the Women page via the Navigation Bar")
