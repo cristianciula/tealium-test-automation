@@ -7,7 +7,6 @@ import testdata.URL;
 import wrappers.WaitsWrapper;
 
 import static wrappers.SeleniumWrapper.*;
-import static wrappers.WaitsWrapper.*;
 
 public class Header {
 
@@ -28,7 +27,7 @@ public class Header {
     private By registerButton= By.xpath("//div[@id=\"header-account\"]/descendant::a[@title=\"Register\"]");
     private By logOutButton = By.xpath("//a[@title=\"Log Out\"]");
     private By loginButton = By.xpath("//a[@title=\"Log In\"]");
-    private By welcomeMessage = By.xpath("//p[@class=\"welcome-msg\"]");
+    private By welcomeMessage = By.xpath("//p[@class=\"welcome-msg\"][contains(.,\"!\")]");
 
     //____________________PRIVATE METHODS____________________//
 
@@ -74,5 +73,9 @@ public class Header {
         catch (NoSuchElementException e) {
             System.out.println("User is not logged in.");
         }
+    }
+    public String getWelcomeMessage() {
+        waitsWrapper.waitElementToBeVisible(welcomeMessage, 2);
+        return getText(welcomeMessage);
     }
 }
