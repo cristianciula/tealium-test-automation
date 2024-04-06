@@ -19,10 +19,10 @@ public class LogInTests extends BaseTest {
 
     @Test (description = "Tests that a user entering valid credentials can login", priority = 1)
     public void validEmailAndPasswordLogin() {
-        logInPage.clearCredentialsInputFields();
-        logInPage.enterEmail(validUser.getEmail());
-        logInPage.enterPassword(validUser.getPassword());
-        logInPage.clickLoginButton();
+        loginPage.clearCredentialsInputFields();
+        loginPage.enterEmail(validUser.getEmail());
+        loginPage.enterPassword(validUser.getPassword());
+        loginPage.clickLoginButton();
 
         assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
 
@@ -33,55 +33,55 @@ public class LogInTests extends BaseTest {
 
     @Test (description = "Tests that a user leaving the Email field empty cannot login.", priority = 2)
     public void emptyEmailLogin() {
-        logInPage.clearCredentialsInputFields();
-        logInPage.enterPassword(validUser.getPassword());
-        logInPage.clickLoginButton();
+        loginPage.clearCredentialsInputFields();
+        loginPage.enterPassword(validUser.getPassword());
+        loginPage.clickLoginButton();
 
-        assertEquals(logInPage.getEmailEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR, "Email required error message is not displayed.");
-        assertEquals(logInPage.getCurrentUrl(), URL.LOGIN_PAGE, "User was not redirected to the Login page.");
-        assertTrue(logInPage.loginButtonIsDisplayed(), "Login button is not displayed.");
+        assertEquals(loginPage.getEmailEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR, "Email required error message is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User was not redirected to the Login page.");
+        assertTrue(loginPage.loginButtonIsDisplayed(), "Login button is not displayed.");
     }
 
     @Test (description = "Tests that a user leaving the Password field empty cannot login.", priority = 3)
     public void emptyPasswordLogin() {
-        logInPage.clearCredentialsInputFields();
-        logInPage.enterEmail(validUser.getEmail());
-        logInPage.clearPasswordInputField();
-        logInPage.clickLoginButton();
+        loginPage.clearCredentialsInputFields();
+        loginPage.enterEmail(validUser.getEmail());
+        loginPage.clearPasswordInputField();
+        loginPage.clickLoginButton();
 
-        assertTrue(logInPage.passwordEmptyErrorIsDisplayed(), "Password input error message is not displayed.");
-        assertEquals(logInPage.getPasswordEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR, "Password required error message is not displayed.");
+        assertTrue(loginPage.passwordEmptyErrorIsDisplayed(), "Password input error message is not displayed.");
+        assertEquals(loginPage.getPasswordEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_ERROR, "Password required error message is not displayed.");
     }
 
     @Test (description = "Tests that a user leaving the Email and Password fields empty cannot login", priority = 4)
     public void emptyEmailAndPasswordLogin() {
-        logInPage.clearCredentialsInputFields();
-        logInPage.clickLoginButton();
+        loginPage.clearCredentialsInputFields();
+        loginPage.clickLoginButton();
 
-        assertTrue(logInPage.emailEmptyErrorMessageIsDisplayed(), "Email required error message is not displayed.");
-        assertTrue(logInPage.passwordEmptyErrorIsDisplayed(), "Password required error message is not displayed.");
-        assertTrue(logInPage.loginButtonIsDisplayed(), "Login button is not displayed.");
+        assertTrue(loginPage.emailEmptyErrorMessageIsDisplayed(), "Email required error message is not displayed.");
+        assertTrue(loginPage.passwordEmptyErrorIsDisplayed(), "Password required error message is not displayed.");
+        assertTrue(loginPage.loginButtonIsDisplayed(), "Login button is not displayed.");
     }
 
     @Test (description = "Tests that a user entering an invalid Email and a valid Password cannot login.", priority = 5)
     public void invalidEmailLogin() {
-        logInPage.clearCredentialsInputFields();
-        logInPage.enterEmail("invalidEmail@test.com");
-        logInPage.enterPassword(validUser.getPassword());
-        logInPage.clickLoginButton();
+        loginPage.clearCredentialsInputFields();
+        loginPage.enterEmail("invalidEmail@test.com");
+        loginPage.enterPassword(validUser.getPassword());
+        loginPage.clickLoginButton();
 
-        assertTrue(logInPage.credentialsInvalidErrorMessageIsDisplayed(), "Invalid credentials message is not displayed.");
-        assertEquals(logInPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR, "Invalid credentials error message is wrong.");
+        assertTrue(loginPage.credentialsInvalidErrorMessageIsDisplayed(), "Invalid credentials message is not displayed.");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR, "Invalid credentials error message is wrong.");
     }
 
     @Test (description = "Tests that a user entering a valid Email and an invalid Password cannot login.", priority = 6)
     public void invalidPasswordLogin() {
-        logInPage.clearCredentialsInputFields();
-        logInPage.enterEmail(validUser.getEmail());
-        logInPage.enterPassword(invalidUser.getPassword());
-        logInPage.clickLoginButton();
+        loginPage.clearCredentialsInputFields();
+        loginPage.enterEmail(validUser.getEmail());
+        loginPage.enterPassword(invalidUser.getPassword());
+        loginPage.clickLoginButton();
 
-        assertTrue(logInPage.credentialsInvalidErrorMessageIsDisplayed(), "Invalid credentials error message is not displayed");
-        assertEquals(logInPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR, "Invalid credentials error message is wrong.");
+        assertTrue(loginPage.credentialsInvalidErrorMessageIsDisplayed(), "Invalid credentials error message is not displayed");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR, "Invalid credentials error message is wrong.");
     }
 }

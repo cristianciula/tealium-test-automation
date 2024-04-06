@@ -8,29 +8,29 @@ import wrappers.WaitsWrapper;
 
 import static wrappers.SeleniumWrapper.*;
 
-public class LogInPage {
+public class LoginPage {
 
     WebDriver driver;
     WaitsWrapper waitsWrapper;
 
-    public LogInPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
         this.waitsWrapper = new WaitsWrapper(driver);
     }
 
     //____________________LOCATORS____________________//
-    private By loginPageTitle = By.xpath("//div[@class=\"page-title\"]");
-    private By alreadyRegisteredHeader = By.xpath("//h2[text()=\"Already registered?\"]");
-    private By createAccountButton = By.xpath("//a[@title=\"Create an Account\"]");
-    private By emailInputField = By.id("email");
-    private By passwordInputField = By.id("pass");
-    private By loginButton = By.xpath("//button[@title=\"Login\"]");
-    private By forgotPasswordHyperlink = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/forgotpassword/\"]");
-    private By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
-    private By emailEmptyErrorMessage = By.id("advice-required-entry-email");
-    private By emailSyntaxErrorMessage = By.id("advice-validate-email-email");
-    private By passwordEmptyErrorMessage = By.id("advice-required-entry-pass");
-    private By credentialsInvalidErrorMessage = By.xpath("//li[@class=\"error-msg\"]");
+    private final By pageTitle = By.xpath("//div[@class=\"page-title\"]");
+    private final By alreadyRegisteredHeader = By.xpath("//h2[text()=\"Already registered?\"]");
+    private final By createAccountButton = By.xpath("//a[@title=\"Create an Account\"]");
+    private final By emailInputField = By.id("email");
+    private final By passwordInputField = By.id("pass");
+    private final By loginButton = By.xpath("//button[@title=\"Login\"]");
+    private final By forgotPasswordHyperlink = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/forgotpassword/\"]");
+    private final By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
+    private final By emailEmptyErrorMessage = By.id("advice-required-entry-email");
+    private final By emailSyntaxErrorMessage = By.id("advice-validate-email-email");
+    private final By passwordEmptyErrorMessage = By.id("advice-required-entry-pass");
+    private final By credentialsInvalidErrorMessage = By.xpath("//li[@class=\"error-msg\"]");
 
     //____________________PRIVATE METHODS____________________//
 
@@ -98,8 +98,8 @@ public class LogInPage {
     public String getAlreadyRegisteredHeader() {
         return getText(alreadyRegisteredHeader);
     }
-    public String getLoginPageTitle() {
-        return getText(loginPageTitle);
+    public String getPageTitle() {
+        return getText(pageTitle);
     }
     public boolean credentialsInvalidErrorMessageIsDisplayed() {
         return isElementDisplayed(credentialsInvalidErrorMessage);

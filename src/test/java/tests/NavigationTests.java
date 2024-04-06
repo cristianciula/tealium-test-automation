@@ -29,7 +29,7 @@ public class NavigationTests extends BaseTest {
         header.clickAccountButton();
         header.clickLoginButton();
 
-        assertEquals(LoginConst.LOGIN_PAGE_TITLE, logInPage.getLoginPageTitle());
+        assertEquals(LoginConst.LOGIN_PAGE_TITLE, logInPage.getPageTitle());
         assertEquals(logInPage.getCurrentUrl(), URL.LOGIN_PAGE);
     }
 

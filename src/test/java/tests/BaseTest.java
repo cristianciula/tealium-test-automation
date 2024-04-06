@@ -20,7 +20,7 @@ public class BaseTest {
     public static MenuBar menuBar;
     public static HomePage homePage;
     public static WomenPage womenPage;
-    public static LogInPage logInPage;
+    public static LoginPage loginPage;
     public static SignUpPage signUpPage;
     public static AccountDashboardPage accountDashboardPage;
     public static User validUser = new User("validUser");
@@ -47,7 +47,7 @@ public class BaseTest {
         header = new Header(driver);
         menuBar = new MenuBar(driver);
         homePage = new HomePage(driver);
-        logInPage = new LogInPage(driver);
+        loginPage = new LoginPage(driver);
         signUpPage = new SignUpPage(driver);
         womenPage = new WomenPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
