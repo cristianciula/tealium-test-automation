@@ -41,6 +41,8 @@ public class LoginTests extends BaseTest {
         // Getting false positives is very easy here because of assertions moving too fast, before the page is updated.
         // Asserting errors won't work for every scenario, because there are different errors and in some cases none.
         // Can't use Sleep because it slows down everything else pointlessly.
+        // Checking that a page does NOT have a certain URL is pointless as well, because it will still pass each time, because
+        // of assertions moving too fast.
 
         assertTrue(loginPage.emailFieldIsDisplayed(), "Email field is not displayed.");
         assertTrue(loginPage.passwordFieldIsDisplayed(), "Password field is not displayed.");
