@@ -31,11 +31,16 @@ public class LoginTests extends BaseTest {
 
     @Test (description = "User entering invalid credentials CANNOT login.",
             dataProvider = "invalidCredentials", dataProviderClass = dataProviders.class)
-    public void invalidCredentialsLogin(String email, String password) {
+    public void invalidCredentialsLogin(String email, String password) throws InterruptedException {
         loginPage.clearCredentialsInputFields();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
+
+        //TODO - Find a way to properly assert if an invalid credentials user has actually logged in or not.
+        // Getting false positives is very easy here because of assertions moving too fast, before the page is updated.
+        // Asserting errors won't work for every scenario, because there are different errors and in some cases none.
+        // Can't use Sleep because it slows down everything else pointlessly.
 
         assertTrue(loginPage.emailFieldIsDisplayed(), "Email field is not displayed.");
         assertTrue(loginPage.passwordFieldIsDisplayed(), "Password field is not displayed.");
