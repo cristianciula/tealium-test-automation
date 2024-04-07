@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import testdata.URL;
 import testdata.User;
 import wrappers.SeleniumWrapper;
 import wrappers.WaitsWrapper;
@@ -38,6 +39,7 @@ public class LoginPage {
 
     //____________________PUBLIC METHODS____________________//
     public String getCurrentUrl() {
+        waitsWrapper.waitUrlToBe(URL.LOGIN_PAGE, 2);
         return SeleniumWrapper.getCurrentUrl();
     }
     public void clickCreateAccountButton() {

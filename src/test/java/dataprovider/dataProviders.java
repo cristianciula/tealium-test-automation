@@ -26,6 +26,7 @@ public class dataProviders {
 
             //Valid Email with Invalid Password
                 {"testuser01@example.com", ""},
+                {"testuser137@example.com", "Parola12345!"},
                 {"testuser01@example.com", " "},
                 {"testuser01@example.com", "invalidPassword"}
         };
