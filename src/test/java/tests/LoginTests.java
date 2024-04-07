@@ -2,10 +2,16 @@ package tests;
 
 import constants.AccountDashboardConst;
 import dataprovider.dataProviders;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
 import wrappers.SeleniumWrapper;
+
+import java.time.Duration;
 
 import static org.testng.Assert.*;
 
@@ -44,9 +50,29 @@ public class LoginTests extends BaseTest {
         // Checking that a page does NOT have a certain URL is pointless as well, because it will still pass each time, because
         // of assertions moving too fast.
 
-        assertTrue(loginPage.emailFieldIsDisplayed(), "Email field is not displayed.");
-        assertTrue(loginPage.passwordFieldIsDisplayed(), "Password field is not displayed.");
-        assertTrue(loginPage.loginButtonIsDisplayed(), "Login button is not displayed.");
+
+        //Possible solution - although it slows down everything, just like Thread.sleep()
+
+        //2nd option would be to carefully select and split dataProvider methods (Equivalance Partitioning) in order to provide
+        //more concise scenarios
+        if (loginPage.getCurrentUrl().equalsIgnoreCase(URL.LOGIN_PAGE)) {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+            try {
+                wait.until(ExpectedConditions.urlToBe(URL.ACCOUNT_DASHBOARD_PAGE));
+            } catch (TimeoutException timeoutException) {
+                System.out.println("User is not on the Acount Dashboard page");
+                assertEquals(SeleniumWrapper.getCurrentUrl(), URL.LOGIN_PAGE);
+            }
+            assertEquals(SeleniumWrapper.getCurrentUrl(), URL.LOGIN_PAGE);
+        } else {
+            loginPage.getCurrentUrl().equalsIgnoreCase(URL.ACCOUNT_DASHBOARD_PAGE);
+            assertEquals(SeleniumWrapper.getCurrentUrl(), URL.LOGIN_PAGE);
+            }
+        }
+
+//        assertTrue(loginPage.emailFieldIsDisplayed(), "Email field is not displayed.");
+//        assertTrue(loginPage.passwordFieldIsDisplayed(), "Password field is not displayed.");
+//        assertTrue(loginPage.loginButtonIsDisplayed(), "Login button is not displayed.");
     }
 
 //    @Test (description = "User entering invalid Email and valid Password CANNOT login.")
@@ -137,4 +163,4 @@ public class LoginTests extends BaseTest {
 //        assertTrue(loginPage.credentialsInvalidErrorMessageIsDisplayed(), "Invalid credentials error message is not displayed");
 //        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR, "Invalid credentials error message is wrong.");
 //    }
-}
+
