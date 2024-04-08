@@ -14,7 +14,7 @@ import java.time.Duration;
 
 import static org.testng.Assert.*;
 
-public class Playground extends BaseTest {
+public class PlaygroundTests extends BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
