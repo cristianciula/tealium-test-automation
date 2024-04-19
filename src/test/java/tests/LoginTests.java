@@ -2,7 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
-import dataprovider.dataProviders;
+import dataprovider.userDataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
@@ -18,8 +18,8 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "User entering valid Email and valid Password CAN login.",
-            dataProvider = "validCredentials", dataProviderClass = dataProviders.class)
-    public void validCredentialsLogin(String email, String password) {
+            dataProvider = "validLoginCredentials", dataProviderClass = userDataProvider.class)
+    public void validLoginCredentialsLogin(String email, String password) {
         loginPage.clearCredentialsInputFields();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
@@ -31,8 +31,8 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "User entering invalid credentials CANNOT login.",
-            dataProvider = "invalidCredentials", dataProviderClass = dataProviders.class)
-    public void invalidCredentialsLogin(String email, String password) throws InterruptedException {
+            dataProvider = "invalidLoginCredentials", dataProviderClass = userDataProvider.class)
+    public void invalidLoginCredentialsLogin(String email, String password) throws InterruptedException {
         loginPage.clearCredentialsInputFields();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
@@ -96,11 +96,11 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Validation error message is displayed for invalid Email syntax.",
-            dataProvider = "invalidEmailSyntaxData", dataProviderClass = dataProviders.class)
+            dataProvider = "invalidEmailSyntaxData", dataProviderClass = userDataProvider.class)
     public void invalidEmailSyntaxValidationErrorMessage(String invalidEmailSyntax) {
-        //loginPage.clearCredentialsInputFields();
+        loginPage.clearCredentialsInputFields();
         loginPage.enterEmail(invalidEmailSyntax);
-        //loginPage.enterPassword(validUser.getPassword());
+        loginPage.enterPassword(validUser.getPassword());
         loginPage.clickLoginButton();
     }
 

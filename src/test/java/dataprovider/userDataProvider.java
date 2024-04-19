@@ -2,18 +2,17 @@ package dataprovider;
 
 import org.testng.annotations.DataProvider;
 
-public class dataProviders {
+public class userDataProvider {
 
     @DataProvider (name = "validCredentials")
-    public static Object[][] validCredentials() {
+    public static Object[][] validLoginCredentials() {
         return new Object[][]{
                 {"testuser01@example.com", "Parola100!"}
-
         };
     }
 
     @DataProvider (name = "invalidCredentials")
-    public static Object[][] invalidCredentials() {
+    public static Object[][] invalidLoginCredentials() {
         return new Object[][] {
 
             // Invalid Email with Valid Password
@@ -29,7 +28,7 @@ public class dataProviders {
     }
 
     @DataProvider (name = "emptyCredentials")
-    public static Object[][] emptyCredentials() {
+    public static Object[][] emptyLoginCredentials() {
         return new Object[][] {
 
                 // Empty Email and Empty Password
@@ -42,13 +41,6 @@ public class dataProviders {
                 // Valid Email and Empty Password
                 {"testuser137@example.com", ""},
                 {"testuser137@example.com", "Parola12345!"}, //test the test
-        };
-    }
-
-    @DataProvider (name = "validUserInfo")
-    public static Object[][] validUserInfo() {
-        return new Object[][] {
-                {validCredentials()[0][0]}
         };
     }
 }
