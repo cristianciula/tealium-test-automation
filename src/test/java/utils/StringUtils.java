@@ -1,6 +1,6 @@
 package utils;
 
-public final class StringsUtils {
+public final class StringUtils {
 
     public static String[] stringToArray(String input) {
 

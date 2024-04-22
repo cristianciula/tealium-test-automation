@@ -1,8 +1,8 @@
-package dataprovider;
+package testdata.dataprovider;
 
 import org.testng.annotations.DataProvider;
 
-import static dataprovider.usersDataProvider.validLoginCredentials;
+import static testdata.dataprovider.usersDataProvider.validLoginCredentials;
 
 public class productsDataProvider {
 

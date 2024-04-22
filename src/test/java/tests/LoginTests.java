@@ -2,7 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
-import dataprovider.usersDataProvider;
+import testdata.dataprovider.usersDataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
