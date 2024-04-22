@@ -2,9 +2,9 @@ package dataprovider;
 
 import org.testng.annotations.DataProvider;
 
-import static dataprovider.userDataProvider.validLoginCredentials;
+import static dataprovider.usersDataProvider.validLoginCredentials;
 
-public class signUpDataProvider {
+public class productsDataProvider {
 
     static Object validEmail = validLoginCredentials()[0][0];
     static Object validPassword = validLoginCredentials()[0][1];

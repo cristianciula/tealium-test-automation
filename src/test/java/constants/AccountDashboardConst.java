@@ -11,7 +11,7 @@ public final class AccountDashboardConst {
 
     //----------MESSAGES----------//
     public final static String SUCCESSFUL_REGISTRATION_MESSAGE = "Thank you for registering with Tealium Ecommerce.";
-    public final static String HELLO_USERNAME_MESSAGE = "Hello, " + validUser.getFirstName() + " " + validUser.getLastName() + "!";
+    public final static String HELLO_USERNAME_MESSAGE = "Hello, " + validUser.getFirstName() + " " + validUser.getMiddleName() + " " + validUser.getLastName() + "!";
 
     //----------COLOURS----------//
 

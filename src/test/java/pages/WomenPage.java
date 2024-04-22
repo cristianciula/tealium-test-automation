@@ -17,12 +17,12 @@ public class WomenPage {
     }
 
     //____________________LOCATORS____________________//
-    private By womenPageBreadcrumb = By.xpath("//div[@class=\"breadcrumbs\"]/descendant::strong[text()=\"Women\"]");
+    private final By womenPageBreadcrumb = By.xpath("//div[@class=\"breadcrumbs\"]/descendant::strong[text()=\"Women\"]");
 
     //____________________PRIVATE METHODS____________________//
 
     //____________________PUBLIC METHODS____________________//
-    public boolean womenPageBreadcrumbIsDisplayed() {
+    public boolean isWomenPageBreadcrumbDisplayed() {
         return isElementDisplayed(womenPageBreadcrumb);
     }
 }

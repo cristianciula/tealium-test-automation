@@ -1,7 +1,7 @@
 package tests;
 
 import constants.AccountDashboardConst;
-import dataprovider.userDataProvider;
+import dataprovider.usersDataProvider;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,9 +22,9 @@ public class PlaygroundTests extends BaseTest {
     }
 
     @Test (description = "User entering valid Email and valid Password CAN login.",
-            dataProvider = "validCredentials", dataProviderClass = userDataProvider.class)
+            dataProvider = "validCredentials", dataProviderClass = usersDataProvider.class)
     public void validCredentialsLogin(String email, String password) {
-        loginPage.clearCredentialsInputFields();
+        loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
@@ -35,9 +35,9 @@ public class PlaygroundTests extends BaseTest {
     }
 
     @Test (description = "User entering invalid credentials CANNOT login.",
-            dataProvider = "invalidCredentials", dataProviderClass = userDataProvider.class)
+            dataProvider = "invalidCredentials", dataProviderClass = usersDataProvider.class)
     public void invalidCredentialsLogin(String email, String password) throws InterruptedException {
-        loginPage.clearCredentialsInputFields();
+        loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();

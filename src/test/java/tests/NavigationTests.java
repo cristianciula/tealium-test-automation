@@ -21,7 +21,7 @@ public class NavigationTests extends BaseTest {
         header.clickRegisterButton();
 
         assertEquals(signUpPage.getPageTitle(), SignUpConst.CREATE_ACCOUNT_PAGE_TITLE);
-        assertTrue(signUpPage.registerButtonIsDisplayed());
+        assertTrue(signUpPage.isRegisterButtonDisplayed());
     }
 
     @Test (description = "Tests that a user can navigate from the Home page to the Login page")
@@ -37,7 +37,7 @@ public class NavigationTests extends BaseTest {
     public void navigateFromHomePageToWomenPage() {
         homePage.clickWomenNavBarButton();
 
-        assertTrue(womenPage.womenPageBreadcrumbIsDisplayed(), "Women page breadcrumbs is not displayed.");
+        assertTrue(womenPage.isWomenPageBreadcrumbDisplayed(), "Women page breadcrumbs is not displayed.");
     }
 
 }

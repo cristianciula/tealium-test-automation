@@ -56,7 +56,7 @@ public class LoginPage {
         waitsWrapper.waitElementToBeClickable(loginButton, 1);
         click(loginButton);
     }
-    public void clearPasswordInputField() {
+    public void clearPasswordInput() {
         clear(passwordInputField);
     }
     public void clearEmailField() {
@@ -67,24 +67,24 @@ public class LoginPage {
         enterPassword(user.getPassword());
         clickLoginButton();
     }
-    public void clearCredentialsInputFields() {
+    public void clearCredentialsInputs() {
         clearEmailField();
-        clearPasswordInputField();
+        clearPasswordInput();
     }
-    public boolean loginButtonIsDisplayed() {
+    public boolean isLoginButtonDisplayed() {
         return isElementDisplayed(loginButton);
     }
     public String getEmailEmptyErrorMessage() {
         return getText(emailEmptyErrorMessage);
     }
-    public boolean emailEmptyErrorMessageIsDisplayed() {
+    public boolean isEmailEmptyErrorMessageDisplayed() {
         waitsWrapper.waitElementToBeVisible(emailEmptyErrorMessage, 1);
         return isElementDisplayed(emailEmptyErrorMessage);
     }
     public String getPasswordEmptyErrorMessage() {
         return getText(passwordEmptyErrorMessage);
     }
-    public boolean passwordEmptyErrorIsDisplayed() {
+    public boolean isPasswordEmptyErrorDisplayed() {
         waitsWrapper.waitElementToBeVisible(passwordEmptyErrorMessage, 1);
         return isElementDisplayed(passwordEmptyErrorMessage);
     }
@@ -103,13 +103,13 @@ public class LoginPage {
     public String getPageTitle() {
         return getText(pageTitle);
     }
-    public boolean credentialsInvalidErrorMessageIsDisplayed() {
+    public boolean isCredentialsInvalidErrorMessageDisplayed() {
         return isElementDisplayed(credentialsInvalidErrorMessage);
     }
-    public boolean emailFieldIsDisplayed() {
+    public boolean isEmailFieldDisplayed() {
         return isElementDisplayed(emailInputField);
     }
-    public boolean passwordFieldIsDisplayed() {
+    public boolean isPasswordFieldDisplayed() {
         return isElementDisplayed(passwordInputField);
     }
 }

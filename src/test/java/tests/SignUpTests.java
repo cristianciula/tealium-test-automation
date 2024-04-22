@@ -2,7 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.SignUpConst;
-import dataprovider.userDataProvider;
+import dataprovider.usersDataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
@@ -35,8 +35,8 @@ public class SignUpTests extends BaseTest {
         signUpPage.clearCreateAccountForm();
         signUpPage.clickRegister();
 
-        assertTrue(signUpPage.emptyFieldErrorsAreDisplayed());
-        for (String inputError : signUpPage.getEmptyInputErrors()) {
+        assertTrue(signUpPage.areEmptyFieldErrorsDisplayed());
+        for (String inputError : signUpPage.getEmptyInputErrorMessages()) {
             assertEquals(inputError, SignUpConst.MANDATORY_FIELD_ERROR);
         }
 
@@ -68,7 +68,7 @@ public class SignUpTests extends BaseTest {
     }
 
     @Test (description = "Tests that invalid email syntaxes are not accepted", dataProvider = "invalidCredentials",
-            dataProviderClass = userDataProvider.class)
+            dataProviderClass = usersDataProvider.class)
     public void invalidEmailSyntax(String email) {
 
         signUpPage.fillCreateAccountForm(validUser);
