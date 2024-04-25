@@ -24,7 +24,7 @@ public class Header {
     private final By frenchLanguageOption = By.xpath("//option[text()=\"French\"]");
     private final By germanLanguageOption = By.xpath("//option[text()=\"German\"]");
     private final By accountDropdownButton = By.xpath("//span[@class=\"label\"][text()=\"Account\"]");
-    private final By logOutDropdownOption = By.xpath("//a[@title=\"Log Out\"]");
+    private final By logoutDropdownOption = By.xpath("//a[@title=\"Log Out\"]");
     private final By loginDropdownOption = By.xpath("//a[@title=\"Log In\"]");
     private final By myAccountDropdownOption = By.xpath("//div[@id=\"header-account\"]/descendant::a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/\"]");
     private final By registerDropdownOption = By.xpath("//div[@id=\"header-account\"]/descendant::a[@title=\"Register\"]");
@@ -50,8 +50,8 @@ public class Header {
         click(loginDropdownOption);
     }
     public boolean logOutButtonIsDisplayed() {
-        waitsWrapper.waitElementToBeVisible(logOutDropdownOption, 2);
-        return isElementDisplayed(logOutDropdownOption);
+        waitsWrapper.waitElementToBeVisible(logoutDropdownOption, 2);
+        return isElementDisplayed(logoutDropdownOption);
     }
     public boolean loginButtonIsDisplayed() {
         waitsWrapper.waitElementToBeVisible(loginDropdownOption, 2);
@@ -61,7 +61,7 @@ public class Header {
         click(accountDropdownButton);
     }
     public void clickLogoutButton() {
-        click(logOutDropdownOption);
+        click(logoutDropdownOption);
         waitsWrapper.waitUrlToBe("https://ecommerce.tealiumdemo.com/", 7);
     }
     public void clickRegisterButton() {
