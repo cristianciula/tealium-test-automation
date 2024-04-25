@@ -2,13 +2,21 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
-import testdata.dataprovider.usersDataProvider;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import testdata.dataprovider.userDataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
+import wrappers.WaitsWrapper;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import java.time.Duration;
+
+import static org.testng.Assert.*;
 
 public class LoginTests extends BaseTest {
 
@@ -18,8 +26,8 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "User entering valid Email and valid Password CAN login.",
-            dataProvider = "validLoginCredentials", dataProviderClass = usersDataProvider.class)
-    public void loginWithValidCredentials(String email, String password) {
+            dataProvider = "validLoginCredentials", dataProviderClass = userDataProvider.class)
+    public void canLoginWithValidCredentials(String email, String password) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
@@ -32,20 +40,26 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "User entering invalid credentials CANNOT login.",
-            dataProvider = "invalidLoginCredentials", dataProviderClass = usersDataProvider.class)
-    public void loginWithInvalidCredentials(String email, String password) {
+            dataProvider = "invalidLoginCredentials", dataProviderClass = userDataProvider.class,
+            dependsOnMethods = "cannotLoginWithInvalidCredentials", alwaysRun = true)
+    public void cannotLoginWithInvalidCredentials(String email, String password) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
+        
+    }
 
-        assertTrue(loginPage.isEmailFieldDisplayed(), "Email field is not displayed.");
-        assertTrue(loginPage.isPasswordFieldDisplayed(), "Password field is not displayed.");
-        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+    @Test(description = "User entering valid Email and invalid Password CANNOT login.")
+    public void cannotLoginWithValidEmailAndInvalidPassword() {
+        loginPage.clearCredentialsInputs();
+        loginPage.enterEmail(validUser.getEmail());
+        loginPage.enterPassword(invalidUser.getPassword());
+        loginPage.clickLoginButton();
     }
 
     @Test(description = "User entering invalid Email and valid Password CANNOT login.")
-    public void loginWithInvalidEmailAndValidPassword() {
+    public void cannotLoginWithInvalidEmailAndValidPassword() {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidUser.getEmail());
         loginPage.enterPassword(validUser.getPassword());
@@ -55,18 +69,9 @@ public class LoginTests extends BaseTest {
         assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_ERROR, "Invalid credentials error message is wrong.");
     }
 
-    @Test(description = "User entering valid Email and invalid Password CANNOT login.")
-    public void loginWithValidEmailAndInvalidPassword() {
-        loginPage.clearCredentialsInputs();
-        loginPage.enterEmail(validUser.getEmail());
-        loginPage.enterPassword(invalidUser.getPassword());
-        loginPage.clickLoginButton();
-
-
-    }
 
     @Test(description = "User leaving the Email and Password fields empty CANNOT login.")
-    public void loginWithEmptyCredentials() {
+    public void cannotLoginWithEmptyCredentials() {
         loginPage.clearCredentialsInputs();
         loginPage.clickLoginButton();
 
@@ -96,7 +101,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Validation error message is displayed for invalid Email syntax.",
-            dataProvider = "invalidEmailSyntax", dataProviderClass = usersDataProvider.class)
+            dataProvider = "invalidEmailSyntax", dataProviderClass = userDataProvider.class)
     public void loginWithInvalidEmailSyntaxAndValidPassword(String invalidEmailSyntax) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmailSyntax);

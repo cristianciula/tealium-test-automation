@@ -71,6 +71,9 @@ public class LoginPage {
         clearEmailField();
         clearPasswordInput();
     }
+    public String getInvalidEmailSyntaxErrorMessage() {
+        return getText(emailSyntaxErrorMessage);
+    }
     public boolean isLoginButtonDisplayed() {
         return isElementDisplayed(loginButton);
     }

@@ -19,15 +19,18 @@ public class Header {
     }
 
     //____________________LOCATORS____________________//
-    private By accountButton = By.xpath("//span[@class=\"label\"][text()=\"Account\"]");
-    private By cartButton = By.xpath("//span[@class=\"label\"][contains(.,\"Cart\")]");
-    private By accountDropMenu = By.xpath("//div[@id=\"header-account\"]");
-    private By myAccountButton = By.xpath("//div[@id=\"header-account\"]/descendant::a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/\"]");
-    private By checkoutButton = By.xpath("//div[@id=\"header-account\"]/descendant::a[@title=\"Checkout\"]");
-    private By registerButton= By.xpath("//div[@id=\"header-account\"]/descendant::a[@title=\"Register\"]");
-    private By logOutButton = By.xpath("//a[@title=\"Log Out\"]");
-    private By loginButton = By.xpath("//a[@title=\"Log In\"]");
-    private By welcomeMessage = By.xpath("//p[@class=\"welcome-msg\"][contains(.,\"!\")]");
+    private final By languageSelectBox = By.xpath("//select[@id=\"select-language\"]");
+    private final By englishLanguageOption = By.xpath("//option[text()=\"English\"]");
+    private final By frenchLanguageOption = By.xpath("//option[text()=\"French\"]");
+    private final By germanLanguageOption = By.xpath("//option[text()=\"German\"]");
+    private final By accountDropdownButton = By.xpath("//span[@class=\"label\"][text()=\"Account\"]");
+    private final By logOutDropdownOption = By.xpath("//a[@title=\"Log Out\"]");
+    private final By loginDropdownOption = By.xpath("//a[@title=\"Log In\"]");
+    private final By myAccountDropdownOption = By.xpath("//div[@id=\"header-account\"]/descendant::a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/\"]");
+    private final By registerDropdownOption = By.xpath("//div[@id=\"header-account\"]/descendant::a[@title=\"Register\"]");
+    private final By cartButton = By.xpath("//span[@class=\"label\"][contains(.,\"Cart\")]");
+    private final By checkoutButton = By.xpath("//div[@id=\"header-account\"]/descendant::a[@title=\"Checkout\"]");
+    private final By welcomeMessage = By.xpath("//p[@class=\"welcome-msg\"][contains(.,\"!\")]");
 
     //____________________PRIVATE METHODS____________________//
 
@@ -38,31 +41,31 @@ public class Header {
         navigateTo(URL.HOME_PAGE);
     }
     public void clickMyAccountButton() {
-        click(myAccountButton);
+        click(myAccountDropdownOption);
     }
     public void clickCartButton() {
         click(cartButton);
     }
     public void clickLoginButton() {
-        click(loginButton);
+        click(loginDropdownOption);
     }
     public boolean logOutButtonIsDisplayed() {
-        waitsWrapper.waitElementToBeVisible(logOutButton, 2);
-        return isElementDisplayed(logOutButton);
+        waitsWrapper.waitElementToBeVisible(logOutDropdownOption, 2);
+        return isElementDisplayed(logOutDropdownOption);
     }
     public boolean loginButtonIsDisplayed() {
-        waitsWrapper.waitElementToBeVisible(loginButton, 2);
-        return isElementDisplayed(loginButton);
+        waitsWrapper.waitElementToBeVisible(loginDropdownOption, 2);
+        return isElementDisplayed(loginDropdownOption);
     }
     public void clickAccountButton() {
-        click(accountButton);
+        click(accountDropdownButton);
     }
     public void clickLogoutButton() {
-        click(logOutButton);
+        click(logOutDropdownOption);
         waitsWrapper.waitUrlToBe("https://ecommerce.tealiumdemo.com/", 7);
     }
     public void clickRegisterButton() {
-        click(registerButton);
+        click(registerDropdownOption);
         waitsWrapper.waitUrlToBe("https://ecommerce.tealiumdemo.com/customer/account/create/", 2);
     }
     public void logoutUser() {

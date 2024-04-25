@@ -16,7 +16,7 @@ public class AccountDashboardPage {
     //____________________LOCATORS____________________//
     private By registrationSuccessfulMessage = By.xpath("//li[@class=\"success-msg\"]");
     private By userGreetingPlaceholder = By.xpath("//div[@class=\"welcome-msg\"]/p[@class=\"hello\"]");
-    private By pageTitle = By.xpath("//div[@class=\"page-title\"]");
+    private By pageTitle = By.xpath("//div[@class=\"page-title\" and contains(.,\"My Dashboard\")]");
 
     //____________________PRIVATE METHODS____________________//
 
@@ -32,6 +32,9 @@ public class AccountDashboardPage {
     }
     public boolean isPageTitleDisplayed() {
         return isElementDisplayed(pageTitle);
+    }
+    public By getPageTitleLocator() {
+        return pageTitle;
     }
 
 }
