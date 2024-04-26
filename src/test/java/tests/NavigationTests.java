@@ -27,7 +27,7 @@ public class NavigationTests extends BaseTest {
     @Test (description = "Tests that a user can navigate from the Home page to the Login page")
     public void navigateFromHomePageToLoginPage() {
         header.clickAccountButton();
-        header.clickLoginButton();
+        header.clickLoginDropdownOption();
 
         assertEquals(LoginConst.LOGIN_PAGE_TITLE, loginPage.getPageTitle());
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE);

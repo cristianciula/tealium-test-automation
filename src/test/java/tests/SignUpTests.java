@@ -26,7 +26,7 @@ public class SignUpTests extends BaseTest {
         assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
 
         header.clickAccountButton();
-        assertTrue(header.logOutButtonIsDisplayed());
+        assertTrue(header.isLogOutButtonDisplayed());
     }
 
     @Test (description = "Tests that user cannot create an account by leaving mandatory fields empty")
@@ -42,7 +42,7 @@ public class SignUpTests extends BaseTest {
 
         header.clickAccountButton();
 
-        assertTrue(header.loginButtonIsDisplayed());
+        assertTrue(header.isLoginButtonDisplayed());
     }
 
     @Test (description = "Tests that user cannot create an account using an existing account details")

@@ -40,20 +40,20 @@ public class Header {
     public void navigateToHomePage() {
         navigateTo(URL.HOME_PAGE);
     }
-    public void clickMyAccountButton() {
+    public void clickMyAccountDropdownOption() {
         click(myAccountDropdownOption);
     }
     public void clickCartButton() {
         click(cartButton);
     }
-    public void clickLoginButton() {
+    public void clickLoginDropdownOption() {
         click(loginDropdownOption);
     }
-    public boolean logOutButtonIsDisplayed() {
+    public boolean isLogOutButtonDisplayed() {
         waitsWrapper.waitElementToBeVisible(logoutDropdownOption, 2);
         return isElementDisplayed(logoutDropdownOption);
     }
-    public boolean loginButtonIsDisplayed() {
+    public boolean isLoginButtonDisplayed() {
         waitsWrapper.waitElementToBeVisible(loginDropdownOption, 2);
         return isElementDisplayed(loginDropdownOption);
     }
@@ -80,5 +80,17 @@ public class Header {
     public String getWelcomeMessage() {
         waitsWrapper.waitElementToBeVisible(welcomeMessage, 2);
         return getText(welcomeMessage);
+    }
+    public void clickLanguageSelectBox() {
+        click(languageSelectBox);
+    }
+    public void clickEnglishLanguageOption() {
+        click(englishLanguageOption);
+    }
+    public void clickFrenchLanguageOption() {
+        click(frenchLanguageOption);
+    }
+    public void clickGermanLanguageOption() {
+        click(germanLanguageOption);
     }
 }
