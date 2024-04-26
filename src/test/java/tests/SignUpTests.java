@@ -25,7 +25,7 @@ public class SignUpTests extends BaseTest {
         assertEquals(AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE, accountDashboardPage.getRegistrationSuccessfulMessage());
         assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
 
-        header.clickAccountButton();
+        header.clickAccountDropdownButton();
         assertTrue(header.isLogOutButtonDisplayed());
     }
 
@@ -40,7 +40,7 @@ public class SignUpTests extends BaseTest {
             assertEquals(inputError, SignUpConst.MANDATORY_FIELD_ERROR);
         }
 
-        header.clickAccountButton();
+        header.clickAccountDropdownButton();
 
         assertTrue(header.isLoginButtonDisplayed());
     }
@@ -49,7 +49,7 @@ public class SignUpTests extends BaseTest {
     public void duplicateAccount() {
 
         createAccount();
-        header.clickLogoutButton();
+        header.selectLogoutDropdownOption();
         createAccount();
         signUpPage.navigateToCreateAccountPage();
         signUpPage.fillCreateAccountForm(validUser);

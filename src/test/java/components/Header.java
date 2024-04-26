@@ -19,7 +19,7 @@ public class Header {
     }
 
     //____________________LOCATORS____________________//
-    private final By languageSelectBox = By.xpath("//select[@id=\"select-language\"]");
+    private final By languageSelect = By.xpath("//select[@id=\"select-language\"]");
     private final By englishLanguageOption = By.xpath("//option[text()=\"English\"]");
     private final By frenchLanguageOption = By.xpath("//option[text()=\"French\"]");
     private final By germanLanguageOption = By.xpath("//option[text()=\"German\"]");
@@ -40,13 +40,13 @@ public class Header {
     public void navigateToHomePage() {
         navigateTo(URL.HOME_PAGE);
     }
-    public void clickMyAccountDropdownOption() {
+    public void selectMyAccountDropdownOption() {
         click(myAccountDropdownOption);
     }
     public void clickCartButton() {
         click(cartButton);
     }
-    public void clickLoginDropdownOption() {
+    public void selectLoginDropdownOption() {
         click(loginDropdownOption);
     }
     public boolean isLogOutButtonDisplayed() {
@@ -57,21 +57,21 @@ public class Header {
         waitsWrapper.waitElementToBeVisible(loginDropdownOption, 2);
         return isElementDisplayed(loginDropdownOption);
     }
-    public void clickAccountButton() {
+    public void clickAccountDropdownButton() {
         click(accountDropdownButton);
     }
-    public void clickLogoutButton() {
+    public void selectLogoutDropdownOption() {
         click(logoutDropdownOption);
         waitsWrapper.waitUrlToBe("https://ecommerce.tealiumdemo.com/", 7);
     }
-    public void clickRegisterButton() {
+    public void selectRegisterDropdownOption() {
         click(registerDropdownOption);
         waitsWrapper.waitUrlToBe("https://ecommerce.tealiumdemo.com/customer/account/create/", 2);
     }
     public void logoutUser() {
         try {
-            clickAccountButton();
-            clickLogoutButton();
+            clickAccountDropdownButton();
+            selectLogoutDropdownOption();
         }
         catch (NoSuchElementException e) {
             System.out.println("User is not logged in.");
@@ -81,16 +81,16 @@ public class Header {
         waitsWrapper.waitElementToBeVisible(welcomeMessage, 2);
         return getText(welcomeMessage);
     }
-    public void clickLanguageSelectBox() {
-        click(languageSelectBox);
+    public void clickLanguageSelect() {
+        click(languageSelect);
     }
-    public void clickEnglishLanguageOption() {
+    public void selectEnglishLanguageOption() {
         click(englishLanguageOption);
     }
-    public void clickFrenchLanguageOption() {
+    public void selectFrenchLanguageOption() {
         click(frenchLanguageOption);
     }
-    public void clickGermanLanguageOption() {
+    public void selectGermanLanguageOption() {
         click(germanLanguageOption);
     }
 }

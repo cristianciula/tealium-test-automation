@@ -17,8 +17,8 @@ public class NavigationTests extends BaseTest {
 
     @Test (description = "Tests that a user can navigate from the Home page to the Registration page")
     public void navigateFromHomePageToRegistrationPage() {
-        header.clickAccountButton();
-        header.clickRegisterButton();
+        header.clickAccountDropdownButton();
+        header.selectRegisterDropdownOption();
 
         assertEquals(signUpPage.getPageTitle(), SignUpConst.CREATE_ACCOUNT_PAGE_TITLE);
         assertTrue(signUpPage.isRegisterButtonDisplayed());
@@ -26,8 +26,8 @@ public class NavigationTests extends BaseTest {
 
     @Test (description = "Tests that a user can navigate from the Home page to the Login page")
     public void navigateFromHomePageToLoginPage() {
-        header.clickAccountButton();
-        header.clickLoginDropdownOption();
+        header.clickAccountDropdownButton();
+        header.selectLoginDropdownOption();
 
         assertEquals(LoginConst.LOGIN_PAGE_TITLE, loginPage.getPageTitle());
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE);
