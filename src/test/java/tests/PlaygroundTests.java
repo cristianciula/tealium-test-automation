@@ -47,7 +47,7 @@ public class PlaygroundTests extends BaseTest {
         // Asserting errors won't work for every scenario, because there are different errors and in some cases none.
         // Can't use Sleep because it slows down everything else pointlessly.
         // Checking that a page does NOT have a certain URL is pointless as well, because it will still pass each time, because
-        // of assertions moving too fast.
+        // of assertions moving too fast...
 
 
         //Possible solution - although it slows down everything, just like Thread.sleep()
