@@ -60,7 +60,7 @@ public class SignUpPage {
 
     //____________________PUBLIC METHODS____________________//
     public void navigateToCreateAccountPage() {
-        navigateTo(URL.CREATE_ACCOUNT_PAGE);
+        navigateToUrl(URL.CREATE_ACCOUNT_PAGE);
     }
     public String getPageTitle() {
         return getText(pageTitle);

@@ -59,7 +59,7 @@ public class BaseTest {
     @AfterTest
     public void afterTest() {
         driver.manage().deleteAllCookies();
-        driver.close();
         driver.quit();
+        driver = null;
     }
 }

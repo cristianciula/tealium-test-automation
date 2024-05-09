@@ -38,7 +38,7 @@ public class Header {
     //____________________PUBLIC METHODS____________________//
 
     public void navigateToHomePage() {
-        navigateTo(URL.HOME_PAGE);
+        navigateToUrl(URL.HOME_PAGE);
     }
     public void selectMyAccountDropdownOption() {
         click(myAccountDropdownOption);
