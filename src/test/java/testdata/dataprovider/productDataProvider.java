@@ -1,7 +1,6 @@
 package testdata.dataprovider;
 
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
 
 import java.util.ArrayList;
 import java.util.List;
