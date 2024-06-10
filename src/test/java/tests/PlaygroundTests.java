@@ -1,7 +1,6 @@
 package tests;
 
 import constants.AccountDashboardConst;
-import testdata.dataprovider.productDataProvider;
 import testdata.dataprovider.userDataProvider;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;

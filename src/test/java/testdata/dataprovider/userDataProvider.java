@@ -7,24 +7,12 @@ import java.util.List;
 
 public class userDataProvider {
 
-    @DataProvider (name = "validLoginCredentials")
-    public static Object[][] validLoginCredentials() {
-        return new Object[][]{
-                {"testuser@example.com", "Parola100!"}
-        };
-    }
+    /* ---------- EMAIL ADDRESS DATA ---------- */
 
     @DataProvider (name = "validEmailAddress")
     public Object[][] validEmailAddress() {
         return new Object[][] {
                 {"testuser@example.com"}
-        };
-    }
-
-    @DataProvider (name = "validPassword")
-    public Object[][] validPassword() {
-        return new Object[][] {
-                {"Parola100!"}
         };
     }
 
@@ -42,6 +30,25 @@ public class userDataProvider {
         };
     }
 
+    @DataProvider (name = "wrongEmail")
+    public Object[][] wrongEmail() {
+        return new Object[][] {
+                // Duplicate email
+                {"testuser@example.com"},
+                // Unknown email
+                {"unknown@example.com"}
+        };
+    }
+
+    /* ---------- EMAIL ADDRESS DATA ---------- */
+
+    @DataProvider (name = "validPassword")
+    public Object[][] validPassword() {
+        return new Object[][] {
+                {"Parola100!"}
+        };
+    }
+
     @DataProvider (name = "invalidPassword")
     public Object[][] invalidPasswordSyntax() {
         return new Object[][] {
@@ -55,6 +62,8 @@ public class userDataProvider {
                 {"1234567890!"}
         };
     }
+
+    /* ---------- COMBINED DATA PROVIDERS ---------- */
 
     @DataProvider
     public Object[][] invalidEmailWithValidPassword() {
@@ -79,14 +88,6 @@ public class userDataProvider {
     @DataProvider (name = "invalidLoginCredentials")
     public static Object[][] invalidLoginCredentials() {
         return new Object[][] {
-
-                // Invalid Email syntax & Valid Password
-//                {"@example.com", "Parola100!"},
-//                {"userexample.com", "Parola100!"},
-//                {"user@.com", "Parola100!"},
-//                {"user@examplecom", "Parola100!"},
-//                {"user@example.", "Parola100!"},
-//                {"user@example.c", "Parola100!"},
 
                 //Unregistered Email & Valid Password
                 {"notauser@example.com", "Parola100!"},
