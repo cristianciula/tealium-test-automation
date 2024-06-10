@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.DataProvider;
 import testdata.URL;
 import testdata.User;
 import wrappers.SeleniumWrapper;

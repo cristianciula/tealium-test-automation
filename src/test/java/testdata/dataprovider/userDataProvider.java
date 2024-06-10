@@ -2,6 +2,9 @@ package testdata.dataprovider;
 
 import org.testng.annotations.DataProvider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class userDataProvider {
 
     @DataProvider (name = "validLoginCredentials")
@@ -25,9 +28,11 @@ public class userDataProvider {
         };
     }
 
-    @DataProvider (name = "invalidEmailSyntaxes")
+    @DataProvider (name = "invalidEmailSyntax")
     public Object[][] invalidEmailSyntax() {
         return new Object[][]{
+                {""},
+                {" "},
                 {"@example.com"},
                 {"userexample.com"},
                 {"user@.com"},
@@ -49,6 +54,26 @@ public class userDataProvider {
                 {"1234567890"},
                 {"1234567890!"}
         };
+    }
+
+    @DataProvider
+    public Object[][] invalidEmailWithValidPassword() {
+
+        //Prerequisites
+        Object[][] dataProvider1 = invalidEmailSyntax();
+        Object[][] dataProvider2 = validPassword();
+        List<Object[]> combinedDataProviders = new ArrayList<>();
+
+        //Combine the data
+        for (Object[] dataProvider1Obj : dataProvider1) {
+            for (Object[] dataProvider2Obj : dataProvider2) {
+                Object[] combinedItem = new Object[dataProvider1Obj.length + dataProvider2Obj.length];
+                System.arraycopy(dataProvider1Obj, 0, combinedItem, 0, dataProvider1Obj.length);
+                System.arraycopy(dataProvider2Obj, 0, combinedItem, dataProvider1Obj.length, dataProvider2Obj.length);
+                combinedDataProviders.add(combinedItem);
+            }
+        }
+        return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
     @DataProvider (name = "invalidLoginCredentials")

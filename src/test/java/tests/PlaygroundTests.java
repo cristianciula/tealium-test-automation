@@ -70,14 +70,17 @@ public class PlaygroundTests extends BaseTest {
             }
         }
     @Test (description = "example",
-            dataProvider = "combinedDataTemplate", dataProviderClass = productDataProvider.class)
-    public void exampleTest(String a, String b, String c, String d) {
+            dataProvider = "invalidEmailWithValidPassword", dataProviderClass = userDataProvider.class)
+    public void exampleTest(String invalidEmail, String validPassword) {
         loginPage.clearCredentialsInputs();
-        loginPage.enterEmail(a);
-        loginPage.enterPassword(b);
-        loginPage.enterEmail(c);
-        loginPage.enterPassword(d);
-        System.out.println(a + " " + b + " " + c + " " + d);
+        loginPage.enterEmail(invalidEmail);
+        loginPage.enterPassword(validPassword);
+
+        if(invalidEmail.isEmpty() || invalidEmail.equalsIgnoreCase(" ")) {
+            assertEquals("blabla", "blabla");
+            System.out.println(invalidEmail);
+        }
+        System.out.println(invalidEmail);
     }
 
 }
