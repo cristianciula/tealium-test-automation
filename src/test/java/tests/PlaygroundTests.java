@@ -1,6 +1,7 @@
 package tests;
 
 import constants.AccountDashboardConst;
+import testdata.dataprovider.productDataProvider;
 import testdata.dataprovider.userDataProvider;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -68,5 +69,20 @@ public class PlaygroundTests extends BaseTest {
             assertEquals(SeleniumWrapper.getCurrentUrl(), URL.LOGIN_PAGE);
             }
         }
+    @Test (description = "example",
+            dataProvider = "combinedDataTemplate", dataProviderClass = productDataProvider.class)
+    public void exampleTest(String a, String b, String c, String d) {
+        loginPage.clearCredentialsInputs();
+        loginPage.enterEmail(a);
+        loginPage.enterPassword(b);
+        loginPage.enterEmail(c);
+        loginPage.enterPassword(d);
+        System.out.println(a + " " + b + " " + c + " " + d);
     }
+
+}
+
+
+
+
 

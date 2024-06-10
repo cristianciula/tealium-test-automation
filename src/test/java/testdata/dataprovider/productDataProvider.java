@@ -20,6 +20,22 @@ public class productDataProvider {
     }
 
     @DataProvider
+    public Object[][] dataProvider1() {
+        return new Object[][] {
+                {"test1", "test2"},
+                {"test3", "test4"}
+        };
+    }
+
+    @DataProvider
+    public Object[][] dataProvider2() {
+        return new Object[][] {
+                {"test5", "test6"},
+                {"test7", "test8"}
+        };
+    }
+
+    @DataProvider
     public Object[][] combinedDataTemplate() {
 
         //Prerequisites

@@ -1,6 +1,5 @@
 package testdata.dataprovider;
 
-import constants.LoginConst;
 import org.testng.annotations.DataProvider;
 
 public class userDataProvider {
@@ -9,6 +8,46 @@ public class userDataProvider {
     public static Object[][] validLoginCredentials() {
         return new Object[][]{
                 {"testuser@example.com", "Parola100!"}
+        };
+    }
+
+    @DataProvider (name = "validEmailAddress")
+    public Object[][] validEmailAddress() {
+        return new Object[][] {
+                {"testuser@example.com"}
+        };
+    }
+
+    @DataProvider (name = "validPassword")
+    public Object[][] validPassword() {
+        return new Object[][] {
+                {"Parola100!"}
+        };
+    }
+
+    @DataProvider (name = "invalidEmailSyntaxes")
+    public Object[][] invalidEmailSyntax() {
+        return new Object[][]{
+                {"@example.com"},
+                {"userexample.com"},
+                {"user@.com"},
+                {"user@examplecom"},
+                {"user@example."},
+                {"user@example.c"}
+        };
+    }
+
+    @DataProvider (name = "invalidPassword")
+    public Object[][] invalidPasswordSyntax() {
+        return new Object[][] {
+                {"P"},
+                {"123"},
+                {"P123"},
+                {"ParolaParola"},
+                {"ParolaParola100"},
+                {"ParolaParola!"},
+                {"1234567890"},
+                {"1234567890!"}
         };
     }
 
