@@ -2,19 +2,10 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import testdata.dataprovider.userDataProvider;
+import testdata.dataprovider.UserDataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
-import wrappers.WaitsWrapper;
-
-import java.time.Duration;
 
 import static org.testng.Assert.*;
 
@@ -26,7 +17,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "User entering valid Email and valid Password CAN login.",
-            dataProvider = "validLoginCredentials", dataProviderClass = userDataProvider.class)
+            dataProvider = "validLoginCredentials", dataProviderClass = UserDataProvider.class)
     public void canLoginWithValidCredentials(String email, String password) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
@@ -40,7 +31,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "User entering invalid credentials CANNOT login.",
-            dataProvider = "invalidLoginCredentials", dataProviderClass = userDataProvider.class,
+            dataProvider = "invalidLoginCredentials", dataProviderClass = UserDataProvider.class,
             dependsOnMethods = "cannotLoginWithInvalidCredentials", alwaysRun = true)
     public void cannotLoginWithInvalidCredentials(String email, String password) {
         loginPage.clearCredentialsInputs();
@@ -101,7 +92,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Validation error message is displayed for invalid Email syntax.",
-            dataProvider = "invalidEmailSyntax", dataProviderClass = userDataProvider.class)
+            dataProvider = "invalidEmailSyntax", dataProviderClass = UserDataProvider.class)
     public void loginWithInvalidEmailSyntaxAndValidPassword(String invalidEmailSyntax) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmailSyntax);

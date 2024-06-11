@@ -5,19 +5,7 @@ import org.testng.annotations.DataProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-import static testdata.dataprovider.userDataProvider.validLoginCredentials;
-
-public class productDataProvider {
-
-    static Object validEmail = validLoginCredentials()[0][0];
-    static Object validPassword = validLoginCredentials()[0][1];
-
-    @DataProvider(name = "userSignUpData")
-    public static Object[][] userSignUpData() {
-        return new Object[][]{
-                {validEmail, validPassword}
-        };
-    }
+public class ProductDataProvider {
 
     @DataProvider
     public Object[][] dataProvider1() {

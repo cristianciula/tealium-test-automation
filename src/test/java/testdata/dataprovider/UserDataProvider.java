@@ -1,11 +1,12 @@
 package testdata.dataprovider;
 
+import lombok.Data;
 import org.testng.annotations.DataProvider;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class userDataProvider {
+public class UserDataProvider {
 
     /* ---------- EMAIL ADDRESS DATA ---------- */
 
@@ -13,6 +14,16 @@ public class userDataProvider {
     public Object[][] validEmailAddress() {
         return new Object[][] {
                 {"testuser@example.com"}
+        };
+    }
+
+    @DataProvider (name = "wrongEmail")
+    public Object[][] wrongEmail() {
+        return new Object[][] {
+                // Duplicate email
+                {"testuser@example.com"},
+                // Unknown email
+                {"unknown@example.com"}
         };
     }
 
@@ -30,22 +41,19 @@ public class userDataProvider {
         };
     }
 
-    @DataProvider (name = "wrongEmail")
-    public Object[][] wrongEmail() {
-        return new Object[][] {
-                // Duplicate email
-                {"testuser@example.com"},
-                // Unknown email
-                {"unknown@example.com"}
-        };
-    }
-
     /* ---------- EMAIL ADDRESS DATA ---------- */
 
     @DataProvider (name = "validPassword")
     public Object[][] validPassword() {
         return new Object[][] {
                 {"Parola100!"}
+        };
+    }
+
+    @DataProvider (name = "wrongPassword")
+    public Object[][] wrongPassword() {
+        return new Object[][] {
+                {"Parola000!"}
         };
     }
 
@@ -63,7 +71,7 @@ public class userDataProvider {
         };
     }
 
-    /* ---------- COMBINED DATA PROVIDERS ---------- */
+    /* ---------- COMBINED EMAIL & PASSWORD DATA PROVIDERS ---------- */
 
     @DataProvider
     public Object[][] invalidEmailWithValidPassword() {
