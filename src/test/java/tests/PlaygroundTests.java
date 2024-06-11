@@ -1,6 +1,7 @@
 package tests;
 
 import constants.AccountDashboardConst;
+import testdata.Credentials;
 import testdata.dataprovider.UserDataProvider;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,6 +14,7 @@ import wrappers.SeleniumWrapper;
 import java.time.Duration;
 
 import static org.testng.Assert.*;
+import static testdata.Credentials.VALID_EMAIL;
 
 public class PlaygroundTests extends BaseTest {
 
@@ -69,17 +71,19 @@ public class PlaygroundTests extends BaseTest {
             }
         }
     @Test (description = "example",
-            dataProvider = "invalidEmailWithValidPassword", dataProviderClass = UserDataProvider.class)
+            dataProvider = "validEmailAndValidPassword", dataProviderClass = UserDataProvider.class)
     public void exampleTest(String invalidEmail, String validPassword) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmail);
         loginPage.enterPassword(validPassword);
 
-        if(invalidEmail.isEmpty() || invalidEmail.equalsIgnoreCase(" ")) {
-            assertEquals("blabla", "blabla");
-            System.out.println(invalidEmail);
-        }
+//        if(invalidEmail.isEmpty() || invalidEmail.equalsIgnoreCase(" ")) {
+//            assertEquals("blabla", "blabla");
+//            System.out.println(invalidEmail);
+//        }
+
         System.out.println(invalidEmail);
+        System.out.println(validPassword);
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.Random;
 
 public final class RandomUtils {
 
-    public static int integerValue(int upperRange) {
+    public static int intValue(int upperRange) {
         Random random = new Random();
         return random.nextInt(upperRange);
     }
