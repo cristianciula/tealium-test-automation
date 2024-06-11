@@ -1,7 +1,5 @@
 package testdata;
 
-import utils.RandomUtils;
-
 public enum Credentials {
 
     VALID_EMAIL("testuser@example.com"),
@@ -10,7 +8,7 @@ public enum Credentials {
     private final String name;
 
     // Constructor
-    private Credentials(String name) {
+    Credentials(String name) {
         this.name = name;
     }
 

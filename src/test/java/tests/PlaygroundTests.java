@@ -1,7 +1,6 @@
 package tests;
 
 import constants.AccountDashboardConst;
-import testdata.Credentials;
 import testdata.dataprovider.UserDataProvider;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +13,6 @@ import wrappers.SeleniumWrapper;
 import java.time.Duration;
 
 import static org.testng.Assert.*;
-import static testdata.Credentials.VALID_EMAIL;
 
 public class PlaygroundTests extends BaseTest {
 
