@@ -11,7 +11,7 @@ public class UserDataProvider {
     /* ---------- EMAIL ADDRESS DATA ---------- */
 
     @DataProvider (name = "validEmailAddress")
-    public Object[][] validEmailAddress() {
+    public Object[][] validEmail() {
         return new Object[][] {
                 {"testuser@example.com"}
         };
@@ -22,7 +22,7 @@ public class UserDataProvider {
         return new Object[][] {
                 // Duplicate email
                 {"testuser@example.com"},
-                // Unknown email
+                // Unregistered email
                 {"unknown@example.com"}
         };
     }
@@ -32,6 +32,11 @@ public class UserDataProvider {
         return new Object[][]{
                 {""},
                 {" "},
+                {" @example.com"},
+                {"user@example. com"},
+                {"user @example.com"},
+                {"user@ example.com"},
+                {"user@example .com"},
                 {"@example.com"},
                 {"userexample.com"},
                 {"user@.com"},
@@ -60,6 +65,8 @@ public class UserDataProvider {
     @DataProvider (name = "invalidPassword")
     public Object[][] invalidPasswordSyntax() {
         return new Object[][] {
+                {""},
+                {" "},
                 {"P"},
                 {"123"},
                 {"P123"},
@@ -73,8 +80,70 @@ public class UserDataProvider {
 
     /* ---------- COMBINED EMAIL & PASSWORD DATA PROVIDERS ---------- */
 
+    @DataProvider (name = "validEmailAndValidPassword")
+    public Object[][] validEmailAndValidPassword() {
+
+        //Prerequisites
+        Object[][] dataProvider1 = validEmail();
+        Object[][] dataProvider2 = validPassword();
+        List<Object[]> combinedDataProviders = new ArrayList<>();
+
+        //Combine the data
+        for (Object[] dataProvider1Obj : dataProvider1) {
+            for (Object[] dataProvider2Obj : dataProvider2) {
+                Object[] combinedItem = new Object[dataProvider1Obj.length + dataProvider2Obj.length];
+                System.arraycopy(dataProvider1Obj, 0, combinedItem, 0, dataProvider1Obj.length);
+                System.arraycopy(dataProvider2Obj, 0, combinedItem, dataProvider1Obj.length, dataProvider2Obj.length);
+                combinedDataProviders.add(combinedItem);
+            }
+        }
+        return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
+    }
+
+    @DataProvider (name = "validEmailAndWrongPassword")
+    public Object[][] validEmailAndWrongPassword() {
+
+        //Prerequisites
+        Object[][] dataProvider1 = validEmail();
+        Object[][] dataProvider2 = wrongPassword();
+        List<Object[]> combinedDataProviders = new ArrayList<>();
+
+        //Combine the data
+        for (Object[] dataProvider1Obj : dataProvider1) {
+            for (Object[] dataProvider2Obj : dataProvider2) {
+                Object[] combinedItem = new Object[dataProvider1Obj.length + dataProvider2Obj.length];
+                System.arraycopy(dataProvider1Obj, 0, combinedItem, 0, dataProvider1Obj.length);
+                System.arraycopy(dataProvider2Obj, 0, combinedItem, dataProvider1Obj.length, dataProvider2Obj.length);
+                combinedDataProviders.add(combinedItem);
+            }
+        }
+        return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
+    }
+
+    @DataProvider (name = "validEmailAndInvalidPasswordSyntax")
+    public Object[][] validEmailAndInvalidPasswordSyntax() {
+
+        //Prerequisites
+        Object[][] dataProvider1 = validEmail();
+        Object[][] dataProvider2 = invalidPasswordSyntax();
+        List<Object[]> combinedDataProviders = new ArrayList<>();
+
+        //Combine the data
+        for (Object[] dataProvider1Obj : dataProvider1) {
+            for (Object[] dataProvider2Obj : dataProvider2) {
+                Object[] combinedItem = new Object[dataProvider1Obj.length + dataProvider2Obj.length];
+                System.arraycopy(dataProvider1Obj, 0, combinedItem, 0, dataProvider1Obj.length);
+                System.arraycopy(dataProvider2Obj, 0, combinedItem, dataProvider1Obj.length, dataProvider2Obj.length);
+                combinedDataProviders.add(combinedItem);
+            }
+        }
+        return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
+    }
+
+    @DataProvider (name = "invalidEmailAndWrongPassword")
+
     @DataProvider
-    public Object[][] invalidEmailWithValidPassword() {
+    public Object[][] invalidEmailAndValidPassword() {
 
         //Prerequisites
         Object[][] dataProvider1 = invalidEmailSyntax();
@@ -96,11 +165,6 @@ public class UserDataProvider {
     @DataProvider (name = "invalidLoginCredentials")
     public static Object[][] invalidLoginCredentials() {
         return new Object[][] {
-
-                //Unregistered Email & Valid Password
-                {"notauser@example.com", "Parola100!"},
-
-                {"testuser@example.com", "Parola100!"},
 
 //                //Valid Email & Invalid Password
 //                {"testuser@example.com", "P"},
