@@ -66,7 +66,7 @@ public class LoginTests extends BaseTest {
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed.");
-        assertEquals(loginPage.getCredentialsInvalidErrorMessage() + "test", LoginConst.INVALID_CREDENTIALS_MESSAGE, "Unexpected invalid credentials message.");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Unexpected invalid credentials message.");
         assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "Unexpected current URL.");
     }
 
