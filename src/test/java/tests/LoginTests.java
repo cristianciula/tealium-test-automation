@@ -7,7 +7,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
 
-import static constants.assertionmessages.AssertionsMessagesConst.UNEXPECTED_INVALID_CREDENTIALS_MESSAGE;
 import static org.testng.Assert.*;
 import static wrappers.SeleniumWrapper.*;
 
@@ -26,8 +25,8 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
 
-        assertEquals(accountDashboardPage.getUserGreetingPlaceholder(), AccountDashboardConst.HELLO_USERNAME_MESSAGE);
-        assertTrue(accountDashboardPage.isPageTitleDisplayed());
+        assertEquals(accountDashboardPage.getUserGreetingPlaceholder(), AccountDashboardConst.HELLO_USERNAME_MESSAGE, "Unexpected user greeting message.");
+        assertTrue(accountDashboardPage.isPageTitleDisplayed(), "Page title is not displayed.");
 
         header.logoutUser();
     }
@@ -41,8 +40,8 @@ public class LoginTests extends BaseTest {
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed.");
-        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Invalid credentials error message is not as expected.");
-        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Unexpected invalid credentials message.");
+        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "Unexpected current URL.");
     }
 
     @Test(description = "Cannot login with valid Email and invalid Password.",
@@ -54,8 +53,8 @@ public class LoginTests extends BaseTest {
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed.");
-        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Invalid credentials message is not as expected.");
-        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Unexpected invalid credentials message.");
+        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "Unexpected current URL.");
     }
 
     @Test(description = "Cannot login with invalid Email and valid Password.",
@@ -67,8 +66,8 @@ public class LoginTests extends BaseTest {
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed.");
-        assertEquals(loginPage.getCredentialsInvalidErrorMessage() + "test", LoginConst.INVALID_CREDENTIALS_MESSAGE, UNEXPECTED_INVALID_CREDENTIALS_MESSAGE);
-        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage() + "test", LoginConst.INVALID_CREDENTIALS_MESSAGE, "Unexpected invalid credentials message.");
+        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "Unexpected current URL.");
     }
 
 
@@ -86,8 +85,8 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(validUser.getPassword());
         loginPage.clickLoginButton();
 
-        assertEquals(loginPage.getEmailEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_MESSAGE, "Email required error message is not displayed.");
-        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User was not redirected to the Login page.");
+        assertEquals(loginPage.getEmailEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_MESSAGE, "Email required message is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "Unexpected current URL.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
     }
 
@@ -98,8 +97,8 @@ public class LoginTests extends BaseTest {
         loginPage.clearPasswordInput();
         loginPage.clickLoginButton();
 
-        assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Password input error message is not displayed.");
-        assertEquals(loginPage.getPasswordEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_MESSAGE, "Password required error message is not displayed.");
+        assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Password required message is not displayed.");
+        assertEquals(loginPage.getPasswordEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_MESSAGE, "Unexpected password required message.");
     }
 
     @Test(description = "Validation error message is displayed for invalid Email syntax.",
@@ -118,7 +117,7 @@ public class LoginTests extends BaseTest {
 
         //TODO Add test steps
 
-        assertTrue(loginPage.isEmailEmptyErrorMessageDisplayed(), "Email required error message is not displayed.");
+        assertTrue(loginPage.isEmailEmptyErrorMessageDisplayed(), "Email required message is not displayed.");
     }
 
     @Test(description = "Empty Password field validation message is displayed")
@@ -126,7 +125,7 @@ public class LoginTests extends BaseTest {
 
         //TODO Add test steps
 
-        assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Password required error message is not displayed.");
+        assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Password required message is not displayed.");
     }
 
     @Test(description = "Invalid Email validation error message is displayed as expected.")
@@ -134,8 +133,8 @@ public class LoginTests extends BaseTest {
 
         //TODO Add test steps
 
-        assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials error message is not displayed");
-        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Invalid credentials error message is wrong.");
+        assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Unexpected invalid credentials message.");
     }
 
     @Test(description = "Invalid Password validation error message is displayed as expected.")
@@ -143,7 +142,7 @@ public class LoginTests extends BaseTest {
 
         //TODO Add test steps
 
-        assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials error message is not displayed");
-        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Invalid credentials error message is wrong.");
+        assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Unexpected invalid credentials message.");
     }
 }
