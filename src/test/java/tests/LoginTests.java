@@ -38,7 +38,7 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
 
-        //TODO Add Assertions
+        //TODO Add test assertions
     }
 
     @Test(description = "Cannot login with valid Email and wrong Password.",
@@ -49,7 +49,7 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(invalidUser.getPassword());
         loginPage.clickLoginButton();
 
-        //TODO Add Assertions
+        //TODO Add test assertions
     }
 
     @Test(description = "User entering invalid Email and valid Password CANNOT login.")
@@ -101,11 +101,14 @@ public class LoginTests extends BaseTest {
         loginPage.enterEmail(invalidEmailSyntax);
         loginPage.enterPassword(validUser.getPassword());
         loginPage.clickLoginButton();
+
+        //TODO Add test assertions
     }
 
     @Test(description = "Empty Email field validation message is displayed.")
     public void verifyEmptyEmailErrorMessageIsDisplayed() {
 
+        //TODO Add test steps
 
         assertTrue(loginPage.isEmailEmptyErrorMessageDisplayed(), "Email required error message is not displayed.");
     }
@@ -113,11 +116,15 @@ public class LoginTests extends BaseTest {
     @Test(description = "Empty Password field validation message is displayed")
     public void verifyEmptyPasswordErrorMessageIsDisplayed() {
 
+        //TODO Add test steps
+
         assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Password required error message is not displayed.");
     }
 
     @Test(description = "Invalid Email validation error message is displayed as expected.")
     public void verifyInvalidEmailErrorMessageIsDisplayed() {
+
+        //TODO Add test steps
 
         assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials error message is not displayed");
         assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Invalid credentials error message is wrong.");
@@ -125,6 +132,8 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Invalid Password validation error message is displayed as expected.")
     public void verifyInvalidPasswordErrorMessageIsDisplayed() {
+
+        //TODO Add test steps
 
         assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials error message is not displayed");
         assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Invalid credentials error message is wrong.");
