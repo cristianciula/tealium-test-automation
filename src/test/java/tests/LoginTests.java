@@ -42,7 +42,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Cannot login with valid Email and wrong Password.",
-        dataProvider = "validEmailWrongPassword", dataProviderClass = UserDataProvider.class)
+        dataProvider = "validEmailInvalidPassword", dataProviderClass = UserDataProvider.class)
     public void cannotLoginWithValidEmailAndWrongPassword() {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(validUser.getEmail());

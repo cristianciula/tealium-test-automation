@@ -14,9 +14,9 @@ public class MenuBar {
     }
 
     //____________________LOCATORS____________________//
-    private By menDropMenu = By.xpath("//li[@class=\"level0 nav-2 parent\"]");
-    private By breadcrumbs = By.xpath("//div[@class=\"breadcrumbs\"]");
-    private By menShirtsDropOption = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/men/shirts.html\"]");
+    private final By menDropMenu = By.xpath("//li[@class=\"level0 nav-2 parent\"]");
+    private final By breadcrumbs = By.xpath("//div[@class=\"breadcrumbs\"]");
+    private final By menShirtsDropOption = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/men/shirts.html\"]");
 
 
     //____________________PRIVATE METHODS____________________//
