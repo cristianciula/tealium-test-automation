@@ -1,4 +1,4 @@
-package testdata.dataprovider;
+package testdata;
 
 import org.testng.annotations.DataProvider;
 
@@ -81,8 +81,8 @@ public class UserDataProvider {
 
     /* -------------------- COMBINED EMAIL & PASSWORD DATA PROVIDERS -------------------- */
 
-    @DataProvider (name = "validEmailAndValidPassword")
-    public Object[][] validEmailAndValidPassword() {
+    @DataProvider (name = "validEmailValidPassword")
+    public Object[][] validEmailValidPassword() {
 
         //Prerequisites
         Object[][] dataProvider1 = validEmail();
@@ -101,8 +101,8 @@ public class UserDataProvider {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
-    @DataProvider (name = "validEmailAndWrongPassword")
-    public Object[][] validEmailAndWrongPassword() {
+    @DataProvider (name = "validEmailWrongPassword")
+    public Object[][] validEmailWrongPassword() {
 
         //Prerequisites
         Object[][] dataProvider1 = validEmail();
@@ -121,8 +121,8 @@ public class UserDataProvider {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
-    @DataProvider (name = "validEmailAndInvalidPasswordSyntax")
-    public Object[][] validEmailAndInvalidPasswordSyntax() {
+    @DataProvider (name = "validEmailInvalidPasswordSyntax")
+    public Object[][] validEmailInvalidPasswordSyntax() {
 
         //Prerequisites
         Object[][] dataProvider1 = validEmail();
@@ -141,8 +141,8 @@ public class UserDataProvider {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
-    @DataProvider (name = "wrongEmailAndWrongPassword")
-    public Object[][] wrongEmailAndWrongPassword() {
+    @DataProvider (name = "wrongEmailWrongPassword")
+    public Object[][] wrongEmailWrongPassword() {
 
         //Prerequisites
         Object[][] dataProvider1 = wrongEmail();
@@ -161,8 +161,8 @@ public class UserDataProvider {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
-    @DataProvider
-    public Object[][] invalidEmailAndValidPassword() {
+    @DataProvider (name = "invalidEmailValidPassword")
+    public Object[][] invalidEmailValidPassword() {
 
         //Prerequisites
         Object[][] dataProvider1 = invalidEmailSyntax();

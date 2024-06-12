@@ -2,7 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
-import testdata.dataprovider.UserDataProvider;
+import testdata.UserDataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
@@ -16,9 +16,9 @@ public class LoginTests extends BaseTest {
         driver.get(URL.LOGIN_PAGE);
     }
 
-    @Test(description = "User entering valid Email and valid Password CAN login.",
-            dataProvider = "validLoginCredentials", dataProviderClass = UserDataProvider.class)
-    public void canLoginWithValidCredentials(String email, String password) {
+    @Test(description = "Can login with valid Email and valid Password.",
+            dataProvider = "validEmailValidPassword", dataProviderClass = UserDataProvider.class)
+    public void canLoginWithValidEmailAndValidPassword(String email, String password) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
@@ -30,23 +30,26 @@ public class LoginTests extends BaseTest {
         header.logoutUser();
     }
 
-    @Test(description = "User entering invalid credentials CANNOT login.",
-            dataProvider = "invalidLoginCredentials", dataProviderClass = UserDataProvider.class,
-            dependsOnMethods = "cannotLoginWithInvalidCredentials", alwaysRun = true)
-    public void cannotLoginWithInvalidCredentials(String email, String password) {
+    @Test(description = "Cannot login with invalid Email and wrong Password.",
+            dataProvider = "wrongEmailWrongPassword", dataProviderClass = UserDataProvider.class)
+    public void cannotLoginWithWrongEmailAndWrongPassword(String email, String password) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
-        
+
+        //TODO Add Assertions
     }
 
-    @Test(description = "User entering valid Email and invalid Password CANNOT login.")
-    public void cannotLoginWithValidEmailAndInvalidPassword() {
+    @Test(description = "Cannot login with valid Email and wrong Password.",
+        dataProvider = "validEmailWrongPassword", dataProviderClass = UserDataProvider.class)
+    public void cannotLoginWithValidEmailAndWrongPassword() {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(validUser.getEmail());
         loginPage.enterPassword(invalidUser.getPassword());
         loginPage.clickLoginButton();
+
+        //TODO Add Assertions
     }
 
     @Test(description = "User entering invalid Email and valid Password CANNOT login.")
