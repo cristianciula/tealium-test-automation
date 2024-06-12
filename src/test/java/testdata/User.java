@@ -1,6 +1,6 @@
 package testdata;
 
-import helpers.JSONReaderHelper;
+import utils.JSONReaderHelper;
 
 public final class User {
 

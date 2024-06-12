@@ -18,8 +18,8 @@ public class UserDataProvider {
         };
     }
 
-    @DataProvider (name = "wrongEmail")
-    public Object[][] wrongEmail() {
+    @DataProvider (name = "invalidEmail")
+    public Object[][] invalidEmail() {
         return new Object[][] {
                 // Duplicate email
                 {"testuser@example.com"},
@@ -56,14 +56,14 @@ public class UserDataProvider {
         };
     }
 
-    @DataProvider (name = "wrongPassword")
-    public Object[][] wrongPassword() {
+    @DataProvider (name = "invalidPassword")
+    public Object[][] invalidPassword() {
         return new Object[][] {
                 {"Parola000!"}
         };
     }
 
-    @DataProvider (name = "invalidPassword")
+    @DataProvider (name = "invalidPasswordSyntax")
     public Object[][] invalidPasswordSyntax() {
         return new Object[][] {
                 {""},
@@ -101,12 +101,12 @@ public class UserDataProvider {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
-    @DataProvider (name = "validEmailWrongPassword")
-    public Object[][] validEmailWrongPassword() {
+    @DataProvider (name = "validEmailInvalidPassword")
+    public Object[][] validEmailInvalidPassword() {
 
         //Prerequisites
         Object[][] dataProvider1 = validEmail();
-        Object[][] dataProvider2 = wrongPassword();
+        Object[][] dataProvider2 = invalidPassword();
         List<Object[]> combinedDataProviders = new ArrayList<>();
 
         //Combine the data
@@ -141,12 +141,12 @@ public class UserDataProvider {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
-    @DataProvider (name = "wrongEmailWrongPassword")
-    public Object[][] wrongEmailWrongPassword() {
+    @DataProvider (name = "invalidEmailInvalidPassword")
+    public Object[][] invalidEmailInvalidPassword() {
 
         //Prerequisites
-        Object[][] dataProvider1 = wrongEmail();
-        Object[][] dataProvider2 = wrongPassword();
+        Object[][] dataProvider1 = invalidEmail();
+        Object[][] dataProvider2 = invalidPassword();
         List<Object[]> combinedDataProviders = new ArrayList<>();
 
         //Combine the data
