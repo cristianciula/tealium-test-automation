@@ -2,13 +2,11 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
-import constants.assertionmessages.AssertionsMessagesConst;
 import testdata.UserDataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
 
-import static constants.assertionmessages.AssertionsMessagesConst.INVALID_CREDENTIALS_MESSAGE_IS_WRONG;
 import static constants.assertionmessages.AssertionsMessagesConst.UNEXPECTED_INVALID_CREDENTIALS_MESSAGE;
 import static org.testng.Assert.*;
 import static wrappers.SeleniumWrapper.*;
