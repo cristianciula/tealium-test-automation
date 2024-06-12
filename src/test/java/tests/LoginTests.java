@@ -33,10 +33,10 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Cannot login with invalid Email and invalid Password.",
             dataProvider = "invalidEmailInvalidPassword", dataProviderClass = UserDataProvider.class)
-    public void cannotLoginWithInvalidEmailAndInvalidPassword(String email, String password) {
+    public void cannotLoginWithInvalidEmailAndInvalidPassword(String invalidEmail, String invalidPassword) {
         loginPage.clearCredentialsInputs();
-        loginPage.enterEmail(email);
-        loginPage.enterPassword(password);
+        loginPage.enterEmail(invalidEmail);
+        loginPage.enterPassword(invalidPassword);
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed.");
@@ -46,10 +46,10 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Cannot login with valid Email and invalid Password.",
         dataProvider = "validEmailInvalidPassword", dataProviderClass = UserDataProvider.class)
-    public void cannotLoginWithValidEmailAndInvalidPassword() {
+    public void cannotLoginWithValidEmailAndInvalidPassword(String validEmail, String invalidPassword) {
         loginPage.clearCredentialsInputs();
-        loginPage.enterEmail(validUser.getEmail());
-        loginPage.enterPassword(invalidUser.getPassword());
+        loginPage.enterEmail(validEmail);
+        loginPage.enterPassword(invalidPassword);
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed.");
@@ -70,7 +70,6 @@ public class LoginTests extends BaseTest {
         assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "Unexpected current URL.");
     }
 
-
     @Test(description = "User leaving the Email and Password fields empty CANNOT login.")
     public void cannotLoginWithEmptyCredentials() {
         loginPage.clearCredentialsInputs();
@@ -79,26 +78,29 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
     }
 
-    @Test(description = "User leaving the Email field empty and entering valid Password CANNOT login.")
-    public void loginWithEmptyEmailAndValidPassword() {
+    @Test(description = "Cannot login with empty Email and valid Password.",
+        dataProvider = "validPassword", dataProviderClass = UserDataProvider.class)
+    public void cannotLoginWithEmptyEmailAndValidPassword(String validPassword) {
         loginPage.clearCredentialsInputs();
-        loginPage.enterPassword(validUser.getPassword());
+        loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
 
         assertEquals(loginPage.getEmailEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_MESSAGE, "Email required message is not displayed.");
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "Unexpected current URL.");
-        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "Unexpected current URL.");
     }
 
-    @Test(description = "User entering valid Email and leaving the Password field empty CANNOT login.")
-    public void loginWithValidEmailAndEmptyPassword() {
+    @Test(description = "Cannot login with valid Email and empty Password.",
+        dataProvider = "validEmail", dataProviderClass = UserDataProvider.class)
+    public void cannotLoginWithValidEmailAndEmptyPassword(String validEmail) {
         loginPage.clearCredentialsInputs();
-        loginPage.enterEmail(validUser.getEmail());
+        loginPage.enterEmail(validEmail);
         loginPage.clearPasswordInput();
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Password required message is not displayed.");
         assertEquals(loginPage.getPasswordEmptyErrorMessage(), LoginConst.REQUIRED_FIELD_MESSAGE, "Unexpected password required message.");
+        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "Unexpected current URL.");
     }
 
     @Test(description = "Validation error message is displayed for invalid Email syntax.",
