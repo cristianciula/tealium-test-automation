@@ -30,15 +30,16 @@ public class LoginTests extends BaseTest {
         header.logoutUser();
     }
 
-    @Test(description = "Cannot login with invalid Email and wrong Password.",
+    @Test(description = "Cannot login with invalid Email and invalid Password.",
             dataProvider = "invalidEmailInvalidPassword", dataProviderClass = UserDataProvider.class)
-    public void cannotLoginWithWrongEmailAndWrongPassword(String email, String password) {
+    public void cannotLoginWithInvalidEmailAndInvalidPassword(String email, String password) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
 
-        //TODO Add test assertions
+        assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed.");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Invalid credentials error message is not as expected.");
     }
 
     @Test(description = "Cannot login with valid Email and wrong Password.",
