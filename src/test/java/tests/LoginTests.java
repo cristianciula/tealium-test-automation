@@ -2,12 +2,16 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
+import constants.assertionmessages.AssertionsMessagesConst;
 import testdata.UserDataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
 
+import static constants.assertionmessages.AssertionsMessagesConst.INVALID_CREDENTIALS_MESSAGE_IS_WRONG;
+import static constants.assertionmessages.AssertionsMessagesConst.UNEXPECTED_INVALID_CREDENTIALS_MESSAGE;
 import static org.testng.Assert.*;
+import static wrappers.SeleniumWrapper.*;
 
 public class LoginTests extends BaseTest {
 
@@ -40,28 +44,33 @@ public class LoginTests extends BaseTest {
 
         assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed.");
         assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Invalid credentials error message is not as expected.");
+        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page");
     }
 
-    @Test(description = "Cannot login with valid Email and wrong Password.",
+    @Test(description = "Cannot login with valid Email and invalid Password.",
         dataProvider = "validEmailInvalidPassword", dataProviderClass = UserDataProvider.class)
-    public void cannotLoginWithValidEmailAndWrongPassword() {
+    public void cannotLoginWithValidEmailAndInvalidPassword() {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(validUser.getEmail());
         loginPage.enterPassword(invalidUser.getPassword());
         loginPage.clickLoginButton();
 
-        //TODO Add test assertions
+        assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed.");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Invalid credentials message is not as expected.");
+        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page");
     }
 
-    @Test(description = "User entering invalid Email and valid Password CANNOT login.")
-    public void cannotLoginWithInvalidEmailAndValidPassword() {
+    @Test(description = "Cannot login with invalid Email and valid Password.",
+        dataProvider = "invalidEmailValidPassword", dataProviderClass = UserDataProvider.class)
+    public void cannotLoginWithInvalidEmailAndValidPassword(String invalidEmail, String validPassword) {
         loginPage.clearCredentialsInputs();
-        loginPage.enterEmail(invalidUser.getEmail());
-        loginPage.enterPassword(validUser.getPassword());
+        loginPage.enterEmail(invalidEmail);
+        loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.isCredentialsInvalidErrorMessageDisplayed(), "Invalid credentials message is not displayed.");
-        assertEquals(loginPage.getCredentialsInvalidErrorMessage(), LoginConst.INVALID_CREDENTIALS_MESSAGE, "Invalid credentials error message is wrong.");
+        assertEquals(loginPage.getCredentialsInvalidErrorMessage() + "test", LoginConst.INVALID_CREDENTIALS_MESSAGE, UNEXPECTED_INVALID_CREDENTIALS_MESSAGE);
+        assertEquals(getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page");
     }
 
 

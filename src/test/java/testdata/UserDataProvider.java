@@ -21,9 +21,7 @@ public class UserDataProvider {
     @DataProvider (name = "invalidEmail")
     public Object[][] invalidEmail() {
         return new Object[][] {
-                // Duplicate email
-                {"testuser@example.com"},
-                // Unregistered email
+                // Unknown email
                 {"unknown@example.com"}
         };
     }
@@ -165,7 +163,7 @@ public class UserDataProvider {
     public Object[][] invalidEmailValidPassword() {
 
         //Prerequisites
-        Object[][] dataProvider1 = invalidEmailSyntax();
+        Object[][] dataProvider1 = invalidEmail();
         Object[][] dataProvider2 = validPassword();
         List<Object[]> combinedDataProviders = new ArrayList<>();
 
