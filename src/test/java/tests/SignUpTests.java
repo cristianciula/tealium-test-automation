@@ -61,7 +61,6 @@ public class SignUpTests extends BaseTest {
 
     }
 
-
     @Test (description = "Tests that user cannot create an account using a password that is less than 7 characters in length")
     public void invalidPasswordLength() {
         //TODO - Add steps and assertions
@@ -77,15 +76,6 @@ public class SignUpTests extends BaseTest {
         signUpPage.clickRegister();
 
         assertEquals(driver.getCurrentUrl(), URL.CREATE_ACCOUNT_PAGE);
-
-
-//        String[] invalidEmails = stringToArray(invalidUser.getEmail());
-
-//        for (String invalidEmail : invalidEmails) {
-//            signUpPage.enterEmail(invalidEmail);
-//            signUpPage.clickRegister();
-//            assertEquals(driver.getCurrentUrl(), URL.CREATE_ACCOUNT_PAGE);
-//            signUpPage.clearEmailField();
-//        }
     }
+
 }
