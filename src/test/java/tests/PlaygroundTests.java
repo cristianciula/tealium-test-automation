@@ -36,7 +36,7 @@ public class PlaygroundTests extends BaseTest {
 
     @Test (description = "User entering invalid credentials CANNOT login.",
             dataProvider = "invalidCredentials", dataProviderClass = DataProvider.class)
-    public void invalidCredentialsLogin(String email, String password) throws InterruptedException {
+    public void invalidCredentialsLogin(String email, String password) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
