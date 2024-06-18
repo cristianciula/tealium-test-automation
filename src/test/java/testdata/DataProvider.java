@@ -1,24 +1,22 @@
 package testdata;
 
-import org.testng.annotations.DataProvider;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static testdata.Credentials.*;
 
-public class UserDataProvider {
+public class DataProvider {
 
-    /* -------------------- EMAIL ADDRESS DATA -------------------- */
+    /* -------------------- EMAIL DATA PROVIDERS -------------------- */
 
-    @DataProvider (name = "validEmailAddress")
+    @org.testng.annotations.DataProvider(name = "validEmailAddress")
     public Object[][] validEmail() {
         return new Object[][] {
                 {VALID_EMAIL.getName()}
         };
     }
 
-    @DataProvider (name = "invalidEmail")
+    @org.testng.annotations.DataProvider(name = "invalidEmail")
     public Object[][] invalidEmail() {
         return new Object[][] {
                 // Unknown email
@@ -26,7 +24,7 @@ public class UserDataProvider {
         };
     }
 
-    @DataProvider (name = "invalidEmailSyntax")
+    @org.testng.annotations.DataProvider(name = "invalidEmailSyntax")
     public Object[][] invalidEmailSyntax() {
         return new Object[][]{
                 {""},
@@ -45,23 +43,23 @@ public class UserDataProvider {
         };
     }
 
-    /* -------------------- EMAIL ADDRESS DATA -------------------- */
+    /* -------------------- PASSWORD DATA PROVIDERS -------------------- */
 
-    @DataProvider (name = "validPassword")
+    @org.testng.annotations.DataProvider(name = "validPassword")
     public Object[][] validPassword() {
         return new Object[][] {
                 {VALID_PASSWORD.getName()}
         };
     }
 
-    @DataProvider (name = "invalidPassword")
+    @org.testng.annotations.DataProvider(name = "invalidPassword")
     public Object[][] invalidPassword() {
         return new Object[][] {
                 {"Parola000!"}
         };
     }
 
-    @DataProvider (name = "invalidPasswordSyntax")
+    @org.testng.annotations.DataProvider(name = "invalidPasswordSyntax")
     public Object[][] invalidPasswordSyntax() {
         return new Object[][] {
                 {""},
@@ -79,7 +77,7 @@ public class UserDataProvider {
 
     /* -------------------- COMBINED EMAIL & PASSWORD DATA PROVIDERS -------------------- */
 
-    @DataProvider (name = "validEmailValidPassword")
+    @org.testng.annotations.DataProvider(name = "validEmailValidPassword")
     public Object[][] validEmailValidPassword() {
 
         //Prerequisites
@@ -99,7 +97,7 @@ public class UserDataProvider {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
-    @DataProvider (name = "validEmailInvalidPassword")
+    @org.testng.annotations.DataProvider(name = "validEmailInvalidPassword")
     public Object[][] validEmailInvalidPassword() {
 
         //Prerequisites
@@ -119,7 +117,7 @@ public class UserDataProvider {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
-    @DataProvider (name = "validEmailInvalidPasswordSyntax")
+    @org.testng.annotations.DataProvider(name = "validEmailInvalidPasswordSyntax")
     public Object[][] validEmailInvalidPasswordSyntax() {
 
         //Prerequisites
@@ -139,7 +137,7 @@ public class UserDataProvider {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
-    @DataProvider (name = "invalidEmailInvalidPassword")
+    @org.testng.annotations.DataProvider(name = "invalidEmailInvalidPassword")
     public Object[][] invalidEmailInvalidPassword() {
 
         //Prerequisites
@@ -159,7 +157,7 @@ public class UserDataProvider {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
-    @DataProvider (name = "invalidEmailValidPassword")
+    @org.testng.annotations.DataProvider(name = "invalidEmailValidPassword")
     public Object[][] invalidEmailValidPassword() {
 
         //Prerequisites
