@@ -72,4 +72,11 @@ public final class SeleniumWrapper {
         actions.build().perform();
     }
 
+    public static boolean isElementInViewport(By by) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+        boolean isElementVisible = js.executeScript("return (window.pageYOffset > document.querySelector(by).getBoundingClientRect().bottom);");
+        return isElementVisible;
+    }
+
 }
