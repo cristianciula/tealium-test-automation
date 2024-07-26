@@ -31,10 +31,15 @@ public final class WaitsWrapper {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
     }
-    public void waitTextToBe(int waitInSeconds, By locator, String expectedText) {
+    public boolean waitTextToBePresentInElement(int waitInSeconds, By locator, String expectedText) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitInSeconds));
-        wait.until(ExpectedConditions.textToBePresentInElementValue(locator, expectedText));
+        try {
+            wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, expectedText));
+            return true;
+        } catch (Exception e) {
+            System.out.println("Text '" + expectedText + "' not found in the element located by: " + locator);
+            return false;
+        }
     }
-    //TODO: Create custom waiter method to wait for a specific exact "string" if the value of that webelement is updated later than the element itself is displayed. Can potentially also add wait time as well.
-    // Method can contain following parameters: (expectedText, waitTimeInSeconds)
+    
 }
