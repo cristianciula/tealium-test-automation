@@ -28,22 +28,19 @@ public class BaseTest {
     public static User invalidUser = new User("invalidUser");
 
     @BeforeClass
-    public static void setUp() {
-    }
-
-    @AfterClass
-    public static void tearDown() {
-    }
-
-    @BeforeTest
     public void beforeTest() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("no-sandbox");
-        options.addArguments("--start-maximized");
+
+        options.addArguments(
+                "--start-maximized " +
+                "--disable-search-engine-choice-screen"
+        );
 
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+
+        SeleniumWrapper.setDriver(driver);
 
         header = new Header(driver);
         menuBar = new MenuBar(driver);
@@ -53,13 +50,24 @@ public class BaseTest {
         womenPage = new WomenPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
 
-        SeleniumWrapper.setDriver(driver);
     }
 
-    @AfterTest
+    @AfterClass
     public void afterTest() {
         driver.manage().deleteAllCookies();
-        driver.quit();
-        driver = null;
+
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
+
+        header = null;
+        menuBar = null;
+        homePage = null;
+        loginPage = null;
+        signUpPage = null;
+        womenPage = null;
+        accountDashboardPage = null;
+
     }
 }

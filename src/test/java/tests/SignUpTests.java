@@ -2,7 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.SignUpConst;
-import testdata.DataProvider;
+import testdata.DataProviders;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
@@ -67,7 +67,7 @@ public class SignUpTests extends BaseTest {
     }
 
     @Test (description = "Tests that invalid email syntaxes are not accepted", dataProvider = "invalidCredentials",
-            dataProviderClass = DataProvider.class)
+            dataProviderClass = DataProviders.class)
     public void invalidEmailSyntax(String email) {
 
         signUpPage.fillCreateAccountForm(validUser);

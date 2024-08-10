@@ -1,7 +1,7 @@
 package tests;
 
 import constants.AccountDashboardConst;
-import testdata.DataProvider;
+import testdata.DataProviders;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,7 +22,7 @@ public class PlaygroundTests extends BaseTest {
     }
 
     @Test (description = "User entering valid Email and valid Password CAN login.",
-            dataProvider = "validCredentials", dataProviderClass = DataProvider.class)
+            dataProvider = "validCredentials", dataProviderClass = DataProviders.class)
     public void validCredentialsLogin(String email, String password) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
@@ -35,7 +35,7 @@ public class PlaygroundTests extends BaseTest {
     }
 
     @Test (description = "User entering invalid credentials CANNOT login.",
-            dataProvider = "invalidCredentials", dataProviderClass = DataProvider.class)
+            dataProvider = "invalidCredentials", dataProviderClass = DataProviders.class)
     public void invalidCredentialsLogin(String email, String password) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(email);
@@ -69,7 +69,7 @@ public class PlaygroundTests extends BaseTest {
             }
         }
     @Test (description = "example",
-            dataProvider = "validEmailAndValidPassword", dataProviderClass = DataProvider.class)
+            dataProvider = "validEmailAndValidPassword", dataProviderClass = DataProviders.class)
     public void exampleTest(String invalidEmail, String validPassword) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmail);

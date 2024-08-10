@@ -2,7 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
-import testdata.DataProvider;
+import testdata.DataProviders;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
@@ -18,9 +18,10 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Can login with valid Email and valid Password.",
-            dataProvider = "validEmailValidPassword", dataProviderClass = DataProvider.class)
+            dataProvider = "validEmailValidPassword", dataProviderClass = DataProviders.class)
     public void canLoginWithValidEmailAndValidPassword(String email, String password) {
         loginPage.clearCredentialsInputs();
+
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
@@ -32,7 +33,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Cannot login with invalid Email and invalid Password.",
-            dataProvider = "invalidEmailInvalidPassword", dataProviderClass = DataProvider.class)
+            dataProvider = "invalidEmailInvalidPassword", dataProviderClass = DataProviders.class)
     public void cannotLoginWithInvalidEmailAndInvalidPassword(String invalidEmail, String invalidPassword) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmail);
@@ -45,7 +46,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Cannot login with valid Email and invalid Password.",
-        dataProvider = "validEmailInvalidPassword", dataProviderClass = DataProvider.class)
+        dataProvider = "validEmailInvalidPassword", dataProviderClass = DataProviders.class)
     public void cannotLoginWithValidEmailAndInvalidPassword(String validEmail, String invalidPassword) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(validEmail);
@@ -58,7 +59,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Cannot login with invalid Email and valid Password.",
-        dataProvider = "invalidEmailValidPassword", dataProviderClass = DataProvider.class)
+        dataProvider = "invalidEmailValidPassword", dataProviderClass = DataProviders.class)
     public void cannotLoginWithInvalidEmailAndValidPassword(String invalidEmail, String validPassword) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmail);
@@ -79,7 +80,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Cannot login with empty Email and valid Password.",
-        dataProvider = "validPassword", dataProviderClass = DataProvider.class)
+        dataProvider = "validPassword", dataProviderClass = DataProviders.class)
     public void cannotLoginWithEmptyEmailAndValidPassword(String validPassword) {
         loginPage.clearCredentialsInputs();
         loginPage.enterPassword(validPassword);
@@ -91,7 +92,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Cannot login with valid Email and empty Password.",
-        dataProvider = "validEmail", dataProviderClass = DataProvider.class)
+        dataProvider = "validEmail", dataProviderClass = DataProviders.class)
     public void cannotLoginWithValidEmailAndEmptyPassword(String validEmail) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(validEmail);
@@ -104,7 +105,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Validation error message is displayed for invalid Email syntax.",
-            dataProvider = "invalidEmailSyntax", dataProviderClass = DataProvider.class)
+            dataProvider = "invalidEmailSyntax", dataProviderClass = DataProviders.class)
     public void loginWithInvalidEmailSyntaxAndValidPassword(String invalidEmailSyntax) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmailSyntax);
