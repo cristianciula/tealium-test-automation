@@ -38,16 +38,16 @@ public class SignUpPage {
 
     //____________________PRIVATE METHODS____________________//
     private void enterFirstName(String string) {
-        sendKeys(firstNameInput, string);
+        sendText(firstNameInput, string);
     }
     private void enterMiddleName(String string) {
-        sendKeys(middleNameInput, string);
+        sendText(middleNameInput, string);
     }
     private void enterLastName(String string) {
-        sendKeys(lastNameInput, string);
+        sendText(lastNameInput, string);
     }
     private void enterConfirmPassword(String string) {
-        sendKeys(confirmPasswordInput, string);
+        sendText(confirmPasswordInput, string);
     }
     private void clickRememberMeCheckbox() {
         click(rememberMeCheckbox);
@@ -60,16 +60,16 @@ public class SignUpPage {
 
     //____________________PUBLIC METHODS____________________//
     public void navigateToCreateAccountPage() {
-        navigateToUrl(URL.CREATE_ACCOUNT_PAGE);
+        goToUrl(URL.CREATE_ACCOUNT_PAGE);
     }
     public String getPageTitle() {
         return getText(pageTitle);
     }
     public void enterEmail(String string) {
-        sendKeys(emailInput, string);
+        sendText(emailInput, string);
     }
     public void enterPassword(String string) {
-        sendKeys(passwordInput, string);
+        sendText(passwordInput, string);
     }
     public void fillCreateAccountForm(User user) {
         enterFirstName(user.getFirstName());

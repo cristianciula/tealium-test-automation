@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.DataProvider;
 import testdata.URL;
 import testdata.User;
 import wrappers.SeleniumWrapper;
@@ -47,10 +46,10 @@ public class LoginPage {
         click(createAccountButton);
     }
     public void enterEmail(String string) {
-        sendKeys(emailInputField, string);
+        sendText(emailInputField, string);
     }
     public void enterPassword(String string) {
-        sendKeys(passwordInputField, string);
+        sendText(passwordInputField, string);
     }
     public void clickLoginButton() {
         scrollToElement(loginButton);

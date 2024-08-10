@@ -15,17 +15,17 @@ public final class WaitsWrapper {
         this.driver = driver;
     }
 
-    public void waitElementToBeVisible(By by, int seconds) {
+    public void waitElementToBeVisible(By locator, int seconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    public void waitElementToBeClickable(By by, int seconds) {
+    public void waitElementToBeClickable(By locator, int seconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.elementToBeClickable(by));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
-    public void waitElementToBeSelected(By by, int seconds) {
+    public void waitElementToBeSelected(By locator, int seconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.elementToBeSelected(by));
+        wait.until(ExpectedConditions.elementToBeSelected(locator));
     }
     public void waitUrlToBe(String expectedUrl, int seconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
