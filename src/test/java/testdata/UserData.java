@@ -1,20 +1,19 @@
 package testdata;
 
-public enum Credentials {
+public enum UserData {
 
-    VALID_EMAIL("testuser@example.com"),
-    VALID_PASSWORD("Parola100!");
+    FIRST_NAME("First"),
+    MIDDLE_NAME("Middle"),
+    LAST_NAME("Last");
 
     private final String value;
 
     // Constructor
-    Credentials(String value) {
+    UserData(String value) {
         this.value = value;
     }
 
-    // Getter method
     public String getValue() {
         return value;
     }
-
 }

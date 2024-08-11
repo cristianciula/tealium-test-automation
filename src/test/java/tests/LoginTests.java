@@ -105,11 +105,11 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Validation error message is displayed for invalid Email syntax.",
-            dataProvider = "invalidEmailSyntax", dataProviderClass = DataProviders.class)
-    public void loginWithInvalidEmailSyntaxAndValidPassword(String invalidEmailSyntax) {
+            dataProvider = "invalidEmailSyntaxValidPassword", dataProviderClass = DataProviders.class)
+    public void loginWithInvalidEmailSyntaxAndValidPassword(String invalidEmailSyntax, String validPassword) {
         loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmailSyntax);
-        loginPage.enterPassword(validUser.getPassword());
+        loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
 
         //TODO Add assertions

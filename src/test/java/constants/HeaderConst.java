@@ -1,16 +1,14 @@
 package constants;
 
-import testdata.User;
+import static testdata.UserData.*;
 
 
 public class HeaderConst {
 
-    public static User validUser = new User("validUser");
-
     //----------TITLES----------//
 
     //----------MESSAGES----------//
-    public final static String HEADER_WELCOME_MESSAGE = "WELCOME, " + validUser.getFirstName() + " " + validUser.getLastName() + "!";
+    public final static String HEADER_WELCOME_MESSAGE = "WELCOME, " + FIRST_NAME.getValue() + " " + LAST_NAME.getValue() + "!";
 
 
     //----------LABELS----------//
