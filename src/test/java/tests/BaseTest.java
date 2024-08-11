@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import pages.*;
 import testdata.User;
+import testdata.UserTwo;
 import wrappers.SeleniumWrapper;
 
 import java.time.Duration;
@@ -25,7 +26,7 @@ public class BaseTest {
     public static SignUpPage signUpPage;
     public static AccountDashboardPage accountDashboardPage;
     public static User validUser = new User("validUser");
-    public static User invalidUser = new User("invalidUser");
+    public static UserTwo userTwo = new UserTwo();
 
     @BeforeClass
     public void beforeTest() {

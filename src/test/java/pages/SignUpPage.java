@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import testdata.URL;
-import testdata.User;
+import testdata.UserTwo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +60,7 @@ public class SignUpPage {
 
     //____________________PUBLIC METHODS____________________//
     public void navigateToCreateAccountPage() {
-        goToUrl(URL.CREATE_ACCOUNT_PAGE);
+        goToUrl(URL.SIGN_UP_PAGE);
     }
     public String getPageTitle() {
         return getText(pageTitle);
@@ -71,12 +71,13 @@ public class SignUpPage {
     public void enterPassword(String string) {
         sendText(passwordInput, string);
     }
-    public void fillCreateAccountForm(User user) {
-        enterFirstName(user.getFirstName());
-        enterLastName(user.getLastName());
-        enterEmail(user.getEmail());
-        enterPassword(user.getPassword());
-        enterConfirmPassword(user.getPassword());
+    //TODO: Update method after fixing the User class
+    public void fillCreateAccountForm(UserTwo userTwo) {
+        enterFirstName(userTwo.getFirstName());
+        enterLastName(userTwo.getLastName());
+        enterEmail(userTwo.getEmail());
+        enterPassword(userTwo.getPassword());
+        enterConfirmPassword(userTwo.getPassword());
     }
     public void clearCreateAccountForm() {
         clear(firstNameInput);

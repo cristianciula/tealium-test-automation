@@ -4,6 +4,7 @@ import utils.JSONReaderHelper;
 
 public final class User {
 
+    //TODO: Replace this class with UserTwo class and rename UserTwo class to User
     private String email;
     private String password;
     private String firstName;

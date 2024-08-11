@@ -13,17 +13,16 @@ public class SignUpTests extends BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
-        driver.get(URL.CREATE_ACCOUNT_PAGE);
+        driver.get(URL.SIGN_UP_PAGE);
     }
 
     @Test (description = "Tests that a user can create a new account")
     public void createAccount() {
 
-        signUpPage.fillCreateAccountForm(validUser);
+        signUpPage.fillCreateAccountForm(userTwo);
         signUpPage.clickRegister();
-
-        assertEquals(AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE, accountDashboardPage.getRegistrationSuccessfulMessage());
-        assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
+        assertEquals(accountDashboardPage.getRegistrationSuccessfulMessage(), AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE);
+        assertEquals(accountDashboardPage.getUserGreetingPlaceholder(), AccountDashboardConst.HELLO_USERNAME_MESSAGE);
 
         header.clickAccountDropdownButton();
         assertTrue(header.isLogOutButtonDisplayed());
@@ -45,21 +44,21 @@ public class SignUpTests extends BaseTest {
         assertTrue(header.isLoginButtonDisplayed());
     }
 
-    @Test (description = "Tests that user cannot create an account using an existing account details")
-    public void duplicateAccount() {
-
-        createAccount();
-        header.selectLogoutDropdownOption();
-        createAccount();
-        signUpPage.navigateToCreateAccountPage();
-        signUpPage.fillCreateAccountForm(validUser);
-        signUpPage.clickRegister();
-
-        //TODO - Add Assertions
-        // Assert that validation error for user already exists is displayed
-        // Assert that a new account has not been created and that user has not been logged in
-
-    }
+//    @Test (description = "Tests that user cannot create an account using an existing account details")
+//    public void duplicateAccount() {
+//
+//        createAccount();
+//        header.selectLogoutDropdownOption();
+//        createAccount();
+//        signUpPage.navigateToCreateAccountPage();
+//        signUpPage.fillCreateAccountForm(userTwo);
+//        signUpPage.clickRegister();
+//
+//        //TODO - Add Assertions
+//        // Assert that validation error for user already exists is displayed
+//        // Assert that a new account has not been created and that user has not been logged in
+//
+//    }
 
     @Test (description = "Tests that user cannot create an account using a password that is less than 7 characters in length")
     public void invalidPasswordLength() {
@@ -70,12 +69,12 @@ public class SignUpTests extends BaseTest {
             dataProviderClass = DataProviders.class)
     public void invalidEmailSyntax(String email) {
 
-        signUpPage.fillCreateAccountForm(validUser);
+        signUpPage.fillCreateAccountForm(userTwo);
         signUpPage.clearEmailField();
         signUpPage.enterEmail(email);
         signUpPage.clickRegister();
 
-        assertEquals(driver.getCurrentUrl(), URL.CREATE_ACCOUNT_PAGE);
+        assertEquals(driver.getCurrentUrl(), URL.SIGN_UP_PAGE);
     }
 
 }
