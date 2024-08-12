@@ -14,10 +14,6 @@ import wrappers.SeleniumWrapper;
 
 import java.time.Duration;
 
-import static org.testng.Assert.*;
-import static testdata.URL.*;
-import static wrappers.SeleniumWrapper.*;
-
 public class BaseTest {
 
     public WebDriver driver;
@@ -31,10 +27,6 @@ public class BaseTest {
     public static AccountDashboardPage accountDashboardPage;
 
     public static User user = new User();
-
-    @BeforeClass
-    public void beforeClass() {
-    }
 
     @BeforeMethod
     public void beforeMethod() {
@@ -84,8 +76,4 @@ public class BaseTest {
 
     }
 
-    @AfterClass
-    public void afterClass() {
-
-    }
 }
