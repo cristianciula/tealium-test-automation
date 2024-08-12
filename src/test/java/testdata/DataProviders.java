@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-import static testdata.Credentials.*;
+import static testdatafiles.UserData.*;
 
 public class DataProviders {
 

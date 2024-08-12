@@ -1,6 +1,6 @@
 package constants;
 
-import static testdata.UserData.*;
+import static testdatafiles.UserData.*;
 
 
 public class HeaderConst {

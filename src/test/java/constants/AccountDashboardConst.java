@@ -1,8 +1,6 @@
 package constants;
 
-import testdata.User;
-
-import static testdata.UserData.*;
+import static testdatafiles.UserData.*;
 
 public final class AccountDashboardConst {
 

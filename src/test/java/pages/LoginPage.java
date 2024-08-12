@@ -36,7 +36,6 @@ public class LoginPage {
     //____________________PRIVATE METHODS____________________//
 
 
-
     //____________________PUBLIC METHODS____________________//
     public String getCurrentUrl() {
         waitsWrapper.waitUrlToBe(URL.LOGIN_PAGE, 2);

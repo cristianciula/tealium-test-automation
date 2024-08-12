@@ -19,7 +19,7 @@ public class SignUpTests extends BaseTest {
     @Test (description = "Tests that a user can create a new account")
     public void createAccount() {
 
-        signUpPage.fillCreateAccountForm(userTwo);
+        signUpPage.fillCreateAccountForm(user);
         signUpPage.clickRegister();
         assertEquals(accountDashboardPage.getRegistrationSuccessfulMessage(), AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE);
         assertEquals(accountDashboardPage.getUserGreetingPlaceholder(), AccountDashboardConst.HELLO_USERNAME_MESSAGE);
@@ -51,7 +51,7 @@ public class SignUpTests extends BaseTest {
 //        header.selectLogoutDropdownOption();
 //        createAccount();
 //        signUpPage.navigateToCreateAccountPage();
-//        signUpPage.fillCreateAccountForm(userTwo);
+//        signUpPage.fillCreateAccountForm(user);
 //        signUpPage.clickRegister();
 //
 //        //TODO - Add Assertions
@@ -69,7 +69,7 @@ public class SignUpTests extends BaseTest {
             dataProviderClass = DataProviders.class)
     public void invalidEmailSyntax(String email) {
 
-        signUpPage.fillCreateAccountForm(userTwo);
+        signUpPage.fillCreateAccountForm(user);
         signUpPage.clearEmailField();
         signUpPage.enterEmail(email);
         signUpPage.clickRegister();

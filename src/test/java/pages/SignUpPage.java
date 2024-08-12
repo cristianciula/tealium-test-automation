@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import testdata.URL;
-import testdata.UserTwo;
+import testdata.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,12 +72,12 @@ public class SignUpPage {
         sendText(passwordInput, string);
     }
     //TODO: Update method after fixing the User class
-    public void fillCreateAccountForm(UserTwo userTwo) {
-        enterFirstName(userTwo.getFirstName());
-        enterLastName(userTwo.getLastName());
-        enterEmail(userTwo.getEmail());
-        enterPassword(userTwo.getPassword());
-        enterConfirmPassword(userTwo.getPassword());
+    public void fillCreateAccountForm(User user) {
+        enterFirstName(user.getFirstName());
+        enterLastName(user.getLastName());
+        enterEmail(user.getEmail());
+        enterPassword(user.getPassword());
+        enterConfirmPassword(user.getPassword());
     }
     public void clearCreateAccountForm() {
         clear(firstNameInput);
