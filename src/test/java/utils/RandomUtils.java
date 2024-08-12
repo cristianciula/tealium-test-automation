@@ -9,10 +9,10 @@ public final class RandomUtils {
         return random.nextInt(upperRange);
     }
 
-    public static String stringValue(int count) {
+    public static String stringValue(int numOfLetters) {
         String CHARACTER_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder builder = new StringBuilder();
-        while (count-- != 0) {
+        while (numOfLetters-- != 0) {
             int character = (int)(Math.random()*CHARACTER_STRING.length());
             builder.append(CHARACTER_STRING.charAt(character));
         }

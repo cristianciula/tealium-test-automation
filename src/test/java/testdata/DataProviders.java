@@ -14,7 +14,7 @@ public class DataProviders {
     @DataProvider (name = "validEmail")
     public Object[][] validEmail() {
         return new Object[][] {
-                {VALID_EMAIL.getValue()}
+                {EMAIL.getValue()}
         };
     }
 
@@ -50,7 +50,7 @@ public class DataProviders {
     @DataProvider (name = "validPassword")
     public Object[][] validPassword() {
         return new Object[][] {
-                {VALID_PASSWORD.getValue()}
+                {PASSWORD.getValue()}
         };
     }
 

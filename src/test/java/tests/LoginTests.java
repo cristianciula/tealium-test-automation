@@ -14,6 +14,7 @@ public class LoginTests extends BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
+        super.beforeMethod();
         driver.get(URL.LOGIN_PAGE);
     }
 

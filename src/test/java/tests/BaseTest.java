@@ -8,10 +8,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import pages.*;
+import testdata.URL;
 import testdata.User;
 import wrappers.SeleniumWrapper;
 
 import java.time.Duration;
+
+import static org.testng.Assert.*;
+import static testdata.URL.*;
+import static wrappers.SeleniumWrapper.*;
 
 public class BaseTest {
 
@@ -28,7 +33,11 @@ public class BaseTest {
     public static User user = new User();
 
     @BeforeClass
-    public void beforeTest() {
+    public void beforeClass() {
+    }
+
+    @BeforeMethod
+    public void beforeMethod() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 
@@ -50,10 +59,14 @@ public class BaseTest {
         womenPage = new WomenPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
 
+        driver.get(URL.SIGN_UP_PAGE);
+        signUpPage.registerUser();
+
+        header.logoutUser();
     }
 
-    @AfterClass
-    public void afterTest() {
+    @AfterMethod
+    public void afterMethod() {
         driver.manage().deleteAllCookies();
 
         if (driver != null) {
@@ -68,6 +81,11 @@ public class BaseTest {
         signUpPage = null;
         womenPage = null;
         accountDashboardPage = null;
+
+    }
+
+    @AfterClass
+    public void afterClass() {
 
     }
 }

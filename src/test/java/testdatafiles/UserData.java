@@ -4,13 +4,12 @@ import utils.RandomUtils;
 
 public enum UserData {
 
-
-    //TODO: Merge this class into Credentials class and rename Credential class to UserData.
-    FIRST_NAME("First"),
-    MIDDLE_NAME("Middle"),
-    LAST_NAME("Last"),
-    VALID_EMAIL("testuser" +RandomUtils.intValue(100) + "@example.com"),
-    VALID_PASSWORD("Parola100!");
+    //VALID DATA
+    EMAIL("testuser" + RandomUtils.intValue(100) + "@example.com"),
+    PASSWORD("Parola100!"),
+    FIRST_NAME("First" + RandomUtils.stringValue(3)),
+    MIDDLE_NAME("Middle" + RandomUtils.stringValue(3)),
+    LAST_NAME("Last" + RandomUtils.stringValue(3));
 
     private final String value;
 

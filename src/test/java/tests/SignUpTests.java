@@ -65,7 +65,7 @@ public class SignUpTests extends BaseTest {
         //TODO - Add steps and assertions
     }
 
-    @Test (description = "Tests that invalid email syntaxes are not accepted", dataProvider = "invalidCredentials",
+    @Test (description = "Tests that invalid email syntaxes are not accepted", dataProvider = "invalidEmailSyntax",
             dataProviderClass = DataProviders.class)
     public void invalidEmailSyntax(String email) {
 

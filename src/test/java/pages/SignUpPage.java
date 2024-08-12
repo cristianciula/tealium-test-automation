@@ -5,18 +5,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import testdata.URL;
 import testdata.User;
+import wrappers.WaitsWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static tests.BaseTest.user;
 import static wrappers.SeleniumWrapper.*;
 
 public class SignUpPage {
 
     WebDriver driver;
+    WaitsWrapper waitsWrapper;
 
     public SignUpPage(WebDriver driver) {
         this.driver = driver;
+        this.waitsWrapper = new WaitsWrapper(driver);
     }
 
     //____________________LOCATORS____________________//
@@ -102,6 +106,12 @@ public class SignUpPage {
     }
     public void clickRegister() {
         click(registerButton);
+        waitsWrapper.waitUrlToBe(URL.ACCOUNT_DASHBOARD_AFTER_REGISTRATION, 2);
+    }
+
+    public void registerUser() {
+        fillCreateAccountForm(user);
+        clickRegister();
     }
     public boolean isRegisterButtonDisplayed() {
         return isElementDisplayed(registerButton);

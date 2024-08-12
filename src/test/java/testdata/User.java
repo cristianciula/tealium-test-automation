@@ -10,9 +10,10 @@ public final class User {
     private String middleName;
     private String lastName;
 
+    //CONSTRUCTOR
     public User() {
-        this.email = VALID_EMAIL.getValue();
-        this.password = VALID_PASSWORD.getValue();
+        this.email = EMAIL.getValue();
+        this.password = PASSWORD.getValue();
         this.firstName = FIRST_NAME.getValue();
         this.middleName = MIDDLE_NAME.getValue();
         this.lastName = LAST_NAME.getValue();

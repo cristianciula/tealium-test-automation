@@ -7,6 +7,7 @@ public final class URL {
     public final static String LOGIN_PAGE = "https://ecommerce.tealiumdemo.com/customer/account/login/";
     public final static String CART_PAGE = "https://ecommerce.tealiumdemo.com/checkout/cart/";
     public final static String ACCOUNT_DASHBOARD_PAGE = "https://ecommerce.tealiumdemo.com/customer/account/";
+    public final static String ACCOUNT_DASHBOARD_AFTER_REGISTRATION = "https://ecommerce.tealiumdemo.com/customer/account/index/";
     public final static String LOGOUT_SUCCESS_PAGE = "https://ecommerce.tealiumdemo.com/customer/account/logoutSuccess/";
     public final static String MEN_PRODUCTS_PAGE = "https://ecommerce.tealiumdemo.com/men.html";
 }
