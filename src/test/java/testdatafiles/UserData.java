@@ -4,6 +4,7 @@ import utils.RandomUtils;
 
 public enum UserData {
 
+    //TODO: Need to keep track of created users to avoid trying to create existing users
     //VALID DATA
     EMAIL("testuser" + RandomUtils.intValue(100) + "@example.com"),
     PASSWORD("Parola100!"),
