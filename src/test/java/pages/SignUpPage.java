@@ -16,11 +16,11 @@ import static wrappers.SeleniumWrapper.*;
 public class SignUpPage {
 
     WebDriver driver;
-    WaitsWrapper waitsWrapper;
+    WaitsWrapper wait;
 
     public SignUpPage(WebDriver driver) {
         this.driver = driver;
-        this.waitsWrapper = new WaitsWrapper(driver);
+        this.wait = new WaitsWrapper(driver);
     }
 
     //____________________LOCATORS____________________//
@@ -33,12 +33,15 @@ public class SignUpPage {
     private final By confirmPasswordInput = By.id("confirmation");
     private final By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
     private final By registerButton = By.xpath("//button[@title=\"Register\"]");
+
+    //VALIDATION ERRORS
     private final By inputErrors = By.xpath("//div[@class=\"validation-advice\"]");
     private final By firstNameInputError = By.id("advice-required-entry-firstname");
     private final By lastNameInputError = By.id("advice-required-entry-lastname");
     private final By emailInputError = By.id("advice-required-entry-email_address");
     private final By passwordInputError = By.id("advice-required-entry-password");
     private final By confirmPasswordInputError = By.id("advice-required-entry-confirmation");
+    private final By duplicateAccountError = By.xpath("//li[@class=\"error-msg\"]");
 
     //____________________PRIVATE METHODS____________________//
     private void enterFirstName(String string) {
@@ -64,7 +67,7 @@ public class SignUpPage {
 
     //____________________PUBLIC METHODS____________________//
     public void navigateToCreateAccountPage() {
-        goToUrl(URL.SIGN_UP_PAGE);
+        getUrl(URL.SIGN_UP_PAGE);
     }
     public String getPageTitle() {
         return getText(pageTitle);
@@ -75,7 +78,7 @@ public class SignUpPage {
     public void enterPassword(String string) {
         sendText(passwordInput, string);
     }
-    //TODO: Update method after fixing the User class
+
     public void fillCreateAccountForm(User user) {
         enterFirstName(user.getFirstName());
         enterLastName(user.getLastName());
@@ -106,6 +109,7 @@ public class SignUpPage {
     }
     public void clickRegister() {
         click(registerButton);
+        refreshPage();
     }
 
     public void registerUser() {
@@ -133,5 +137,8 @@ public class SignUpPage {
             }
         }
         return false;
+    }
+    public boolean isDuplicateAccountErrorDisplayed() {
+        return isElementDisplayed(duplicateAccountError);
     }
 }

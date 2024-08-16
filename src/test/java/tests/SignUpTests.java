@@ -22,7 +22,6 @@ public class SignUpTests extends BaseTest {
 
         signUpPage.fillCreateAccountForm(user);
         signUpPage.clickRegister();
-        //wait.waitUrlToBe(ACCOUNT_DASHBOARD_AFTER_REGISTRATION, 2);
 
         assertEquals(accountDashboardPage.getRegistrationSuccessfulMessage(), AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE);
         assertEquals(accountDashboardPage.getUserGreetingPlaceholder(), AccountDashboardConst.HELLO_USERNAME_MESSAGE);
@@ -49,20 +48,20 @@ public class SignUpTests extends BaseTest {
     }
 
     @Test (description = "Tests that user cannot create an account using an existing account details")
-    public void duplicateAccount() throws InterruptedException {
+    public void duplicateAccount() {
 
         //STEPS
         signUpPage.fillCreateAccountForm(user);
         signUpPage.clickRegister();
-        Thread.sleep(7000);
+
         header.clickAccountDropdownButton();
-        header.selectLogoutDropdownOption();
+        header.clickLogoutDropdownOption();
 
         signUpPage.navigateToCreateAccountPage();
         signUpPage.fillCreateAccountForm(user);
         signUpPage.clickRegister();
+        signUpPage.isDuplicateAccountErrorDisplayed();
 
-        Thread.sleep(3000);
         //ASSERTIONS
         header.clickAccountDropdownButton();
         assertTrue(header.isLoginButtonDisplayed());

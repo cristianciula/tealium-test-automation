@@ -38,7 +38,7 @@ public class Header {
     //____________________PUBLIC METHODS____________________//
 
     public void navigateToHomePage() {
-        goToUrl(URL.HOME_PAGE);
+        getUrl(URL.HOME_PAGE);
     }
     public void selectMyAccountDropdownOption() {
         click(myAccountDropdownOption);
@@ -60,7 +60,8 @@ public class Header {
     public void clickAccountDropdownButton() {
         click(accountDropdownButton);
     }
-    public void selectLogoutDropdownOption() {
+    public void clickLogoutDropdownOption() {
+        wait.waitElementToBeVisible(logoutDropdownOption, 2);
         click(logoutDropdownOption);
         wait.waitUrlToBe("https://ecommerce.tealiumdemo.com/", 7);
     }
@@ -71,7 +72,7 @@ public class Header {
     public void logoutUser() {
         try {
             clickAccountDropdownButton();
-            selectLogoutDropdownOption();
+            clickLogoutDropdownOption();
         }
         catch (NoSuchElementException e) {
             System.out.println("User is not logged in.");

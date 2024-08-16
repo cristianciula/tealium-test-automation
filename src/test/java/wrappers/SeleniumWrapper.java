@@ -28,7 +28,7 @@ public final class SeleniumWrapper {
         js.executeScript("arguments[0].scrollIntoView();", findElement(locator));
     }
 
-    public static void goToUrl(String url) {
+    public static void getUrl(String url) {
         driver.get(url);
     }
 
@@ -48,6 +48,10 @@ public final class SeleniumWrapper {
 
     public static String getCurrentUrl() {
         return driver.getCurrentUrl();
+    }
+
+    public static void refreshPage() {
+        driver.navigate().refresh();
     }
 
     public static String getText(By locator) {
