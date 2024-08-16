@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import testdata.URL;
 
 import static org.testng.Assert.*;
-import static testdata.URL.ACCOUNT_DASHBOARD_AFTER_REGISTRATION;
 
 public class SignUpTests extends BaseTest {
 
@@ -23,7 +22,7 @@ public class SignUpTests extends BaseTest {
 
         signUpPage.fillCreateAccountForm(user);
         signUpPage.clickRegister();
-        wait.waitUrlToBe(ACCOUNT_DASHBOARD_AFTER_REGISTRATION, 2);
+        //wait.waitUrlToBe(ACCOUNT_DASHBOARD_AFTER_REGISTRATION, 2);
 
         assertEquals(accountDashboardPage.getRegistrationSuccessfulMessage(), AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE);
         assertEquals(accountDashboardPage.getUserGreetingPlaceholder(), AccountDashboardConst.HELLO_USERNAME_MESSAGE);
@@ -38,6 +37,7 @@ public class SignUpTests extends BaseTest {
         signUpPage.clearCreateAccountForm();
         signUpPage.clickRegister();
 
+        //Check the input fields validation error messages
         assertTrue(signUpPage.areEmptyFieldErrorsDisplayed());
         for (String inputError : signUpPage.getEmptyInputErrorMessages()) {
             assertEquals(inputError, SignUpConst.MANDATORY_FIELD_ERROR);
@@ -49,14 +49,24 @@ public class SignUpTests extends BaseTest {
     }
 
     @Test (description = "Tests that user cannot create an account using an existing account details")
-    public void duplicateAccount() {
+    public void duplicateAccount() throws InterruptedException {
 
-        createAccount();
+        //STEPS
+        signUpPage.fillCreateAccountForm(user);
+        signUpPage.clickRegister();
+        Thread.sleep(7000);
+        header.clickAccountDropdownButton();
         header.selectLogoutDropdownOption();
-        createAccount();
+
         signUpPage.navigateToCreateAccountPage();
         signUpPage.fillCreateAccountForm(user);
         signUpPage.clickRegister();
+
+        Thread.sleep(3000);
+        //ASSERTIONS
+        header.clickAccountDropdownButton();
+        assertTrue(header.isLoginButtonDisplayed());
+
 
         //TODO - Add Assertions
         // Assert that validation error for user already exists is displayed

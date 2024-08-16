@@ -10,14 +10,12 @@ import org.testng.annotations.*;
 import pages.*;
 import testdata.User;
 import wrappers.SeleniumWrapper;
-import wrappers.WaitsWrapper;
 
 import java.time.Duration;
 
 public class BaseTest {
 
     public WebDriver driver;
-    public WaitsWrapper wait;
 
     public static Header header;
     public static MenuBar menuBar;
@@ -43,8 +41,6 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         SeleniumWrapper.setDriver(driver);
-
-        wait = new WaitsWrapper(driver);
 
         header = new Header(driver);
         menuBar = new MenuBar(driver);

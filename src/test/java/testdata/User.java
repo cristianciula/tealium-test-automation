@@ -21,18 +21,23 @@ public final class User {
 
     //GETTERS
     public String getEmail() {
+        System.out.println("Email: " + email);
         return email;
     }
     public String getPassword() {
+        System.out.println("Password: " + password);
         return password;
     }
     public String getFirstName() {
+        System.out.println("First Name: " + firstName);
         return firstName;
     }
     public String getMiddleName() {
+        System.out.println("Middle Name: " + middleName);
         return middleName;
     }
     public String getLastName() {
+        System.out.println("Last Name: " + lastName);
         return lastName;
     }
 

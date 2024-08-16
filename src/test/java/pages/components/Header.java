@@ -11,11 +11,11 @@ import static wrappers.SeleniumWrapper.*;
 public class Header {
 
     WebDriver driver;
-    WaitsWrapper waitsWrapper;
+    WaitsWrapper wait;
 
     public Header(WebDriver driver) {
         this.driver = driver;
-        this.waitsWrapper = new WaitsWrapper(driver);
+        this.wait = new WaitsWrapper(driver);
     }
 
     //____________________LOCATORS____________________//
@@ -50,11 +50,11 @@ public class Header {
         click(loginDropdownOption);
     }
     public boolean isLogOutButtonDisplayed() {
-        waitsWrapper.waitElementToBeVisible(logoutDropdownOption, 2);
+        wait.waitElementToBeVisible(logoutDropdownOption, 2);
         return isElementDisplayed(logoutDropdownOption);
     }
     public boolean isLoginButtonDisplayed() {
-        waitsWrapper.waitElementToBeVisible(loginDropdownOption, 2);
+        wait.waitElementToBeVisible(loginDropdownOption, 2);
         return isElementDisplayed(loginDropdownOption);
     }
     public void clickAccountDropdownButton() {
@@ -62,11 +62,11 @@ public class Header {
     }
     public void selectLogoutDropdownOption() {
         click(logoutDropdownOption);
-        waitsWrapper.waitUrlToBe("https://ecommerce.tealiumdemo.com/", 7);
+        wait.waitUrlToBe("https://ecommerce.tealiumdemo.com/", 7);
     }
     public void selectRegisterDropdownOption() {
         click(registerDropdownOption);
-        waitsWrapper.waitUrlToBe("https://ecommerce.tealiumdemo.com/customer/account/create/", 2);
+        wait.waitUrlToBe("https://ecommerce.tealiumdemo.com/customer/account/create/", 2);
     }
     public void logoutUser() {
         try {
@@ -78,7 +78,7 @@ public class Header {
         }
     }
     public String getWelcomeMessage() {
-        waitsWrapper.waitElementToBeVisible(welcomeMessage, 2);
+        wait.waitElementToBeVisible(welcomeMessage, 2);
         return getText(welcomeMessage);
     }
     public void clickLanguageSelect() {
