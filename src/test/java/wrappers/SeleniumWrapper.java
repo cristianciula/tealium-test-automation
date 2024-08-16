@@ -75,6 +75,7 @@ public final class SeleniumWrapper {
     }
 
     public static void sendText(By locator, String text) {
+        clear(locator);
         scrollToElement(locator);
         driver.findElement(locator).sendKeys(text);
     }

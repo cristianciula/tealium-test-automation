@@ -18,7 +18,7 @@ public class SignUpTests extends BaseTest {
     }
 
     @Test (description = "Tests that a user can create a new account")
-    public void createAccount() {
+    public void canCreateAccount() {
 
         signUpPage.fillCreateAccountForm(user);
         signUpPage.clickRegister();
@@ -31,7 +31,7 @@ public class SignUpTests extends BaseTest {
     }
 
     @Test (description = "Tests that user cannot create an account by leaving mandatory fields empty")
-    public void emptyMandatoryFields() {
+    public void cannotCreateAccountWithEmptyMandatoryFields() {
 
         signUpPage.clearCreateAccountForm();
         signUpPage.clickRegister();

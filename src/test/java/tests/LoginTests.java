@@ -27,11 +27,9 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Can login with valid Email and valid Password.",
             dataProvider = "validEmailValidPassword", dataProviderClass = DataProviders.class)
-    public void canLoginWithValidEmailAndValidPassword(String email, String password) {
-        loginPage.clearCredentialsInputs();
-
-        loginPage.enterEmail(email);
-        loginPage.enterPassword(password);
+    public void canLoginWithValidEmailAndValidPassword(String validEmail, String validPassword) {
+        loginPage.enterEmail(validEmail);
+        loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
 
         assertEquals(accountDashboardPage.getUserGreetingPlaceholder(), AccountDashboardConst.HELLO_USERNAME_MESSAGE, "Unexpected user greeting message.");
@@ -43,7 +41,6 @@ public class LoginTests extends BaseTest {
     @Test(description = "Cannot login with invalid Email and invalid Password.",
             dataProvider = "invalidEmailInvalidPassword", dataProviderClass = DataProviders.class)
     public void cannotLoginWithInvalidEmailAndInvalidPassword(String invalidEmail, String invalidPassword) {
-        loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmail);
         loginPage.enterPassword(invalidPassword);
         loginPage.clickLoginButton();
@@ -56,7 +53,6 @@ public class LoginTests extends BaseTest {
     @Test(description = "Cannot login with valid Email and invalid Password.",
         dataProvider = "validEmailInvalidPassword", dataProviderClass = DataProviders.class)
     public void cannotLoginWithValidEmailAndInvalidPassword(String validEmail, String invalidPassword) {
-        loginPage.clearCredentialsInputs();
         loginPage.enterEmail(validEmail);
         loginPage.enterPassword(invalidPassword);
         loginPage.clickLoginButton();
@@ -69,7 +65,6 @@ public class LoginTests extends BaseTest {
     @Test(description = "Cannot login with invalid Email and valid Password.",
         dataProvider = "invalidEmailValidPassword", dataProviderClass = DataProviders.class)
     public void cannotLoginWithInvalidEmailAndValidPassword(String invalidEmail, String validPassword) {
-        loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmail);
         loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
@@ -81,7 +76,6 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "User leaving the Email and Password fields empty CANNOT login.")
     public void cannotLoginWithEmptyCredentials() {
-        loginPage.clearCredentialsInputs();
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
@@ -90,7 +84,6 @@ public class LoginTests extends BaseTest {
     @Test(description = "Cannot login with empty Email and valid Password.",
         dataProvider = "validPassword", dataProviderClass = DataProviders.class)
     public void cannotLoginWithEmptyEmailAndValidPassword(String validPassword) {
-        loginPage.clearCredentialsInputs();
         loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
 
@@ -102,7 +95,6 @@ public class LoginTests extends BaseTest {
     @Test(description = "Cannot login with valid Email and empty Password.",
         dataProvider = "validEmail", dataProviderClass = DataProviders.class)
     public void cannotLoginWithValidEmailAndEmptyPassword(String validEmail) {
-        loginPage.clearCredentialsInputs();
         loginPage.enterEmail(validEmail);
         loginPage.clearPasswordInput();
         loginPage.clickLoginButton();
@@ -115,7 +107,6 @@ public class LoginTests extends BaseTest {
     @Test(description = "Validation error message is displayed for invalid Email syntax.",
             dataProvider = "invalidEmailSyntaxValidPassword", dataProviderClass = DataProviders.class)
     public void loginWithInvalidEmailSyntaxAndValidPassword(String invalidEmailSyntax, String validPassword) {
-        loginPage.clearCredentialsInputs();
         loginPage.enterEmail(invalidEmailSyntax);
         loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();

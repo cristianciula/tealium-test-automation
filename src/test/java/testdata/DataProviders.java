@@ -77,6 +77,36 @@ public class DataProviders {
         };
     }
 
+    /* -------------------- USER NAMES DATA PROVIDERS -------------------- */
+
+    @DataProvider (name = "validFirstName")
+    public Object[][] validFirstName() {
+        return new Object[][] {
+                {FIRST_NAME.getValue()}
+        };
+    }
+
+    @DataProvider (name = "validMiddleName")
+    public Object[][] validMiddleName() {
+        return new Object[][] {
+                {MIDDLE_NAME.getValue()}
+        };
+    }
+
+    @DataProvider (name = "validLastName")
+    public Object[][] validLastName() {
+        return new Object[][] {
+                {LAST_NAME.getValue()}
+        };
+    }
+
+    @DataProvider (name = "validFirstAndLastName")
+    public Object[][] validNames() {
+        return new Object[][] {
+                {FIRST_NAME.getValue(), MIDDLE_NAME.getValue(), LAST_NAME.getValue()}
+        };
+    }
+
     /* -------------------- COMBINED EMAIL & PASSWORD DATA PROVIDERS -------------------- */
 
     @DataProvider (name = "validEmailValidPassword")
