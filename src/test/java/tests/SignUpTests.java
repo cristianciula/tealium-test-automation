@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import testdata.URL;
 
 import static org.testng.Assert.*;
+import static testdata.URL.ACCOUNT_DASHBOARD_AFTER_REGISTRATION;
 
 public class SignUpTests extends BaseTest {
 
@@ -22,6 +23,8 @@ public class SignUpTests extends BaseTest {
 
         signUpPage.fillCreateAccountForm(user);
         signUpPage.clickRegister();
+        wait.waitUrlToBe(ACCOUNT_DASHBOARD_AFTER_REGISTRATION, 2);
+
         assertEquals(accountDashboardPage.getRegistrationSuccessfulMessage(), AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE);
         assertEquals(accountDashboardPage.getUserGreetingPlaceholder(), AccountDashboardConst.HELLO_USERNAME_MESSAGE);
 
