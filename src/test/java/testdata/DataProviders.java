@@ -21,7 +21,7 @@ public class DataProviders {
     @DataProvider (name = "invalidEmail")
     public Object[][] invalidEmail() {
         return new Object[][] {
-                // Unknown email
+                // Email not associated to an account
                 {"unknown@example.com"}
         };
     }

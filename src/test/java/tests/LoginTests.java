@@ -15,6 +15,13 @@ public class LoginTests extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         super.beforeMethod();
+
+        //Create new User
+        driver.get(URL.SIGN_UP_PAGE);
+        signUpPage.registerUser();
+        header.logoutUser();
+
+        //Navigate to Login page
         driver.get(URL.LOGIN_PAGE);
     }
 

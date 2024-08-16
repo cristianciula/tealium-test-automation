@@ -51,10 +51,6 @@ public class BaseTest {
         womenPage = new WomenPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
 
-        driver.get(URL.SIGN_UP_PAGE);
-        signUpPage.registerUser();
-
-        header.logoutUser();
     }
 
     @AfterMethod

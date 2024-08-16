@@ -106,7 +106,6 @@ public class SignUpPage {
     }
     public void clickRegister() {
         click(registerButton);
-        waitsWrapper.waitUrlToBe(URL.ACCOUNT_DASHBOARD_AFTER_REGISTRATION, 2);
     }
 
     public void registerUser() {

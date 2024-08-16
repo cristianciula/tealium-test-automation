@@ -9,10 +9,20 @@ public final class RandomUtils {
         return random.nextInt(upperRange);
     }
 
-    public static String stringValue(int numOfLetters) {
+    public static String alphabeticalString(int numOfChars) {
         String CHARACTER_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder builder = new StringBuilder();
-        while (numOfLetters-- != 0) {
+        while (numOfChars-- != 0) {
+            int character = (int)(Math.random()*CHARACTER_STRING.length());
+            builder.append(CHARACTER_STRING.charAt(character));
+        }
+        return builder.toString();
+    }
+
+    public static String alphanumericalString(int numOfChars) {
+        String CHARACTER_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
+        StringBuilder builder = new StringBuilder();
+        while (numOfChars-- != 0) {
             int character = (int)(Math.random()*CHARACTER_STRING.length());
             builder.append(CHARACTER_STRING.charAt(character));
         }

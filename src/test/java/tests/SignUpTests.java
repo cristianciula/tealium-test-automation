@@ -13,6 +13,7 @@ public class SignUpTests extends BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
+        super.beforeMethod();
         driver.get(URL.SIGN_UP_PAGE);
     }
 
@@ -44,21 +45,21 @@ public class SignUpTests extends BaseTest {
         assertTrue(header.isLoginButtonDisplayed());
     }
 
-//    @Test (description = "Tests that user cannot create an account using an existing account details")
-//    public void duplicateAccount() {
-//
-//        createAccount();
-//        header.selectLogoutDropdownOption();
-//        createAccount();
-//        signUpPage.navigateToCreateAccountPage();
-//        signUpPage.fillCreateAccountForm(user);
-//        signUpPage.clickRegister();
-//
-//        //TODO - Add Assertions
-//        // Assert that validation error for user already exists is displayed
-//        // Assert that a new account has not been created and that user has not been logged in
-//
-//    }
+    @Test (description = "Tests that user cannot create an account using an existing account details")
+    public void duplicateAccount() {
+
+        createAccount();
+        header.selectLogoutDropdownOption();
+        createAccount();
+        signUpPage.navigateToCreateAccountPage();
+        signUpPage.fillCreateAccountForm(user);
+        signUpPage.clickRegister();
+
+        //TODO - Add Assertions
+        // Assert that validation error for user already exists is displayed
+        // Assert that a new account has not been created and that user has not been logged in
+
+    }
 
     @Test (description = "Tests that user cannot create an account using a password that is less than 7 characters in length")
     public void invalidPasswordLength() {
