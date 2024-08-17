@@ -17,9 +17,9 @@ public class LoginTests extends BaseTest {
         super.beforeMethod();
 
         //Create new User
-        driver.get(URL.SIGN_UP_PAGE);
-        signUpPage.registerUser();
-        header.logoutUser();
+//        driver.get(URL.SIGN_UP_PAGE);
+//        signUpPage.registerUser();
+//        header.logoutUser();
 
         //Navigate to Login page
         driver.get(URL.LOGIN_PAGE);
@@ -106,8 +106,10 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Validation error message is displayed for invalid Email syntax.",
             dataProvider = "invalidEmailSyntaxValidPassword", dataProviderClass = DataProviders.class)
-    public void loginWithInvalidEmailSyntaxAndValidPassword(String invalidEmailSyntax, String validPassword) {
+    public void loginWithInvalidEmailSyntaxAndValidPassword(String invalidEmailSyntax, String validPassword) throws InterruptedException {
         loginPage.enterEmail(invalidEmailSyntax);
+        System.out.println(invalidEmailSyntax);
+        Thread.sleep(5000);
         loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
 

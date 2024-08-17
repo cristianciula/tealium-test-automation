@@ -10,9 +10,9 @@ import java.io.IOException;
 
 public class JSONReaderHelper {
 
-    public static String extractValue(String name, String key) {
+    public static String extractValue(String fileName, String arrayKey, String keyPath) {
         JSONParser parser = new JSONParser();
-        String jsonFilePath = System.getProperty("user.dir")+"//src//test//java//testdatafiles//"+name+".json";
+        String jsonFilePath = System.getProperty("user.dir") + "//src//test//java//testdatafiles//" + fileName + ".json";
 
         try (FileReader reader = new FileReader(jsonFilePath)) {
             // Parse the JSON file into a JSONObject
@@ -21,20 +21,32 @@ public class JSONReaderHelper {
             if (obj instanceof JSONObject) {
                 JSONObject jsonObject = (JSONObject) obj;
 
-                // Check if nestedKey is empty or null
-                if (key == null || key.isEmpty()) {
-                    // Extract a non-nested object value directly
-                    return jsonObject.toString();
+                // If arrayKey is not provided or empty, treat it as a nested object lookup
+                if (arrayKey == null || arrayKey.isEmpty()) {
+                    Object value = getNestedValue(jsonObject, keyPath);
+                    return value != null ? value.toString() : null;
+                } else {
+                    // If arrayKey is provided, extract values from the array
+                    Object arrayObject = jsonObject.get(arrayKey);
+                    if (arrayObject instanceof JSONArray) {
+                        JSONArray jsonArray = (JSONArray) arrayObject;
+                        StringBuilder result = new StringBuilder();
+                        for (Object item : jsonArray) {
+                            if (item instanceof JSONObject) {
+                                JSONObject jsonItem = (JSONObject) item;
+                                Object value = getNestedValue(jsonItem, keyPath);
+                                if (value != null) {
+                                    result.append(value.toString()).append(", ");
+                                }
+                            }
+                        }
+                        // Remove the trailing comma and space
+                        if (result.length() > 0) {
+                            result.setLength(result.length() - 2);
+                        }
+                        return result.toString();
+                    }
                 }
-
-                // Extract the nested object value or array
-                Object nestedObject = getNestedValue(jsonObject, key);
-                return nestedObject != null ? nestedObject.toString() : null;
-            } else if (obj instanceof JSONArray) {
-                JSONArray jsonArray = (JSONArray) obj;
-
-                // Extract the entire array
-                return jsonArray.toString();
             }
         } catch (IOException | ParseException e) {
             e.printStackTrace();

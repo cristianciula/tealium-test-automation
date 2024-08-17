@@ -9,6 +9,7 @@ import static testdatafiles.UserData.*;
 
 public class DataProviders {
 
+
     /* -------------------- EMAIL DATA PROVIDERS -------------------- */
 
     @DataProvider (name = "validEmail")
