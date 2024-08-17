@@ -36,12 +36,12 @@ public class JSONReaderHelper {
                                 JSONObject jsonItem = (JSONObject) item;
                                 Object value = getNestedValue(jsonItem, keyPath);
                                 if (value != null) {
-                                    result.append(value.toString()).append(", ");
+                                    result.append(value).append(", ");
                                 }
                             }
                         }
                         // Remove the trailing comma and space
-                        if (result.length() > 0) {
+                        if (!result.isEmpty()) {
                             result.setLength(result.length() - 2);
                         }
                         return result.toString();
