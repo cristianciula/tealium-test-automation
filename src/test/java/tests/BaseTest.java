@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import pages.*;
+import pages.AccountDashboardPage;
 import testdata.User;
 import wrappers.SeleniumWrapper;
 
@@ -27,8 +28,8 @@ public class BaseTest {
 
     public static User user = new User();
 
-    @BeforeMethod
-    public void beforeMethod() {
+    @BeforeClass
+    public void beforeClass() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 
@@ -54,8 +55,8 @@ public class BaseTest {
 
     }
 
-    @AfterMethod
-    public void afterMethod() {
+    @AfterClass
+    public void afterClass() {
         driver.manage().deleteAllCookies();
 
         if (driver != null) {

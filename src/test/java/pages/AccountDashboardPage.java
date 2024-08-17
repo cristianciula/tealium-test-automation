@@ -18,6 +18,7 @@ public class AccountDashboardPage {
     private final By pageTitle = By.xpath("//div[@class=\"page-title\" and contains(.,\"My Dashboard\")]");
     private final By registrationSuccessfulMessage = By.xpath("//li[@class=\"success-msg\"]");
     private final By welcomeMessage = By.xpath("//div[@class=\"welcome-msg\"]/p[@class=\"hello\"]");
+    private final By accountInformationSection = By.xpath("//h3[contains(.,\"Contact Information\")]");
 
     //____________________ METHODS____________________//
 
@@ -34,6 +35,10 @@ public class AccountDashboardPage {
 
     public boolean isPageTitleDisplayed() {
         return isElementDisplayed(pageTitle);
+    }
+
+    public boolean isAccountInformationSectionDisplayed() {
+        return isElementDisplayed(accountInformationSection);
     }
 
 }
