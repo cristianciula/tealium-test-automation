@@ -12,13 +12,10 @@ public final class SeleniumWrapper {
         SeleniumWrapper.driver = driver;
     }
 
-    //____________________PRIVATE METHODS____________________//
-
-    private static WebElement findElement(By locator) {
+    public static WebElement findElement(By locator) {
         return driver.findElement(locator);
     }
 
-    //____________________PUBLIC METHODS____________________//
     public static List<WebElement> findElements(By locator) {
         return driver.findElements(locator);
     }
@@ -26,6 +23,10 @@ public final class SeleniumWrapper {
     public static void scrollToElement(By locator) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", findElement(locator));
+    }
+
+    public static String getCurrentUrl() {
+        return driver.getCurrentUrl();
     }
 
     public static void getUrl(String url) {
@@ -36,6 +37,10 @@ public final class SeleniumWrapper {
         driver.navigate().to(url);
     }
 
+    public static void refreshPage() {
+        driver.navigate().refresh();
+    }
+
     public static void click(By locator) {
         scrollToElement(locator);
         driver.findElement(locator).click();
@@ -44,14 +49,6 @@ public final class SeleniumWrapper {
     public static void clear(By locator) {
         scrollToElement(locator);
         driver.findElement(locator).clear();
-    }
-
-    public static String getCurrentUrl() {
-        return driver.getCurrentUrl();
-    }
-
-    public static void refreshPage() {
-        driver.navigate().refresh();
     }
 
     public static String getText(By locator) {
@@ -80,7 +77,7 @@ public final class SeleniumWrapper {
         driver.findElement(locator).sendKeys(text);
     }
 
-    public static void hoverOverElement(By locator) {
+    public static void hoverOver(By locator) {
         Actions actions = new Actions(driver);
         scrollToElement(locator);
         actions.moveToElement(driver.findElement(locator));

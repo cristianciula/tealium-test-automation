@@ -14,23 +14,23 @@ public class MenuBar {
     }
 
     //____________________LOCATORS____________________//
-    private final By menDropMenu = By.xpath("//li[@class=\"level0 nav-2 parent\"]");
+
+    private final By menTab = By.xpath("//li[@class=\"level0 nav-2 parent\"]");
     private final By breadcrumbs = By.xpath("//div[@class=\"breadcrumbs\"]");
-    private final By menShirtsDropOption = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/men/shirts.html\"]");
+    private final By menShirtsSubTab = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/men/shirts.html\"]");
 
+    //____________________METHODS____________________//
 
-    //____________________PRIVATE METHODS____________________//
-
-    //____________________PUBLIC METHODS____________________//
-    public void expandMenDropMenu() {
-        hoverOverElement(menDropMenu);
+    public void expandMenSubTabs() {
+        hoverOver(menTab);
     }
+
     public String getBreadcrumbsPath() {
         return getText(breadcrumbs);
     }
-    public void clickMenShirtsDropOption() {
-        click(menShirtsDropOption);
-    }
 
+    public void clickMenShirtsSubTab() {
+        click(menShirtsSubTab);
+    }
 
 }

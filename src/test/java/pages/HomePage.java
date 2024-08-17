@@ -14,17 +14,18 @@ public class HomePage {
     }
 
     //____________________LOCATORS____________________//
+    
     private By tealiumLogo = By.xpath("//img[@src=\"https://ecommerce.tealiumdemo.com/skin/frontend/base/default/images/media/logo.png\"]");
-    private By womenNavBarButton = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/women.html\"]/ancestor::nav[@id=\"nav\"]");
+    private By womenTab = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/women.html\"]/ancestor::nav[@id=\"nav\"]");
 
-    //____________________PRIVATE METHODS____________________//
+    //____________________METHODS____________________//
 
-    //____________________PUBLIC METHODS____________________//
-    public void clickTealium() {
+    public void clickTealiumLogo() {
         click(tealiumLogo);
     }
-    public void clickWomenNavBarButton() {
-        click(womenNavBarButton);
+
+    public void clickWomenTab() {
+        click(womenTab);
     }
 
 }

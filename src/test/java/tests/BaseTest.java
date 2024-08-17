@@ -33,8 +33,10 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments(
-                "--start-maximized " +
-                "--disable-search-engine-choice-screen"
+                "--no-first-run" +
+                "--no-default-browser-check" +
+                "--disable-search-engine-choice-screen" +
+                "--start-maximized"
         );
 
         driver = new ChromeDriver(options);

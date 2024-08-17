@@ -21,24 +21,24 @@ public class SignUpTests extends BaseTest {
     public void canCreateAccount() {
 
         signUpPage.fillCreateAccountForm(user);
-        signUpPage.clickRegister();
+        signUpPage.clickRegisterButton();
 
         assertEquals(accountDashboardPage.getRegistrationSuccessfulMessage(), AccountDashboardConst.SUCCESSFUL_REGISTRATION_MESSAGE);
-        assertEquals(accountDashboardPage.getUserGreetingPlaceholder(), AccountDashboardConst.HELLO_USERNAME_MESSAGE);
+        assertEquals(accountDashboardPage.getWelcomeMessage(), AccountDashboardConst.HELLO_USERNAME_MESSAGE);
 
         header.clickAccountDropdownButton();
-        assertTrue(header.isLogOutButtonDisplayed());
+        assertTrue(header.isLogoutButtonDisplayed());
     }
 
     @Test (description = "Tests that user cannot create an account by leaving mandatory fields empty")
     public void cannotCreateAccountWithEmptyMandatoryFields() {
 
         signUpPage.clearCreateAccountForm();
-        signUpPage.clickRegister();
+        signUpPage.clickRegisterButton();
 
         //Check the input fields validation error messages
         assertTrue(signUpPage.areEmptyFieldErrorsDisplayed());
-        for (String inputError : signUpPage.getEmptyInputErrorMessages()) {
+        for (String inputError : signUpPage.getEmptyMandatoryInputsErrors()) {
             assertEquals(inputError, SignUpConst.MANDATORY_FIELD_ERROR);
         }
 
@@ -52,14 +52,14 @@ public class SignUpTests extends BaseTest {
 
         //STEPS
         signUpPage.fillCreateAccountForm(user);
-        signUpPage.clickRegister();
+        signUpPage.clickRegisterButton();
 
         header.clickAccountDropdownButton();
         header.clickLogoutDropdownOption();
 
         signUpPage.navigateToCreateAccountPage();
         signUpPage.fillCreateAccountForm(user);
-        signUpPage.clickRegister();
+        signUpPage.clickRegisterButton();
         signUpPage.isDuplicateAccountErrorDisplayed();
 
         //ASSERTIONS
@@ -83,9 +83,9 @@ public class SignUpTests extends BaseTest {
     public void invalidEmailSyntax(String email) {
 
         signUpPage.fillCreateAccountForm(user);
-        signUpPage.clearEmailField();
+        signUpPage.clearEmailInput();
         signUpPage.enterEmail(email);
-        signUpPage.clickRegister();
+        signUpPage.clickRegisterButton();
 
         assertEquals(driver.getCurrentUrl(), URL.SIGN_UP_PAGE);
     }

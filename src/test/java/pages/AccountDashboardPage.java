@@ -14,27 +14,26 @@ public class AccountDashboardPage {
     }
 
     //____________________LOCATORS____________________//
-    private By registrationSuccessfulMessage = By.xpath("//li[@class=\"success-msg\"]");
-    private By userGreetingPlaceholder = By.xpath("//div[@class=\"welcome-msg\"]/p[@class=\"hello\"]");
-    private By pageTitle = By.xpath("//div[@class=\"page-title\" and contains(.,\"My Dashboard\")]");
 
-    //____________________PRIVATE METHODS____________________//
+    private final By pageTitle = By.xpath("//div[@class=\"page-title\" and contains(.,\"My Dashboard\")]");
+    private final By registrationSuccessfulMessage = By.xpath("//li[@class=\"success-msg\"]");
+    private final By welcomeMessage = By.xpath("//div[@class=\"welcome-msg\"]/p[@class=\"hello\"]");
 
-    //____________________PUBLIC METHODS____________________//
+    //____________________ METHODS____________________//
+
     public String getRegistrationSuccessfulMessage() {
-        return driver.findElement(registrationSuccessfulMessage).getText();
+        return getText(registrationSuccessfulMessage);
     }
-    public String getUserGreetingPlaceholder() {
-        return driver.findElement(userGreetingPlaceholder).getText();
+
+    public String getWelcomeMessage() {
+        return getText(welcomeMessage);
     }
     public String getPageTitle() {
         return getText(pageTitle);
     }
+
     public boolean isPageTitleDisplayed() {
         return isElementDisplayed(pageTitle);
-    }
-    public By getPageTitleLocator() {
-        return pageTitle;
     }
 
 }

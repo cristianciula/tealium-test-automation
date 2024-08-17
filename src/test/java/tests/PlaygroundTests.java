@@ -24,12 +24,12 @@ public class PlaygroundTests extends BaseTest {
     @Test (description = "User entering valid Email and valid Password CAN login.",
             dataProvider = "validCredentials", dataProviderClass = DataProviders.class)
     public void validCredentialsLogin(String email, String password) {
-        loginPage.clearCredentialsInputs();
+        loginPage.clearEmailAndPasswordInputs();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
 
-        assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getUserGreetingPlaceholder());
+        assertEquals(AccountDashboardConst.HELLO_USERNAME_MESSAGE, accountDashboardPage.getWelcomeMessage());
 
         header.logoutUser();
     }
@@ -37,7 +37,7 @@ public class PlaygroundTests extends BaseTest {
     @Test (description = "User entering invalid credentials CANNOT login.",
             dataProvider = "invalidCredentials", dataProviderClass = DataProviders.class)
     public void invalidCredentialsLogin(String email, String password) {
-        loginPage.clearCredentialsInputs();
+        loginPage.clearEmailAndPasswordInputs();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
@@ -71,7 +71,7 @@ public class PlaygroundTests extends BaseTest {
     @Test (description = "example",
             dataProvider = "validEmailAndValidPassword", dataProviderClass = DataProviders.class)
     public void exampleTest(String invalidEmail, String validPassword) {
-        loginPage.clearCredentialsInputs();
+        loginPage.clearEmailAndPasswordInputs();
         loginPage.enterEmail(invalidEmail);
         loginPage.enterPassword(validPassword);
 

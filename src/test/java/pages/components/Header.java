@@ -19,7 +19,8 @@ public class Header {
     }
 
     //____________________LOCATORS____________________//
-    private final By languageSelect = By.xpath("//select[@id=\"select-language\"]");
+
+    private final By languageSelector = By.xpath("//select[@id=\"select-language\"]");
     private final By englishLanguageOption = By.xpath("//option[text()=\"English\"]");
     private final By frenchLanguageOption = By.xpath("//option[text()=\"French\"]");
     private final By germanLanguageOption = By.xpath("//option[text()=\"German\"]");
@@ -32,43 +33,49 @@ public class Header {
     private final By checkoutButton = By.xpath("//div[@id=\"header-account\"]/descendant::a[@title=\"Checkout\"]");
     private final By welcomeMessage = By.xpath("//p[@class=\"welcome-msg\"][contains(.,\"!\")]");
 
-    //____________________PRIVATE METHODS____________________//
-
-
-    //____________________PUBLIC METHODS____________________//
+    //____________________METHODS____________________//
 
     public void navigateToHomePage() {
         getUrl(URL.HOME_PAGE);
     }
-    public void selectMyAccountDropdownOption() {
+
+    public void clickMyAccountDropdownOption() {
         click(myAccountDropdownOption);
     }
+
     public void clickCartButton() {
         click(cartButton);
     }
-    public void selectLoginDropdownOption() {
+
+    public void clickLoginDropdownOption() {
         click(loginDropdownOption);
     }
-    public boolean isLogOutButtonDisplayed() {
+
+    public boolean isLogoutButtonDisplayed() {
         wait.waitElementToBeVisible(logoutDropdownOption, 2);
         return isElementDisplayed(logoutDropdownOption);
     }
+
     public boolean isLoginButtonDisplayed() {
         wait.waitElementToBeVisible(loginDropdownOption, 2);
         return isElementDisplayed(loginDropdownOption);
     }
+
     public void clickAccountDropdownButton() {
         click(accountDropdownButton);
     }
+
     public void clickLogoutDropdownOption() {
         wait.waitElementToBeVisible(logoutDropdownOption, 2);
         click(logoutDropdownOption);
         wait.waitUrlToBe("https://ecommerce.tealiumdemo.com/", 7);
     }
-    public void selectRegisterDropdownOption() {
+
+    public void clickRegisterDropdownOption() {
         click(registerDropdownOption);
         wait.waitUrlToBe("https://ecommerce.tealiumdemo.com/customer/account/create/", 2);
     }
+
     public void logoutUser() {
         try {
             clickAccountDropdownButton();
@@ -78,20 +85,26 @@ public class Header {
             System.out.println("User is not logged in.");
         }
     }
+
     public String getWelcomeMessage() {
         wait.waitElementToBeVisible(welcomeMessage, 2);
         return getText(welcomeMessage);
     }
-    public void clickLanguageSelect() {
-        click(languageSelect);
+
+    public void clickLanguageSelector() {
+        click(languageSelector);
     }
-    public void selectEnglishLanguageOption() {
+
+    public void selectEnglishLanguage() {
         click(englishLanguageOption);
     }
-    public void selectFrenchLanguageOption() {
+
+    public void selectFrenchLanguage() {
         click(frenchLanguageOption);
     }
-    public void selectGermanLanguageOption() {
+
+    public void selectGermanLanguage() {
         click(germanLanguageOption);
     }
+
 }
