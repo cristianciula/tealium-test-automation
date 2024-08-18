@@ -45,6 +45,34 @@ public class LoginTests extends BaseTest {
         assertEquals(SeleniumWrapper.getCurrentUrl(), URL.ACCOUNT_DASHBOARD_PAGE, "User is not on the Account Dashboard page.");
     }
 
+    @Test(description = "Cannot login with valid Email and invalid Password",
+            dataProvider = "validEmailInvalidPassword", dataProviderClass = DataProviders.class)
+    public void cannotLoginWithValidEmailAndInvalidPassword(String validEmail, String invalidPassword) {
+
+        loginPage.enterEmail(validEmail);
+        loginPage.enterPassword(invalidPassword);
+        loginPage.clickLoginButton();
+
+        assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
+        assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
+        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
+    }
+
+    @Test(description = "Cannot login with invalid Email and valid Password",
+            dataProvider = "invalidEmailValidPassword", dataProviderClass = DataProviders.class)
+    public void cannotLoginWithInvalidEmailAndValidPassword(String invalidEmail, String validPassword) {
+
+        loginPage.enterEmail(invalidEmail);
+        loginPage.enterPassword(validPassword);
+        loginPage.clickLoginButton();
+
+        assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
+        assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
+        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
+    }
+
     @Test(description = "Cannot login with invalid Email and invalid Password",
             dataProvider = "invalidEmailInvalidPassword", dataProviderClass = DataProviders.class)
     public void cannotLoginWithInvalidEmailAndInvalidPassword(String invalidEmail, String invalidPassword) {
@@ -59,35 +87,7 @@ public class LoginTests extends BaseTest {
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
-    @Test(description = "Cannot login with valid Email and invalid Password",
-        dataProvider = "validEmailInvalidPassword", dataProviderClass = DataProviders.class)
-    public void cannotLoginWithValidEmailAndInvalidPassword(String validEmail, String invalidPassword) {
-
-        loginPage.enterEmail(validEmail);
-        loginPage.enterPassword(invalidPassword);
-        loginPage.clickLoginButton();
-
-        assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
-        assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
-        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
-        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
-    }
-
-    @Test(description = "Cannot login with invalid Email and valid Password",
-        dataProvider = "invalidEmailValidPassword", dataProviderClass = DataProviders.class)
-    public void cannotLoginWithInvalidEmailAndValidPassword(String invalidEmail, String validPassword) {
-
-        loginPage.enterEmail(invalidEmail);
-        loginPage.enterPassword(validPassword);
-        loginPage.clickLoginButton();
-
-        assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
-        assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
-        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
-        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
-    }
-
-    @Test(description = "Cannot login with empty Credentials")
+    @Test(description = "Cannot login with empty Email and empty Password")
     public void cannotLoginWithEmptyCredentials() {
 
         loginPage.clickLoginButton();
