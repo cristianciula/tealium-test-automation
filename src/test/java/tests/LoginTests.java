@@ -2,12 +2,12 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import testdata.DataProviders;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
+import wrappers.SeleniumWrapper;
 
 import static constants.LoginConst.*;
 import static org.testng.Assert.*;
@@ -21,11 +21,11 @@ public class LoginTests extends BaseTest {
         //Create new User
         driver.get(URL.SIGN_UP_PAGE);
         signUpPage.registerUser(user);
-
     }
 
     @BeforeMethod
     public void beforeMethod() {
+
         //Navigate to Login page
         driver.manage().deleteAllCookies();
         driver.get(URL.LOGIN_PAGE);
@@ -42,6 +42,7 @@ public class LoginTests extends BaseTest {
         assertEquals(accountDashboardPage.getWelcomeMessage(), AccountDashboardConst.HELLO_USERNAME_MESSAGE, "Incorrect welcome message.");
         assertTrue(accountDashboardPage.isPageTitleDisplayed(), "Account Dashboard page title is not displayed.");
         assertTrue(accountDashboardPage.isAccountInformationSectionDisplayed(), "Account Information section is not displayed.");
+        assertEquals(SeleniumWrapper.getCurrentUrl(), URL.ACCOUNT_DASHBOARD_PAGE, "User is not on the Account Dashboard page.");
     }
 
     @Test(description = "Cannot login with invalid Email and invalid Password",
@@ -55,6 +56,7 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
         assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
     @Test(description = "Cannot login with valid Email and invalid Password",
@@ -68,6 +70,7 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
         assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
     @Test(description = "Cannot login with invalid Email and valid Password",
@@ -81,6 +84,7 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
         assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
     @Test(description = "Cannot login with empty Credentials")
@@ -93,6 +97,7 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Empty Password field error message is not displayed.");
         assertEquals(loginPage.getPasswordEmptyError(), REQUIRED_FIELD_ERROR, "Incorrect empty Password field error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
     @Test(description = "Cannot login with empty Email and valid Password",
@@ -106,6 +111,7 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.isEmailEmptyErrorDisplayed(), "Empty Email field error message is not displayed.");
         assertEquals(loginPage.getEmailEmptyError(), REQUIRED_FIELD_ERROR, "Incorrect empty Email field error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
     @Test(description = "Cannot login with valid Email and empty Password",
@@ -119,10 +125,9 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Empty Password field error message is not displayed.");
         assertEquals(loginPage.getPasswordEmptyError(), REQUIRED_FIELD_ERROR, "Incorrect empty Password field error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
-    //TODO: Need to update BeforeMethod in order for this method to run with each parameter of DataProvider in a single chromedriver instance
-    // instead of a new instance for each parameter.
     @Test(description = "Cannot login with invalid Email syntax and valid Password",
             dataProvider = "invalidEmailSyntaxValidPassword", dataProviderClass = DataProviders.class)
     public void cannotLoginWithInvalidEmailSyntaxAndValidPassword(String invalidEmailSyntax, String validPassword) {
@@ -132,6 +137,7 @@ public class LoginTests extends BaseTest {
         loginPage.clickLoginButton();
 
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
+        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
     @Test(description = "Empty Email field validation message is displayed.")
