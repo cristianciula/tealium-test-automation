@@ -2,8 +2,6 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeClass;
 import testdata.DataProviders;
 import org.testng.annotations.BeforeMethod;
@@ -15,8 +13,6 @@ import static constants.LoginConst.*;
 import static org.testng.Assert.*;
 
 public class LoginTests extends BaseTest {
-
-    private static final Logger log = LoggerFactory.getLogger(LoginTests.class);
 
     @BeforeClass
     public void beforeClass() {
