@@ -2,6 +2,8 @@ package tests;
 
 import constants.AccountDashboardConst;
 import constants.LoginConst;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeClass;
 import testdata.DataProviders;
 import org.testng.annotations.BeforeMethod;
@@ -13,6 +15,8 @@ import static constants.LoginConst.*;
 import static org.testng.Assert.*;
 
 public class LoginTests extends BaseTest {
+
+    private static final Logger log = LoggerFactory.getLogger(LoginTests.class);
 
     @BeforeClass
     public void beforeClass() {
@@ -140,37 +144,4 @@ public class LoginTests extends BaseTest {
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
-    @Test(description = "Empty Email field validation message is displayed.")
-    public void verifyEmptyEmailErrorMessageIsDisplayed() {
-
-        //TODO Add steps
-
-        assertTrue(loginPage.isEmailEmptyErrorDisplayed(), "Email required message is not displayed.");
-    }
-
-    @Test(description = "Empty Password field validation message is displayed")
-    public void verifyEmptyPasswordErrorMessageIsDisplayed() {
-
-        //TODO Add steps
-
-        assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Password required message is not displayed.");
-    }
-
-    @Test(description = "Invalid Email validation error message is displayed as expected.")
-    public void verifyInvalidEmailErrorMessageIsDisplayed() {
-
-        //TODO Add steps
-
-        assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid credentials message is not displayed");
-        assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Unexpected invalid credentials message.");
-    }
-
-    @Test(description = "Invalid Password validation error message is displayed as expected.")
-    public void verifyInvalidPasswordErrorMessageIsDisplayed() {
-
-        //TODO Add steps
-
-        assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid credentials message is not displayed");
-        assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Unexpected invalid credentials message.");
-    }
 }

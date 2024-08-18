@@ -23,10 +23,10 @@ public class LoginPage {
 
     private final By pageTitle = By.xpath("//div[@class=\"page-title\"]");
     private final By alreadyRegisteredHeader = By.xpath("//h2[text()=\"Already registered?\"]");
-    private final By emailInput = By.id("email");
+    private final By emailField = By.id("email");
     private final By emailEmptyError = By.id("advice-required-entry-email");
     private final By emailInvalidError = By.id("advice-validate-email-email");
-    private final By passwordInput = By.id("pass");
+    private final By passwordField = By.id("pass");
     private final By passwordEmptyError = By.id("advice-required-entry-pass");
     private final By credentialsInvalidError = By.xpath("//li[@class=\"error-msg\"]");
     private final By loginButton = By.xpath("//button[@title=\"Login\"]");
@@ -35,6 +35,8 @@ public class LoginPage {
     private final By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
 
     //____________________METHODS____________________//
+
+    //_____EMAIL FIELD_____//
 
     public String getCurrentUrl() {
         waitsWrapper.waitUrlToBe(URL.LOGIN_PAGE, 2);
@@ -46,11 +48,19 @@ public class LoginPage {
     }
 
     public void enterEmail(String string) {
-        sendText(emailInput, string);
+        sendText(emailField, string);
+    }
+
+    public String getEmailFieldValue() {
+        return getAttributeValue(emailField);
     }
 
     public void enterPassword(String string) {
-        sendText(passwordInput, string);
+        sendText(passwordField, string);
+    }
+
+    public String getPasswordFieldValue() {
+        return getAttributeValue(passwordField);
     }
 
     public void clickLoginButton() {
@@ -60,11 +70,11 @@ public class LoginPage {
     }
 
     public void clearPasswordInput() {
-        clear(passwordInput);
+        clear(passwordField);
     }
 
     public void clearEmailInput() {
-        clear(emailInput);
+        clear(emailField);
     }
 
     public void loginUser(User user) {
@@ -129,11 +139,11 @@ public class LoginPage {
     }
 
     public boolean isEmailInputDisplayed() {
-        return isElementDisplayed(emailInput);
+        return isElementDisplayed(emailField);
     }
 
     public boolean isPasswordInputDisplayed() {
-        return isElementDisplayed(passwordInput);
+        return isElementDisplayed(passwordField);
     }
 
 }

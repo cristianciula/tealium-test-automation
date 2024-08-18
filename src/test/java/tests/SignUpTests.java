@@ -13,7 +13,6 @@ public class SignUpTests extends BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
-        //super.beforeMethod();
         driver.get(URL.SIGN_UP_PAGE);
     }
 

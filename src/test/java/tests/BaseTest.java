@@ -1,5 +1,7 @@
 package tests;
 
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.components.Header;
 import pages.components.MenuBar;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -34,8 +36,6 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments(
-                "--no-first-run" +
-                "--no-default-browser-check" +
                 "--disable-search-engine-choice-screen" +
                 "--start-maximized"
         );

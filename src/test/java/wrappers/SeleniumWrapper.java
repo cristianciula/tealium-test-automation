@@ -91,6 +91,10 @@ public final class SeleniumWrapper {
         actions.build().perform();
     }
 
+    public static String getAttributeValue(By locator) {
+        return driver.findElement(locator).getAttribute("value");
+    }
+
 //    public static boolean isElementInViewport(By locator) {
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
 //        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
