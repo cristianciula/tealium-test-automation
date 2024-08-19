@@ -1,8 +1,6 @@
 package tests;
 
 import constants.AccountDashboardConst;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeClass;
 import testdata.DataProviders;
 import org.testng.annotations.BeforeMethod;
