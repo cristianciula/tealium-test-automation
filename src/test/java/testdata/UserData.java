@@ -3,19 +3,19 @@ package testdata;
 import utils.JSONReaderHelper;
 
 public class UserData {
-    private String invalidSyntaxes;
+    private String invalidEmailSyntaxes;
 
     public UserData(String fileName) {
-        this.invalidSyntaxes = JSONReaderHelper.extractValue(fileName, "", "");
+        this.invalidEmailSyntaxes = JSONReaderHelper.extractValue(fileName, "", "invalidEmailSyntaxes.invalidSyntax");
     }
 
     //GETTERS
-    public String getInvalidSyntaxes() {
-        return invalidSyntaxes;
+    public String getInvalidEmailSyntaxes() {
+        return invalidEmailSyntaxes;
     }
 
     //SETTERS
-    public void setInvalidSyntaxes(String invalidSyntaxes) {
-        this.invalidSyntaxes = invalidSyntaxes;
+    public void setInvalidEmailSyntaxes(String invalidEmailSyntaxes) {
+        this.invalidEmailSyntaxes = invalidEmailSyntaxes;
     }
 }
