@@ -48,6 +48,7 @@ public class LoginPage {
     }
 
     public void enterEmail(String string) {
+        waitsWrapper.waitElementToBeVisible(emailField, 2);
         sendText(emailField, string);
     }
 

@@ -2,7 +2,7 @@ package tests;
 
 import constants.AccountDashboardConst;
 import org.testng.annotations.BeforeClass;
-import testdata.DataProviders;
+import testdata.DataProviders.UserDataProviders;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
@@ -32,7 +32,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Can login with valid Email and valid Password",
-            dataProvider = "validEmailValidPassword", dataProviderClass = DataProviders.class)
+            dataProvider = "validEmailValidPassword", dataProviderClass = UserDataProviders.class)
     public void canLoginWithValidEmailAndValidPassword(String validEmail, String validPassword) {
 
         loginPage.enterEmail(validEmail);
@@ -48,7 +48,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Cannot login with valid Email and invalid Password",
-            dataProvider = "validEmailInvalidPassword", dataProviderClass = DataProviders.class)
+            dataProvider = "validEmailInvalidPassword", dataProviderClass = UserDataProviders.class)
     public void cannotLoginWithValidEmailAndInvalidPassword(String validEmail, String invalidPassword) {
 
         loginPage.enterEmail(validEmail);
@@ -62,7 +62,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Cannot login with invalid Email and valid Password",
-            dataProvider = "invalidEmailValidPassword", dataProviderClass = DataProviders.class)
+            dataProvider = "invalidEmailValidPassword", dataProviderClass = UserDataProviders.class)
     public void cannotLoginWithInvalidEmailAndValidPassword(String invalidEmail, String validPassword) {
 
         loginPage.enterEmail(invalidEmail);
@@ -75,81 +75,26 @@ public class LoginTests extends BaseTest {
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
-//    @Test(description = "Cannot login with invalid Email and invalid Password",
-//            dataProvider = "invalidEmailInvalidPassword", dataProviderClass = DataProviders.class)
-//    public void cannotLoginWithInvalidEmailAndInvalidPassword(String invalidEmail, String invalidPassword) {
-//
-//        loginPage.enterEmail(invalidEmail);
-//        System.out.println(invalidEmail);
-//        loginPage.enterPassword(invalidPassword);
-//        System.out.println(invalidPassword);
-//        loginPage.clickLoginButton();
-//
-//        //assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
-//        //assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
-//        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
-//        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
-//    }
+    //TODO: Bad idea? Delete or reduce?
+    @Test(description = "Cannot login with invalid Email and invalid Password",
+            dataProvider = "invalidEmailInvalidPassword", dataProviderClass = UserDataProviders.class)
+    public void cannotLoginWithInvalidEmailAndInvalidPassword(String invalidEmail, String invalidPassword) {
 
-    @Test(description = "Cannot login with empty Email and empty Password")
-    public void cannotLoginWithEmptyCredentials() {
-
-        loginPage.clearEmailAndPasswordInputs();
+        loginPage.enterEmail(invalidEmail);
+        loginPage.enterPassword(invalidPassword);
         loginPage.clickLoginButton();
 
-        //assertTrue(loginPage.isEmailEmptyErrorDisplayed(), "Empty Email field error message is not displayed.");
-        //assertEquals(loginPage.getEmailEmptyError(), REQUIRED_FIELD_ERROR, "Incorrect empty Email field error message.");
-        //assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Empty Password field error message is not displayed.");
-        //assertEquals(loginPage.getPasswordEmptyError(), REQUIRED_FIELD_ERROR, "Incorrect empty Password field error message.");
+        //assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
+        //assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
-//    @Test(description = "Cannot login with empty Email and valid Password",
-//        dataProvider = "validPassword", dataProviderClass = DataProviders.class)
-//    public void cannotLoginWithEmptyEmailAndValidPassword(String validPassword) {
-//
-//        loginPage.clearEmailInput();
-//        loginPage.enterPassword(validPassword);
-//        loginPage.clickLoginButton();
-//
-//        assertTrue(loginPage.isEmailEmptyErrorDisplayed(), "Empty Email field error message is not displayed.");
-//        assertEquals(loginPage.getEmailEmptyError(), REQUIRED_FIELD_ERROR, "Incorrect empty Email field error message.");
-//        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
-//        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
-//    }
+    /* -------------------- VALIDATION ERROR MESSAGES TESTS -------------------- */
 
-//    @Test(description = "Cannot login with valid Email and empty Password",
-//        dataProvider = "validEmail", dataProviderClass = DataProviders.class)
-//    public void cannotLoginWithValidEmailAndEmptyPassword(String validEmail) {
-//
-//        loginPage.enterEmail(validEmail);
-//        loginPage.clearPasswordInput();
-//        loginPage.clickLoginButton();
-//
-//        assertTrue(loginPage.isPasswordEmptyErrorDisplayed(), "Empty Password field error message is not displayed.");
-//        assertEquals(loginPage.getPasswordEmptyError(), REQUIRED_FIELD_ERROR, "Incorrect empty Password field error message.");
-//        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
-//        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
-//    }
-
-//    @Test(description = "Cannot login with invalid Email syntax and valid Password",
-//            dataProvider = "invalidEmailSyntaxValidPassword", dataProviderClass = DataProviders.class)
-//    public void cannotLoginWithInvalidEmailSyntaxAndValidPassword(String invalidEmailSyntax, String validPassword) {
-//
-//        loginPage.enterEmail(invalidEmailSyntax);
-//        loginPage.enterPassword(validPassword);
-//        loginPage.clickLoginButton();
-//
-//        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
-//        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
-//    }
-
-    //_____VALIDATION ERROR MESSAGES TESTS_____//
-
-    @Test(description = "Email empty validation error message is displayed as expected",
-            dataProvider = "validPassword", dataProviderClass = DataProviders.class)
-    public void emailEmptyValidationErrorIsDisplayed(String validPassword) {
+    @Test(description = "Empty Email validation error message is displayed as expected",
+            dataProvider = "validPassword", dataProviderClass = UserDataProviders.class)
+    public void emptyEmailValidationErrorIsDisplayed(String validPassword) {
 
         loginPage.clearEmailInput();
         loginPage.enterPassword(validPassword);
@@ -159,9 +104,9 @@ public class LoginTests extends BaseTest {
         assertEquals(loginPage.getEmailEmptyError(), MANDATORY_FIELD_ERROR);
     }
 
-    @Test(description = "Password empty validation error message is displayed as expected",
-        dataProvider = "validEmail", dataProviderClass = DataProviders.class)
-    public void passwordEmptyValidationErrorIsDisplayed(String validEmail) {
+    @Test(description = "Empty Password validation error message is displayed as expected",
+        dataProvider = "validEmail", dataProviderClass = UserDataProviders.class)
+    public void emptyPasswordValidationErrorIsDisplayed(String validEmail) {
 
         loginPage.enterEmail(validEmail);
         loginPage.clearPasswordInput();
@@ -169,6 +114,18 @@ public class LoginTests extends BaseTest {
 
         assertTrue(loginPage.isPasswordEmptyErrorDisplayed());
         assertEquals(loginPage.getPasswordEmptyError(), MANDATORY_FIELD_ERROR);
+    }
+
+    @Test(description = "Invalid Email syntax validation error message is displayed as expected",
+            dataProvider = "invalidEmailSyntaxValidPassword", dataProviderClass = UserDataProviders.class)
+    public void invalidEmailSyntaxValidationErrorIsDisplayed(String invalidEmailSyntax, String validPassword) {
+
+        loginPage.enterEmail(invalidEmailSyntax);
+        loginPage.enterPassword(validPassword);
+        loginPage.clickLoginButton();
+
+        assertTrue(loginPage.isEmailEmptyErrorDisplayed());
+        assertEquals(loginPage.getEmailEmptyError(), MANDATORY_FIELD_ERROR);
     }
 
 }
