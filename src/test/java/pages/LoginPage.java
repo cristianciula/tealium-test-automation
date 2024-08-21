@@ -21,18 +21,18 @@ public class LoginPage {
 
     //____________________LOCATORS____________________//
 
-    private final By pageTitle = By.xpath("//div[@class=\"page-title\"]");
-    private final By alreadyRegisteredHeader = By.xpath("//h2[text()=\"Already registered?\"]");
+    private final By pageTitle = By.xpath("//div[@class='page-title']");
+    private final By alreadyRegisteredHeader = By.xpath("//h2[text()='Already registered?']");
     private final By emailField = By.id("email");
     private final By emailEmptyError = By.id("advice-required-entry-email");
     private final By emailInvalidError = By.id("advice-validate-email-email");
     private final By passwordField = By.id("pass");
     private final By passwordEmptyError = By.id("advice-required-entry-pass");
-    private final By credentialsInvalidError = By.xpath("//li[@class=\"error-msg\"]");
-    private final By loginButton = By.xpath("//button[@title=\"Login\"]");
-    private final By createAnAccountButton = By.xpath("//a[@title=\"Create an Account\"]");
-    private final By forgotPasswordLink = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/customer/account/forgotpassword/\"]");
-    private final By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
+    private final By credentialsInvalidError = By.xpath("//li[@class='error-msg']");
+    private final By loginButton = By.xpath("//button[@title='Login']");
+    private final By createAnAccountButton = By.xpath("//a[@title='Create an Account']");
+    private final By forgotPasswordLink = By.xpath("//a[@href='https://ecommerce.tealiumdemo.com/customer/account/forgotpassword/']");
+    private final By rememberMeCheckbox = By.xpath("//input[@title='Remember Me']");
 
     //____________________METHODS____________________//
 

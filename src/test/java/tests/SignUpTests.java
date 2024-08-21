@@ -7,7 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class SignUpTests extends BaseTest {
 
@@ -48,7 +49,6 @@ public class SignUpTests extends BaseTest {
 
     @Test (description = "Tests that user cannot create an account using an existing account details")
     public void duplicateAccount() {
-
         //STEPS
         signUpPage.fillCreateAccountForm(user);
         signUpPage.clickRegisterButton();
@@ -77,10 +77,9 @@ public class SignUpTests extends BaseTest {
         //TODO - Add steps and assertions
     }
 
-    @Test (description = "Tests that invalid email syntaxes are not accepted", dataProvider = "invalidEmailSyntax",
+    @Test (description = "Tests that invalid email syntax is not accepted", dataProvider = "invalidEmailSyntax",
             dataProviderClass = UserDataProviders.class)
     public void invalidEmailSyntax(String email) {
-
         signUpPage.fillCreateAccountForm(user);
         signUpPage.clearEmailInput();
         signUpPage.enterEmail(email);

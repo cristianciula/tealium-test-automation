@@ -26,8 +26,6 @@ public class LoginTests extends BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
-
-        //Navigate to Login page
         driver.get(URL.LOGIN_PAGE);
     }
 
@@ -55,8 +53,6 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(invalidPassword);
         loginPage.clickLoginButton();
 
-        //assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
-        //assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
@@ -69,13 +65,10 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
 
-        //assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
-        //assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
-    //TODO: Bad idea? Delete or reduce?
     @Test(description = "Cannot login with invalid Email and invalid Password",
             dataProvider = "invalidEmailInvalidPassword", dataProviderClass = UserDataProviders.class)
     public void cannotLoginWithInvalidEmailAndInvalidPassword(String invalidEmail, String invalidPassword) {
@@ -84,8 +77,6 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(invalidPassword);
         loginPage.clickLoginButton();
 
-        //assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
-        //assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }

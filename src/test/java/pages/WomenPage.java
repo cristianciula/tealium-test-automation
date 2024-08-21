@@ -18,7 +18,7 @@ public class WomenPage {
 
     //____________________LOCATORS____________________//
 
-    private final By breadcrumbs = By.xpath("//div[@class=\"breadcrumbs\"]/descendant::strong[text()=\"Women\"]");
+    private final By breadcrumbs = By.xpath("//div[@class='breadcrumbs']/descendant::strong[text()='Women']");
 
     //____________________METHODS____________________//
 

@@ -36,7 +36,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments(
-                "--disable-search-engine-choice-screen" +
+                "--disable-search-engine-choice-screen " +
                 "--start-maximized"
         );
 
@@ -52,7 +52,6 @@ public class BaseTest {
         signUpPage = new SignUpPage(driver);
         womenPage = new WomenPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
-
     }
 
     @AfterClass
@@ -71,7 +70,6 @@ public class BaseTest {
         signUpPage = null;
         womenPage = null;
         accountDashboardPage = null;
-
     }
 
 }

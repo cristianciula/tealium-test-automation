@@ -1,7 +1,7 @@
 package constants;
 
-import static testdatafiles.UserData.*;
-
+import static testdatafiles.UserData.FIRST_NAME;
+import static testdatafiles.UserData.LAST_NAME;
 
 public class HeaderConst {
 

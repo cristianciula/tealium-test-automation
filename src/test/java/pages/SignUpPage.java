@@ -10,7 +10,14 @@ import wrappers.WaitsWrapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import static wrappers.SeleniumWrapper.*;
+import static wrappers.SeleniumWrapper.clear;
+import static wrappers.SeleniumWrapper.click;
+import static wrappers.SeleniumWrapper.getText;
+import static wrappers.SeleniumWrapper.getUrl;
+import static wrappers.SeleniumWrapper.isElementDisplayed;
+import static wrappers.SeleniumWrapper.isElementSelected;
+import static wrappers.SeleniumWrapper.refreshPage;
+import static wrappers.SeleniumWrapper.sendText;
 
 public class SignUpPage {
 
@@ -24,24 +31,24 @@ public class SignUpPage {
 
     //____________________LOCATORS____________________//
 
-    private final By pageTitle = By.xpath("//div[@class=\"page-title\"]");
+    private final By pageTitle = By.xpath("//div[@class='page-title']");
     private final By firstNameInput = By.id("firstname");
     private final By middleNameInput = By.id("middlename");
     private final By lastNameInput = By.id("lastname");
     private final By emailInput = By.id("email_address");
     private final By passwordInput = By.id("password");
     private final By confirmPasswordInput = By.id("confirmation");
-    private final By rememberMeCheckbox = By.xpath("//input[@title=\"Remember Me\"]");
-    private final By registerButton = By.xpath("//button[@title=\"Register\"]");
+    private final By rememberMeCheckbox = By.xpath("//input[@title='Remember Me']");
+    private final By registerButton = By.xpath("//button[@title='Register']");
 
     //_____ERROR MESSAGES_____//
-    private final By inputErrors = By.xpath("//div[@class=\"validation-advice\"]");
+    private final By inputErrors = By.xpath("//div[@class='validation-advice']");
     private final By firstNameInputError = By.id("advice-required-entry-firstname");
     private final By lastNameInputError = By.id("advice-required-entry-lastname");
     private final By emailInputError = By.id("advice-required-entry-email_address");
     private final By passwordInputError = By.id("advice-required-entry-password");
     private final By confirmPasswordInputError = By.id("advice-required-entry-confirmation");
-    private final By duplicateAccountError = By.xpath("//li[@class=\"error-msg\"]");
+    private final By duplicateAccountError = By.xpath("//li[@class='error-msg']");
 
     //____________________METHODS____________________//
 

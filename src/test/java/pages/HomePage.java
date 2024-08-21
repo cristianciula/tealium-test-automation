@@ -15,8 +15,8 @@ public class HomePage {
 
     //____________________LOCATORS____________________//
     
-    private final By tealiumLogo = By.xpath("//img[@src=\"https://ecommerce.tealiumdemo.com/skin/frontend/base/default/images/media/logo.png\"]");
-    private final By womenTab = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/women.html\"]/ancestor::nav[@id=\"nav\"]");
+    private final By tealiumLogo = By.xpath("//img[@src='https://ecommerce.tealiumdemo.com/skin/frontend/base/default/images/media/logo.png']");
+    private final By womenTab = By.xpath("//a[@href='https://ecommerce.tealiumdemo.com/women.html']/ancestor::nav[@id='nav']");
 
     //____________________METHODS____________________//
 
@@ -26,6 +26,7 @@ public class HomePage {
 
     public void clickWomenTab() {
         click(womenTab);
+        //  this is actually clicking on the "VIP" button from the menu, just check and see what the selection is
     }
 
 }
