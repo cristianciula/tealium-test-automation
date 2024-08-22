@@ -35,7 +35,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments(
-                "--disable-search-engine-choice-screen" +
+                "--disable-search-engine-choice-screen " +
                 "--start-maximized"
         );
 

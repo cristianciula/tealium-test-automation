@@ -1,6 +1,10 @@
 package testdata;
 
-import static testdatafiles.UserData.*;
+import static testdatafiles.UserData.EMAIL;
+import static testdatafiles.UserData.FIRST_NAME;
+import static testdatafiles.UserData.LAST_NAME;
+import static testdatafiles.UserData.MIDDLE_NAME;
+import static testdatafiles.UserData.PASSWORD;
 
 public final class User {
 

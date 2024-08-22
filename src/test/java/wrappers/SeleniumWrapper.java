@@ -1,6 +1,9 @@
 package wrappers;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
@@ -94,12 +97,5 @@ public final class SeleniumWrapper {
     public static String getAttributeValue(By locator) {
         return driver.findElement(locator).getAttribute("value");
     }
-
-//    public static boolean isElementInViewport(By locator) {
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-//        boolean isElementVisible = js.executeScript("return (window.pageYOffset > document.querySelector(locator).getBoundingClientRect().bottom);");
-//        return isElementVisible;
-//    }
 
 }
