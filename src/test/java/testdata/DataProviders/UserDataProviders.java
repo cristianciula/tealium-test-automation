@@ -24,7 +24,7 @@ public class UserDataProviders {
         };
     }
 
-    @DataProvider (name = "unknownEmail")
+    @DataProvider (name = "wrongEmail")
     public Object[][] wrongEmail() {
         return new Object[][] {
                 // Email not associated to an account
@@ -57,7 +57,7 @@ public class UserDataProviders {
         };
     }
 
-    @DataProvider (name = "invalidEmails")
+    @DataProvider (name = "invalidEmail")
     public Object[][] invalidEmail() {
 
                 Object[][] data1 = wrongEmail();

@@ -1,7 +1,5 @@
 package tests;
 
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.components.Header;
 import pages.components.MenuBar;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -32,6 +30,7 @@ public class BaseTest {
 
     @BeforeClass
     public void beforeClass() {
+
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 
@@ -56,6 +55,7 @@ public class BaseTest {
 
     @AfterClass
     public void afterClass() {
+
         driver.manage().deleteAllCookies();
 
         if (driver != null) {
