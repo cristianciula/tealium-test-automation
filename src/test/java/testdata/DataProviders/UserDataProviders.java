@@ -191,6 +191,46 @@ public class UserDataProviders {
         return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
     }
 
+    @DataProvider (name = "wrongEmailValidPassword")
+    public Object[][] wrongEmailValidPassword() {
+
+        //Prerequisites
+        Object[][] dataProvider1 = wrongEmail();
+        Object[][] dataProvider2 = validPassword();
+        List<Object[]> combinedDataProviders = new ArrayList<>();
+
+        //Combine the data
+        for (Object[] dataProvider1Obj : dataProvider1) {
+            for (Object[] dataProvider2Obj : dataProvider2) {
+                Object[] combinedItem = new Object[dataProvider1Obj.length + dataProvider2Obj.length];
+                System.arraycopy(dataProvider1Obj, 0, combinedItem, 0, dataProvider1Obj.length);
+                System.arraycopy(dataProvider2Obj, 0, combinedItem, dataProvider1Obj.length, dataProvider2Obj.length);
+                combinedDataProviders.add(combinedItem);
+            }
+        }
+        return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
+    }
+
+    @DataProvider (name = "validEmailWrongPassword")
+    public Object[][] validEmailWrongPassword() {
+
+        //Prerequisites
+        Object[][] dataProvider1 = validEmail();
+        Object[][] dataProvider2 = wrongPassword();
+        List<Object[]> combinedDataProviders = new ArrayList<>();
+
+        //Combine the data
+        for (Object[] dataProvider1Obj : dataProvider1) {
+            for (Object[] dataProvider2Obj : dataProvider2) {
+                Object[] combinedItem = new Object[dataProvider1Obj.length + dataProvider2Obj.length];
+                System.arraycopy(dataProvider1Obj, 0, combinedItem, 0, dataProvider1Obj.length);
+                System.arraycopy(dataProvider2Obj, 0, combinedItem, dataProvider1Obj.length, dataProvider2Obj.length);
+                combinedDataProviders.add(combinedItem);
+            }
+        }
+        return combinedDataProviders.toArray(new Object[combinedDataProviders.size()][]);
+    }
+
     @DataProvider (name = "invalidEmailSyntaxValidPassword")
     public Object[][] invalidEmailSyntaxValidPassword() {
 

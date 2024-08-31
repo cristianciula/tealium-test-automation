@@ -1,8 +1,6 @@
 package tests;
 
 import constants.AccountDashboardConst;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeClass;
 import testdata.DataProviders.UserDataProviders;
 import org.testng.annotations.BeforeMethod;
@@ -14,8 +12,6 @@ import static constants.LoginConst.*;
 import static org.testng.Assert.*;
 
 public class LoginTests extends BaseTest {
-
-    private static final Logger log = LoggerFactory.getLogger(LoginTests.class);
 
     @BeforeClass
     public void beforeClass() {
@@ -78,6 +74,18 @@ public class LoginTests extends BaseTest {
 
     /* -------------------- VALIDATION ERROR MESSAGES TESTS -------------------- */
 
+    @Test(description = "Empty Email validation error message is displayed as expected",
+            dataProvider = "validPassword", dataProviderClass = UserDataProviders.class)
+    public void emptyEmailValidationErrorIsDisplayed(String validPassword) {
+
+        loginPage.clearEmailInput();
+        loginPage.enterPassword(validPassword);
+        loginPage.clickLoginButton();
+
+        assertTrue(loginPage.isEmailEmptyErrorDisplayed());
+        assertEquals(loginPage.getEmailEmptyError(), MANDATORY_FIELD_ERROR);
+    }
+
     @Test(description = "Empty Password validation error message is displayed as expected",
         dataProvider = "validEmail", dataProviderClass = UserDataProviders.class)
     public void emptyPasswordValidationErrorIsDisplayed(String validEmail) {
@@ -90,12 +98,49 @@ public class LoginTests extends BaseTest {
         assertEquals(loginPage.getPasswordEmptyError(), MANDATORY_FIELD_ERROR);
     }
 
+    @Test(description = "Empty Credentials validation error messages are displayed as expected")
+    public void emptyCredentialsValidationErrorsAreDisplayed() {
+
+        loginPage.clearEmailInput();
+        loginPage.clearPasswordInput();
+        loginPage.clickLoginButton();
+
+        assertTrue(loginPage.isEmailEmptyErrorDisplayed());
+        assertEquals(loginPage.getEmailEmptyError(), MANDATORY_FIELD_ERROR);
+        assertTrue(loginPage.isPasswordEmptyErrorDisplayed());
+        assertEquals(loginPage.getPasswordEmptyError(), MANDATORY_FIELD_ERROR);
+    }
+
+    @Test(description = "Empty Credentials validation error messages are displayed as expected",
+        dataProvider = "wrongEmailValidPassword", dataProviderClass = UserDataProviders.class)
+    public void wrongEmailValidationErrorIsDisplayed(String invalidEmail, String validPassword) {
+
+        loginPage.enterEmail(invalidEmail);
+        loginPage.enterPassword(validPassword);
+        loginPage.clickLoginButton();
+
+        assertTrue(loginPage.isCredentialsInvalidErrorDisplayed());
+        assertEquals(loginPage.getCredentialsInvalidError(), INVALID_CREDENTIALS_ERROR);
+    }
+
+    @Test(description = "Empty Credentials validation error messages are displayed as expected",
+            dataProvider = "validEmailWrongPassword", dataProviderClass = UserDataProviders.class)
+    public void wrongPasswordValidationErrorIsDisplayed(String validEmail, String invalidPassword) {
+
+        loginPage.enterEmail(validEmail);
+        loginPage.enterPassword(invalidPassword);
+        loginPage.clickLoginButton();
+
+        assertTrue(loginPage.isCredentialsInvalidErrorDisplayed());
+        assertEquals(loginPage.getCredentialsInvalidError(), INVALID_CREDENTIALS_ERROR);
+    }
+
+    //TODO: Not all invalid email syntaxes are validated by browser. Refactor
     @Test(description = "Invalid Email syntax validation error message is displayed as expected",
-            dataProvider = "invalidEmailSyntaxValidPassword", dataProviderClass = UserDataProviders.class)
-    public void invalidEmailSyntaxValidationErrorIsDisplayed(String invalidEmailSyntax, String validPassword) {
+            dataProvider = "invalidEmailSyntax", dataProviderClass = UserDataProviders.class)
+    public void invalidEmailSyntaxValidationErrorIsDisplayed(String invalidEmailSyntax) {
 
         loginPage.enterEmail(invalidEmailSyntax);
-        loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
 
         System.out.println(loginPage.getEmailSyntaxValidationError());

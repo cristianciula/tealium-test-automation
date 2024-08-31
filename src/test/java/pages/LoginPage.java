@@ -12,11 +12,11 @@ import static wrappers.SeleniumWrapper.*;
 public class LoginPage {
 
     WebDriver driver;
-    WaitsWrapper waitsWrapper;
+    WaitsWrapper wait;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-        this.waitsWrapper = new WaitsWrapper(driver);
+        this.wait = new WaitsWrapper(driver);
     }
 
     //____________________LOCATORS____________________//
@@ -39,7 +39,7 @@ public class LoginPage {
     //_____EMAIL FIELD_____//
 
     public String getCurrentUrl() {
-        waitsWrapper.waitUrlToBe(URL.LOGIN_PAGE, 2);
+        wait.waitUrlToBe(URL.LOGIN_PAGE, 2);
         return SeleniumWrapper.getCurrentUrl();
     }
 
@@ -48,7 +48,7 @@ public class LoginPage {
     }
 
     public void enterEmail(String string) {
-        waitsWrapper.waitElementToBeVisible(emailField, 2);
+        wait.waitElementToBeVisible(emailField, 2);
         sendText(emailField, string);
     }
 
@@ -70,7 +70,7 @@ public class LoginPage {
 
     public void clickLoginButton() {
         scrollToElement(loginButton);
-        waitsWrapper.waitElementToBeClickable(loginButton, 1);
+        wait.waitElementToBeClickable(loginButton, 1);
         click(loginButton);
     }
 
@@ -106,7 +106,7 @@ public class LoginPage {
     }
 
     public boolean isEmailEmptyErrorDisplayed() {
-        waitsWrapper.waitElementToBeVisible(emailEmptyError, 1);
+        wait.waitElementToBeVisible(emailEmptyError, 1);
         return isElementDisplayed(emailEmptyError);
     }
 
@@ -115,8 +115,12 @@ public class LoginPage {
     }
 
     public boolean isPasswordEmptyErrorDisplayed() {
-        waitsWrapper.waitElementToBeVisible(passwordEmptyError, 1);
+        wait.waitElementToBeVisible(passwordEmptyError, 1);
         return isElementDisplayed(passwordEmptyError);
+    }
+
+    public boolean isCredentialsInvalidErrorDisplayed() {
+        return isElementDisplayed(credentialsInvalidError);
     }
 
     public String getCredentialsInvalidError() {
@@ -137,10 +141,6 @@ public class LoginPage {
 
     public String getPageTitle() {
         return getText(pageTitle);
-    }
-
-    public boolean isCredentialsInvalidErrorDisplayed() {
-        return isElementDisplayed(credentialsInvalidError);
     }
 
     public boolean isEmailInputDisplayed() {
