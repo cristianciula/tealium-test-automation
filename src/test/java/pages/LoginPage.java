@@ -56,6 +56,10 @@ public class LoginPage {
         return getAttributeValue(emailField);
     }
 
+    public String getEmailSyntaxValidationError() {
+        return getElementAttribute(emailField, "validationMessage");
+    }
+
     public void enterPassword(String string) {
         sendText(passwordField, string);
     }

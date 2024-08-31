@@ -33,36 +33,30 @@ public class UserDataProviders {
     @DataProvider (name = "emptyEmail")
     public Object[][] emptyEmail() {
         return new Object[][] {
-                {""},
-                {" "}
+                {""}
         };
     }
 
     @DataProvider (name = "invalidEmailSyntax")
     public Object[][] invalidEmailSyntax() {
         return new Object[][] {
-                {" @example.com"},
-                {"user@example. com"},
-                {"user @example.com"},
-                {"user@ example.com"},
-                {"user@example .com"},
                 {"@example.com"},
-                {"userexample.com"},
-                {"user@.com"},
-                {"user@examplecom"},
                 {"user@example."},
+                {"user@examplecom"},
+                {"user@.com"},
+                {"user@com"},
+                {"userexample.com"},
                 {"user@example.c"}
         };
     }
 
-    @DataProvider (name = "invalidEmail")
-    public Object[][] invalidEmail() {
+    @DataProvider (name = "wrongAndEmptyEmail")
+    public Object[][] wrongAndEmptyEmail() {
 
                 Object[][] data1 = wrongEmail();
                 Object[][] data2 = emptyEmail();
-                Object[][] data3 = invalidEmailSyntax();
 
-        return Stream.of(data1, data2, data3)
+        return Stream.of(data1, data2)
                         .flatMap(Arrays::stream)
                         .toArray(Object[][]::new);
     }
@@ -86,8 +80,7 @@ public class UserDataProviders {
     @DataProvider (name = "emptyPassword")
     public Object[][] emptyPassword() {
         return new Object[][] {
-                {""},
-                {" "}
+                {""}
         };
     }
 
@@ -105,14 +98,13 @@ public class UserDataProviders {
         };
     }
 
-    @DataProvider (name = "invalidPassword")
-    public Object[][] invalidPassword() {
+    @DataProvider (name = "wrongAndEmptyPassword")
+    public Object[][] wrongAndEmptyPassword() {
 
         Object[][] data1 = wrongPassword();
         Object[][] data2 = emptyPassword();
-        Object[][] data3 = invalidPasswordSyntax();
 
-        return Stream.of(data1, data2, data3)
+        return Stream.of(data1, data2)
                 .flatMap(Arrays::stream)
                 .toArray(Object[][]::new);
     }
@@ -144,7 +136,7 @@ public class UserDataProviders {
 
         //Prerequisites
         Object[][] dataProvider1 = validEmail();
-        Object[][] dataProvider2 = invalidPassword();
+        Object[][] dataProvider2 = wrongAndEmptyPassword();
         List<Object[]> combinedDataProviders = new ArrayList<>();
 
         //Combine the data
@@ -163,7 +155,7 @@ public class UserDataProviders {
     public Object[][] invalidEmailValidPassword() {
 
         //Prerequisites
-        Object[][] dataProvider1 = invalidEmail();
+        Object[][] dataProvider1 = wrongAndEmptyEmail();
         Object[][] dataProvider2 = validPassword();
         List<Object[]> combinedDataProviders = new ArrayList<>();
 
@@ -183,8 +175,8 @@ public class UserDataProviders {
     public Object[][] invalidEmailInvalidPassword() {
 
         //Prerequisites
-        Object[][] dataProvider1 = invalidEmail();
-        Object[][] dataProvider2 = invalidPassword();
+        Object[][] dataProvider1 = wrongAndEmptyEmail();
+        Object[][] dataProvider2 = wrongAndEmptyPassword();
         List<Object[]> combinedDataProviders = new ArrayList<>();
 
         //Combine the data

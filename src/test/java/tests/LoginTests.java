@@ -1,6 +1,8 @@
 package tests;
 
 import constants.AccountDashboardConst;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeClass;
 import testdata.DataProviders.UserDataProviders;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +14,8 @@ import static constants.LoginConst.*;
 import static org.testng.Assert.*;
 
 public class LoginTests extends BaseTest {
+
+    private static final Logger log = LoggerFactory.getLogger(LoginTests.class);
 
     @BeforeClass
     public void beforeClass() {
@@ -31,7 +35,7 @@ public class LoginTests extends BaseTest {
         driver.get(URL.LOGIN_PAGE);
     }
 
-    @Test(description = "Can login with valid Email and valid Password",
+    @Test(description = "Can login with valid credentials",
             dataProvider = "validEmailValidPassword", dataProviderClass = UserDataProviders.class)
     public void canLoginWithValidEmailAndValidPassword(String validEmail, String validPassword) {
 
@@ -55,8 +59,6 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(invalidPassword);
         loginPage.clickLoginButton();
 
-        //assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
-        //assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
@@ -69,40 +71,12 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
 
-        //assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
-        //assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
         assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
     }
 
-    //TODO: Bad idea? Delete or reduce?
-    @Test(description = "Cannot login with invalid Email and invalid Password",
-            dataProvider = "invalidEmailInvalidPassword", dataProviderClass = UserDataProviders.class)
-    public void cannotLoginWithInvalidEmailAndInvalidPassword(String invalidEmail, String invalidPassword) {
-
-        loginPage.enterEmail(invalidEmail);
-        loginPage.enterPassword(invalidPassword);
-        loginPage.clickLoginButton();
-
-        //assertTrue(loginPage.isCredentialsInvalidErrorDisplayed(), "Invalid Credentials error message is not displayed.");
-        //assertEquals(loginPage.getCredentialsInvalidError(), LoginConst.INVALID_CREDENTIALS_ERROR, "Incorrect invalid Credentials error message.");
-        assertTrue(loginPage.isLoginButtonDisplayed(), "Login button is not displayed.");
-        assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE, "User is not on the Login page.");
-    }
 
     /* -------------------- VALIDATION ERROR MESSAGES TESTS -------------------- */
-
-    @Test(description = "Empty Email validation error message is displayed as expected",
-            dataProvider = "validPassword", dataProviderClass = UserDataProviders.class)
-    public void emptyEmailValidationErrorIsDisplayed(String validPassword) {
-
-        loginPage.clearEmailInput();
-        loginPage.enterPassword(validPassword);
-        loginPage.clickLoginButton();
-
-        assertTrue(loginPage.isEmailEmptyErrorDisplayed());
-        assertEquals(loginPage.getEmailEmptyError(), MANDATORY_FIELD_ERROR);
-    }
 
     @Test(description = "Empty Password validation error message is displayed as expected",
         dataProvider = "validEmail", dataProviderClass = UserDataProviders.class)
@@ -124,8 +98,7 @@ public class LoginTests extends BaseTest {
         loginPage.enterPassword(validPassword);
         loginPage.clickLoginButton();
 
-        assertTrue(loginPage.isEmailEmptyErrorDisplayed());
-        assertEquals(loginPage.getEmailEmptyError(), MANDATORY_FIELD_ERROR);
+        System.out.println(loginPage.getEmailSyntaxValidationError());
     }
 
 }

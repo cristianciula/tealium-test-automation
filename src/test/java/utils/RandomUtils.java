@@ -20,7 +20,7 @@ public final class RandomUtils {
     }
 
     public static String alphanumericalString(int numOfChars) {
-        String CHARACTER_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
+        String CHARACTER_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder builder = new StringBuilder();
         while (numOfChars-- != 0) {
             int character = (int)(Math.random()*CHARACTER_STRING.length());
