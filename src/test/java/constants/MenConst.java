@@ -1,12 +1,14 @@
 package constants;
 
-public final class MenuBarConst {
+public class MenConst {
 
     //----------TITLES----------//
+    public final static String MEN_PAGE_TITLE = "MEN";
 
     //----------MESSAGES----------//
 
     //----------COLOURS----------//
 
     //----------LABELS----------//
+
 }

@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
 
+import static constants.MenConst.MEN_PAGE_TITLE;
 import static org.testng.Assert.*;
 
 public class NavigationTests extends BaseTest {
@@ -42,7 +43,9 @@ public class NavigationTests extends BaseTest {
     //TODO
     @Test (description = "Tests that a user can navigate from the Home page to the Men page")
     public void navigateFromHomePageToMenPage() {
+        homePage.clickMenTab();
 
+        assertEquals(menPage.getPageTitle(), MEN_PAGE_TITLE);
     }
     //TODO
     @Test (description = "Tests that a user can navigate from the Home page to the Accessories page")

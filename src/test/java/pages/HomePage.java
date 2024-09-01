@@ -15,9 +15,10 @@ public class HomePage {
 
     //____________________LOCATORS____________________//
     
-    private final By tealiumLogo = By.xpath("//img[@src=\"https://ecommerce.tealiumdemo.com/skin/frontend/base/default/images/media/logo.png\"]");
+    private final By tealiumLogo = By.xpath("//img[@src='https://ecommerce.tealiumdemo.com/skin/frontend/base/default/images/media/logo.png']");
     //TODO: Fix locator
-    private final By womenTab = By.xpath("//a[@href=\"https://ecommerce.tealiumdemo.com/women.html\"]/ancestor::nav[@id=\"nav\"]");
+    private final By womenTab = By.xpath("//a[@href='https://ecommerce.tealiumdemo.com/women.html']/ancestor::nav[@id=\"nav\"]");
+    private final By menTab = By.xpath("//li[@class='level0 nav-2 parent']/a[contains(.,'Men')]");
 
     //____________________METHODS____________________//
 
@@ -27,6 +28,10 @@ public class HomePage {
 
     public void clickWomenTab() {
         click(womenTab);
+    }
+
+    public void clickMenTab() {
+        click(menTab);
     }
 
 }

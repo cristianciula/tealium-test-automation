@@ -1,7 +1,7 @@
 package tests;
 
 import pages.components.Header;
-import pages.components.MenuBar;
+import pages.components.NavigationBar;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,9 +19,10 @@ public class BaseTest {
     public WebDriver driver;
 
     public static Header header;
-    public static MenuBar menuBar;
+    public static NavigationBar navigationBar;
     public static HomePage homePage;
     public static WomenPage womenPage;
+    public static MenPage menPage;
     public static LoginPage loginPage;
     public static SignUpPage signUpPage;
     public static AccountDashboardPage accountDashboardPage;
@@ -45,11 +46,12 @@ public class BaseTest {
         SeleniumWrapper.setDriver(driver);
 
         header = new Header(driver);
-        menuBar = new MenuBar(driver);
+        navigationBar = new NavigationBar(driver);
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         signUpPage = new SignUpPage(driver);
         womenPage = new WomenPage(driver);
+        menPage = new MenPage(driver);
         accountDashboardPage = new AccountDashboardPage(driver);
     }
 
@@ -64,11 +66,12 @@ public class BaseTest {
         }
 
         header = null;
-        menuBar = null;
+        navigationBar = null;
         homePage = null;
         loginPage = null;
         signUpPage = null;
         womenPage = null;
+        menPage = null;
         accountDashboardPage = null;
     }
 

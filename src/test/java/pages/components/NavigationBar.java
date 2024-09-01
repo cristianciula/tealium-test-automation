@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 import static wrappers.SeleniumWrapper.*;
 
-public class MenuBar {
+public class NavigationBar {
 
     WebDriver driver;
 
-    public MenuBar(WebDriver driver) {
+    public NavigationBar(WebDriver driver) {
         this.driver = driver;
     }
 

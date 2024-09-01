@@ -37,6 +37,10 @@ public final class SeleniumWrapper {
         driver.navigate().to(url);
     }
 
+    public static String getTitle() {
+        return driver.getTitle();
+    }
+
     public static void refreshPage() {
         driver.navigate().refresh();
     }
