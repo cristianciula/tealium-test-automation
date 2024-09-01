@@ -53,11 +53,11 @@ public class LoginPage {
     }
 
     public String getEmailFieldValue() {
-        return getAttributeValue(emailField);
+        return getAttribute(emailField, "value");
     }
 
     public String getEmailSyntaxValidationError() {
-        return getElementAttribute(emailField, "validationMessage");
+        return getAttribute(emailField, "validationMessage");
     }
 
     public void enterPassword(String string) {
@@ -65,7 +65,7 @@ public class LoginPage {
     }
 
     public String getPasswordFieldValue() {
-        return getAttributeValue(passwordField);
+        return getAttribute(passwordField, "value");
     }
 
     public void clickLoginButton() {

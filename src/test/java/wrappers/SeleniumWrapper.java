@@ -84,18 +84,14 @@ public final class SeleniumWrapper {
         actions.build().perform();
     }
 
-    public static void dragAndDropElement(By sourceLocator, By targetLocator) {
+    public static void dragAndDrop(By sourceLocator, By targetLocator) {
         Actions actions = new Actions(driver);
         scrollToElement(sourceLocator);
         actions.dragAndDrop((WebElement) sourceLocator, (WebElement) targetLocator);
         actions.build().perform();
     }
 
-    public static String getAttributeValue(By locator) {
-        return driver.findElement(locator).getAttribute("value");
-    }
-
-    public static String getElementAttribute(By locator, String attribute) {
+    public static String getAttribute(By locator, String attribute) {
         return driver.findElement(locator).getAttribute(attribute);
     }
 
