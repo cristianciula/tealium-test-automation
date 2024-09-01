@@ -76,7 +76,7 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Empty Email validation error message is displayed as expected",
             dataProvider = "validPassword", dataProviderClass = UserDataProviders.class)
-    public void emptyEmailValidationErrorIsDisplayed(String validPassword) {
+    public void verifyEmptyEmailValidationErrorIsDisplayed(String validPassword) {
 
         loginPage.clearEmailInput();
         loginPage.enterPassword(validPassword);
@@ -88,7 +88,7 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Empty Password validation error message is displayed as expected",
         dataProvider = "validEmail", dataProviderClass = UserDataProviders.class)
-    public void emptyPasswordValidationErrorIsDisplayed(String validEmail) {
+    public void verifyEmptyPasswordValidationErrorIsDisplayed(String validEmail) {
 
         loginPage.enterEmail(validEmail);
         loginPage.clearPasswordInput();
@@ -99,7 +99,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "Empty Credentials validation error messages are displayed as expected")
-    public void emptyCredentialsValidationErrorsAreDisplayed() {
+    public void verifyEmptyCredentialsValidationErrorsAreDisplayed() {
 
         loginPage.clearEmailInput();
         loginPage.clearPasswordInput();
@@ -113,7 +113,7 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Empty Credentials validation error messages are displayed as expected",
         dataProvider = "wrongEmailValidPassword", dataProviderClass = UserDataProviders.class)
-    public void wrongEmailValidationErrorIsDisplayed(String invalidEmail, String validPassword) {
+    public void verifyWrongEmailValidationErrorIsDisplayed(String invalidEmail, String validPassword) {
 
         loginPage.enterEmail(invalidEmail);
         loginPage.enterPassword(validPassword);
@@ -125,7 +125,7 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Empty Credentials validation error messages are displayed as expected",
             dataProvider = "validEmailWrongPassword", dataProviderClass = UserDataProviders.class)
-    public void wrongPasswordValidationErrorIsDisplayed(String validEmail, String invalidPassword) {
+    public void verifyWrongPasswordValidationErrorIsDisplayed(String validEmail, String invalidPassword) {
 
         loginPage.enterEmail(validEmail);
         loginPage.enterPassword(invalidPassword);
@@ -138,12 +138,12 @@ public class LoginTests extends BaseTest {
     //TODO: Not all invalid email syntaxes are validated by browser. Refactor
     @Test(description = "Invalid Email syntax validation error message is displayed as expected",
             dataProvider = "invalidEmailSyntax", dataProviderClass = UserDataProviders.class)
-    public void invalidEmailSyntaxValidationErrorIsDisplayed(String invalidEmailSyntax) {
+    public void verifyInvalidEmailSyntaxValidationErrorIsDisplayed(String invalidEmailSyntax, String expectedMessage) {
 
         loginPage.enterEmail(invalidEmailSyntax);
         loginPage.clickLoginButton();
 
-        System.out.println(loginPage.getEmailSyntaxValidationError());
+        assertEquals(loginPage.getEmailSyntaxValidationError(), expectedMessage);
     }
 
 }
