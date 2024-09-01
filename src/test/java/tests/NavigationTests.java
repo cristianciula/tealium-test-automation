@@ -33,11 +33,36 @@ public class NavigationTests extends BaseTest {
         assertEquals(loginPage.getCurrentUrl(), URL.LOGIN_PAGE);
     }
 
-    @Test (description = "Tests that a user can navigate from the Home page to the Women page via the Navigation Bar")
+    @Test (description = "Tests that a user can navigate from the Home page to the Women page")
     public void navigateFromHomePageToWomenPage() {
         homePage.clickWomenTab();
 
         assertTrue(womenPage.isBreadcrumbsDisplayed(), "Women page breadcrumbs is not displayed.");
+    }
+    //TODO
+    @Test (description = "Tests that a user can navigate from the Home page to the Men page")
+    public void navigateFromHomePageToMenPage() {
+
+    }
+    //TODO
+    @Test (description = "Tests that a user can navigate from the Home page to the Accessories page")
+    public void navigateFromHomePageToAccessoriesPage() {
+
+    }
+    //TODO
+    @Test (description = "Tests that a user can navigate from the Home page to the Home & Decor page")
+    public void navigateFromHomePageToHomeAndDecorPage() {
+
+    }
+    //TODO
+    @Test (description = "Tests that a user can navigate from the Home page to the Sale page")
+    public void navigateFromHomePageToSalePage() {
+
+    }
+    //TODO
+    @Test (description = "Tests that a user can navigate from the Home page to the VIP page")
+    public void navigateFromHomePageToVipPage() {
+
     }
 
 }
