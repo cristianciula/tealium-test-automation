@@ -95,8 +95,6 @@ public final class SeleniumWrapper {
         return driver.findElement(locator).getAttribute(attribute);
     }
 
-    //----- ALERTS -----//
-
     public String getAlertText() {
         return driver.switchTo().alert().getText();
     }
@@ -112,7 +110,6 @@ public final class SeleniumWrapper {
     public void sendTextToAlert(String text) {
         driver.switchTo().alert().sendKeys(text);
     }
-
 
 //    public static boolean isElementInViewport(By locator) {
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
