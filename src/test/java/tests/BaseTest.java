@@ -2,17 +2,15 @@ package tests;
 
 import pages.components.Header;
 import pages.components.NavigationBar;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import pages.*;
 import pages.AccountDashboardPage;
 import testdata.User;
 import utilities.helpers.SeleniumHelper;
+import utilities.utils.BrowserManager;
 
-import java.time.Duration;
+import static utilities.utils.BrowserManager.BrowserType.CHROME;
 
 public class BaseTest {
 
@@ -32,16 +30,8 @@ public class BaseTest {
     @BeforeClass
     public void beforeClass() {
 
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-
-        options.addArguments(
-                "--disable-search-engine-choice-screen" +
-                "--start-maximized"
-        );
-
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        BrowserManager.startBrowser(CHROME);
+        driver = BrowserManager.getDriver();
 
         SeleniumHelper.setDriver(driver);
 
@@ -60,10 +50,7 @@ public class BaseTest {
 
         driver.manage().deleteAllCookies();
 
-        if (driver != null) {
-            driver.quit();
-            driver = null;
-        }
+        BrowserManager.quitBrowser();
 
         header = null;
         navigationBar = null;

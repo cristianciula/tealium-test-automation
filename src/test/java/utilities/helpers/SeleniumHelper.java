@@ -8,6 +8,7 @@ import java.util.List;
 public final class SeleniumHelper {
 
     private static WebDriver driver;
+
     public static void setDriver(WebDriver driver) {
         SeleniumHelper.driver = driver;
     }
