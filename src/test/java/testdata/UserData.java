@@ -1,6 +1,6 @@
 package testdata;
 
-import utils.JSONReaderHelper;
+import utilities.helpers.JSONReaderHelper;
 
 public class UserData {
     private String invalidEmailSyntaxes;

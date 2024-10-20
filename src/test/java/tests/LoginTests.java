@@ -6,7 +6,7 @@ import testdata.DataProviders.UserDataProviders;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testdata.URL;
-import wrappers.SeleniumWrapper;
+import utilities.helpers.SeleniumHelper;
 
 import static constants.LoginConst.*;
 import static org.testng.Assert.*;
@@ -42,7 +42,7 @@ public class LoginTests extends BaseTest {
         assertEquals(accountDashboardPage.getWelcomeMessage(), AccountDashboardConst.HELLO_USERNAME_MESSAGE, "Incorrect welcome message.");
         assertTrue(accountDashboardPage.isPageTitleDisplayed(), "Account Dashboard page title is not displayed.");
         assertTrue(accountDashboardPage.isAccountInformationSectionDisplayed(), "Account Information section is not displayed.");
-        assertEquals(SeleniumWrapper.getCurrentUrl(), URL.ACCOUNT_DASHBOARD_PAGE, "User is not on the Account Dashboard page.");
+        assertEquals(SeleniumHelper.getCurrentUrl(), URL.ACCOUNT_DASHBOARD_PAGE, "User is not on the Account Dashboard page.");
 
         header.logoutUser();
     }

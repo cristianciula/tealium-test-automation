@@ -1,15 +1,15 @@
-package wrappers;
+package utilities.helpers;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
-public final class SeleniumWrapper {
+public final class SeleniumHelper {
 
     private static WebDriver driver;
     public static void setDriver(WebDriver driver) {
-        SeleniumWrapper.driver = driver;
+        SeleniumHelper.driver = driver;
     }
 
     public static WebElement findElement(By locator) {

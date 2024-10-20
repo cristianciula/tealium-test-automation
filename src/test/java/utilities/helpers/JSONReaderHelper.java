@@ -1,4 +1,4 @@
-package utils;
+package utilities.helpers;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

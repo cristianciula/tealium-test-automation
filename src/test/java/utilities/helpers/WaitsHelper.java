@@ -1,4 +1,4 @@
-package wrappers;
+package utilities.helpers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,11 +7,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public final class WaitsWrapper {
+public final class WaitsHelper {
 
     private final WebDriver driver;
     
-    public WaitsWrapper(WebDriver driver) {
+    public WaitsHelper(WebDriver driver) {
         this.driver = driver;
     }
 

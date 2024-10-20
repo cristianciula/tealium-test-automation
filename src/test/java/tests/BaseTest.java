@@ -10,7 +10,7 @@ import org.testng.annotations.*;
 import pages.*;
 import pages.AccountDashboardPage;
 import testdata.User;
-import wrappers.SeleniumWrapper;
+import utilities.helpers.SeleniumHelper;
 
 import java.time.Duration;
 
@@ -43,7 +43,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
-        SeleniumWrapper.setDriver(driver);
+        SeleniumHelper.setDriver(driver);
 
         header = new Header(driver);
         navigationBar = new NavigationBar(driver);

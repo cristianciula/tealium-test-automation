@@ -1,6 +1,6 @@
 package testdatafiles;
 
-import utils.RandomUtils;
+import utilities.utils.RandomUtils;
 
 public enum UserData {
 

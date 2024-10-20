@@ -5,21 +5,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import testdata.URL;
 import testdata.User;
-import wrappers.WaitsWrapper;
+import utilities.helpers.WaitsHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static wrappers.SeleniumWrapper.*;
+import static utilities.helpers.SeleniumHelper.*;
 
 public class SignUpPage {
 
     WebDriver driver;
-    WaitsWrapper wait;
+    WaitsHelper wait;
 
     public SignUpPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WaitsWrapper(driver);
+        this.wait = new WaitsHelper(driver);
     }
 
     //____________________LOCATORS____________________//

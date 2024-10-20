@@ -3,7 +3,7 @@ package pages.components;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static wrappers.SeleniumWrapper.*;
+import static utilities.helpers.SeleniumHelper.*;
 
 public class NavigationBar {
 

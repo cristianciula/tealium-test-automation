@@ -1,18 +1,18 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import wrappers.WaitsWrapper;
+import utilities.helpers.WaitsHelper;
 
-import static wrappers.SeleniumWrapper.getTitle;
+import static utilities.helpers.SeleniumHelper.getTitle;
 
 public class MenPage {
 
     WebDriver driver;
-    WaitsWrapper waitsWrapper;
+    WaitsHelper waitsHelper;
 
     public MenPage(WebDriver driver) {
         this.driver = driver;
-        this.waitsWrapper = new WaitsWrapper(driver);
+        this.waitsHelper = new WaitsHelper(driver);
     }
 
     //____________________LOCATORS____________________//

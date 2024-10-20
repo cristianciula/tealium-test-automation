@@ -4,19 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import testdata.URL;
 import testdata.User;
-import wrappers.SeleniumWrapper;
-import wrappers.WaitsWrapper;
+import utilities.helpers.SeleniumHelper;
+import utilities.helpers.WaitsHelper;
 
-import static wrappers.SeleniumWrapper.*;
+import static utilities.helpers.SeleniumHelper.*;
 
 public class LoginPage {
 
     WebDriver driver;
-    WaitsWrapper wait;
+    WaitsHelper wait;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WaitsWrapper(driver);
+        this.wait = new WaitsHelper(driver);
     }
 
     //____________________LOCATORS____________________//
@@ -40,7 +40,7 @@ public class LoginPage {
 
     public String getCurrentUrl() {
         wait.waitUrlToBe(URL.LOGIN_PAGE, 2);
-        return SeleniumWrapper.getCurrentUrl();
+        return SeleniumHelper.getCurrentUrl();
     }
 
     public void clickCreateAnAccountButton() {

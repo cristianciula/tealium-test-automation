@@ -3,19 +3,20 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import testdata.URL;
-import wrappers.SeleniumWrapper;
-import wrappers.WaitsWrapper;
+import utilities.helpers.SeleniumHelper;
+import utilities.helpers.WaitsHelper;
 
-import static wrappers.SeleniumWrapper.*;
+import static utilities.helpers.SeleniumHelper.getText;
+import static utilities.helpers.SeleniumHelper.isElementDisplayed;
 
 public class AccountDashboardPage {
 
     WebDriver driver;
-    WaitsWrapper waitsWrapper;
+    WaitsHelper waitsHelper;
 
     public AccountDashboardPage(WebDriver driver) {
         this.driver = driver;
-        this.waitsWrapper = new WaitsWrapper(driver);
+        this.waitsHelper = new WaitsHelper(driver);
     }
 
     //____________________LOCATORS____________________//
@@ -28,8 +29,8 @@ public class AccountDashboardPage {
     //____________________ METHODS____________________//
 
     public String getCurentUrl() {
-        waitsWrapper.waitUrlToBe(URL.ACCOUNT_DASHBOARD_AFTER_REGISTRATION, 2);
-        return SeleniumWrapper.getCurrentUrl();
+        waitsHelper.waitUrlToBe(URL.ACCOUNT_DASHBOARD_AFTER_REGISTRATION, 2);
+        return SeleniumHelper.getCurrentUrl();
     }
 
     public String getRegistrationSuccessfulMessage() {
