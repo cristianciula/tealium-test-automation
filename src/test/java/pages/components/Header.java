@@ -4,18 +4,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import testdata.URL;
-import utilities.helpers.WaitsHelper;
+import utilities.helpers.WaitHelper;
 
 import static utilities.helpers.SeleniumHelper.*;
 
 public class Header {
 
     WebDriver driver;
-    WaitsHelper wait;
+    WaitHelper wait;
 
     public Header(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WaitsHelper(driver);
+        this.wait = new WaitHelper(driver);
     }
 
     //____________________LOCATORS____________________//

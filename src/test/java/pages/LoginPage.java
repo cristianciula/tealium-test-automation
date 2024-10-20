@@ -5,18 +5,18 @@ import org.openqa.selenium.WebDriver;
 import testdata.URL;
 import testdata.User;
 import utilities.helpers.SeleniumHelper;
-import utilities.helpers.WaitsHelper;
+import utilities.helpers.WaitHelper;
 
 import static utilities.helpers.SeleniumHelper.*;
 
 public class LoginPage {
 
     WebDriver driver;
-    WaitsHelper wait;
+    WaitHelper wait;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WaitsHelper(driver);
+        this.wait = new WaitHelper(driver);
     }
 
     //____________________LOCATORS____________________//

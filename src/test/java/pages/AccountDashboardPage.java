@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import testdata.URL;
 import utilities.helpers.SeleniumHelper;
-import utilities.helpers.WaitsHelper;
+import utilities.helpers.WaitHelper;
 
 import static utilities.helpers.SeleniumHelper.getText;
 import static utilities.helpers.SeleniumHelper.isElementDisplayed;
@@ -12,11 +12,11 @@ import static utilities.helpers.SeleniumHelper.isElementDisplayed;
 public class AccountDashboardPage {
 
     WebDriver driver;
-    WaitsHelper waitsHelper;
+    WaitHelper waitHelper;
 
     public AccountDashboardPage(WebDriver driver) {
         this.driver = driver;
-        this.waitsHelper = new WaitsHelper(driver);
+        this.waitHelper = new WaitHelper(driver);
     }
 
     //____________________LOCATORS____________________//
@@ -29,7 +29,7 @@ public class AccountDashboardPage {
     //____________________ METHODS____________________//
 
     public String getCurentUrl() {
-        waitsHelper.waitUrlToBe(URL.ACCOUNT_DASHBOARD_AFTER_REGISTRATION, 2);
+        waitHelper.waitUrlToBe(URL.ACCOUNT_DASHBOARD_AFTER_REGISTRATION, 2);
         return SeleniumHelper.getCurrentUrl();
     }
 
